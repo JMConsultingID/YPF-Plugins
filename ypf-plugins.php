@@ -1,11 +1,8 @@
+please check this error 
+
+Fatal error: Uncaught Error: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "ypf_plugins_pricing_table_setting_page" not found or invalid function name
+
 <?php
-/**
- * Plugin Name: YPF Plugins
- * Description: A plugin to create custom pricing tables and integrate with Elementor widgets.
- * Version: 1.0
- * Author: Ardi
- * Author URI: https://yourpropfirm.com
- */
 
 // Check if ACF is active, if not show admin notice
 add_action('admin_init', 'ypf_check_acf_installed');
@@ -50,7 +47,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Plugins', 
                 'manage_options', 
                 'ypf-plugin-settings', 
-                'ypf_plugins_settings_page', 
+                array( $this, 'ypf_plugins_settings_page' ), // Corrected callback 'ypf_plugins_settings_page', 
                 'dashicons-admin-generic',
                 22
             );
@@ -62,7 +59,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Pricing Table', 
                 'manage_options', 
                 'ypf-plugins-pricing-table', 
-                'ypf_plugins_pricing_table_setting_page'
+                array( $this, 'ypf_plugins_pricing_table_setting_page' ), // Corrected callback 'ypf_plugins_pricing_table_setting_page'
             );
         }
 
