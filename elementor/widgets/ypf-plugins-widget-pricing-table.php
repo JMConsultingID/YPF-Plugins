@@ -50,6 +50,44 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+
+		// Get all the products
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1  // Or any other number you wish to display
+    );
+    $products = new WP_Query($args);
+
+    if ($products->have_posts()) {
+        echo '<div class="ypf-product-tabs">';
+        echo '<ul class="ypf-tabs-buttons">';
+
+        // Output the product names as tab buttons
+        while ($products->have_posts()) {
+            $products->the_post();
+            echo '<li>' . get_the_title() . '</li>';
+        }
+        echo '</ul>';
+
+        // Rewind the loop to output the tab content
+        $products->rewind_posts();
+        echo '<div class="ypf-tabs-content">';
+
+        // Output the product information as tab content
+        while ($products->have_posts()) {
+            $products->the_post();
+            echo '<div class="ypf-tab-panel">';
+            // Here you would output all the product information you want to display
+            echo '<h2>' . get_the_title() . '</h2>';
+            // You can include price, add to cart button, etc.
+            echo '</div>';
+        }
+        echo '</div>';
+        echo '</div>';
+    }
+    wp_reset_postdata();
+
+		
 		?>
 
 
