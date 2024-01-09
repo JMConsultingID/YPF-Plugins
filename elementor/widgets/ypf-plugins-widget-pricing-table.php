@@ -21,16 +21,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		return [ 'ypf plugins', 'ypf','pricing', 'table' ];
 	}
 
-	public function get_script_depends() {
-        // Include swiper-bundle.min.js as a dependency
-        return [ 'ypf-plugins-js', 'swiper-bundle-js' ];
-    }
-
-    public function get_style_depends() {
-        // Include font-awesome.min.css and swiper-bundle.min.css as dependencies
-        return [ 'ypf-plugins-css', 'font-awesome-css', 'swiper-bundle-css' ];
-    }
-
 	protected function register_controls() {
 
 		// Content Tab Start
