@@ -90,7 +90,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
             
             // Get the field object for the group
-            $group_field_object = get_field_object('field_659c082ae2052', $product_id);
+            $group_field_object = get_field_object('step_1:_fx_challenge', $product_id);
             
             if ($step_1_fx_challenge && $group_field_object) {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
