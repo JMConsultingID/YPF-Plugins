@@ -51,10 +51,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-   // Query to get all products
+   	// Query to get all products
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => -1 // Adjust as needed
+        'posts_per_page' => -1, // Adjust as needed
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field'    => 'slug',
+                'terms'    => 'pricing-table', // Make sure to use the actual slug of the category
+            ),
+        ),
     );
     $products = new WP_Query($args);
 
