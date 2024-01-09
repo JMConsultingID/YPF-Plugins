@@ -22,11 +22,13 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	}
 
 	public function get_script_depends() {
-        return [ 'ypf-plugins-js' ];
+        // Include swiper-bundle.min.js as a dependency
+        return [ 'ypf-plugins-js', 'swiper-bundle-js' ];
     }
 
     public function get_style_depends() {
-        return [ 'ypf-plugins-css' ];
+        // Include font-awesome.min.css and swiper-bundle.min.css as dependencies
+        return [ 'ypf-plugins-css', 'font-awesome-css', 'swiper-bundle-css' ];
     }
 
 	protected function register_controls() {
@@ -64,11 +66,14 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	public function __construct($data = [], $args = null) {
         parent::__construct($data, $args);
 
+        // Register styles        
         wp_register_style( 'font-awesome-css', plugins_url( '/public/assets/css/font-awesome.min.css', __FILE__ ) );
         wp_register_style( 'swiper-bundle-css', plugins_url( '/public/assets/css/swiper-bundle.min.css', __FILE__ ) );
         wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ) );
-        wp_register_script( 'swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ));
-        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery' ] );
+        
+        // Register scripts        
+        wp_register_script( 'swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ), [], false, true );
+        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery' ], false, true );
     }
 
 	// Helper function to get available post types
