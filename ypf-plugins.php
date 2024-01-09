@@ -31,6 +31,21 @@ function ypf_plugins_settings_link($links) {
     return $links;
 }
 
+/**
+ * Register scripts and styles for Elementor test widgets.
+ */
+function elementor_ypf_plugins_widgets_dependencies() {
+    // Register styles        
+    wp_register_style( 'font-awesome-css', plugins_url( '/public/assets/css/font-awesome.min.css', __FILE__ ) );
+    wp_register_style( 'swiper-bundle-css', plugins_url( '/public/assets/css/swiper-bundle.min.css', __FILE__ ) );
+    wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ) );
+        
+    // Register scripts        
+    wp_register_script( 'swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ), [], false, true );
+    wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery' ], false, true );
+}
+add_action( 'wp_enqueue_scripts', 'elementor_ypf_plugins_widgets_dependencies' );
+
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
 // Initialize the plugin class
