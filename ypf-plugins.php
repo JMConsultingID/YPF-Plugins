@@ -49,14 +49,15 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Plugins', 
                 'YPF Plugins', 
                 'manage_options', 
-                'ypf-plugins', 
+                'ypf-plugin-settings', 
                 'ypf_plugins_settings_page', 
-                'dashicons-admin-generic' 
+                'dashicons-admin-generic',
+                22
             );
 
             // Create a sub menu
             add_submenu_page( 
-                'ypf-plugins', 
+                'ypf-plugin-settings', 
                 'YPF Pricing Table', 
                 'YPF Pricing Table', 
                 'manage_options', 
