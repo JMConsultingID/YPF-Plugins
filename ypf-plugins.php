@@ -20,12 +20,23 @@ function ypf_acf_admin_notice(){
     <?php
 }
 
+// Add settings link to plugins page
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf_plugins_settings_link');
+function ypf_plugins_settings_link($links) {
+    $settings_link = '<a href="#">Settings</a>';
+    array_push($links, $settings_link);
+    return $links;
+}
+
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
 // Initialize the plugin class
 if ( ! class_exists( 'YPF_Plugins' ) ) {
 
     class YPF_Plugins {
+
+        private $menu_slug = 'ypf-plugins-menu';
+        private $pricing_table_slug = 'ypf-plugins-pricing-table';
 
         public function __construct() {
             add_action( 'admin_menu', array( $this, 'ypf_create_menu' ) );
@@ -37,26 +48,25 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
             add_menu_page( 
                 'YPF Plugins', 
                 'YPF Plugins', 
-                'manage_options', 
-                'ypf-plugin-settings', 
-                array( $this, 'ypf_plugins_settings_page' ),
-                'dashicons-admin-generic',
-                22
+                'manage_options',
+                $this->menu_slug, 
+                array( $this, 'ypf_settings_page' ), 
+                'dashicons-admin-generic' 
             );
 
             // Create a sub menu
             add_submenu_page( 
-                'ypf-plugin-settings', 
+                $this->menu_slug, 
                 'YPF Pricing Table', 
                 'YPF Pricing Table', 
                 'manage_options', 
-                'ypf-plugins-pricing-table', 
-                array( $this, 'ypf_plugins_pricing_table_setting_page' )
+                $this->pricing_table_slug, 
+                array( $this, 'ypf_pricing_table_settings_page' )
             );
         }
 
         // Function for the main settings page
-        public function ypf_plugins_settings_page() {
+        public function ypf_settings_page() {
             // Page content
             echo '<div class="wrap">';
             echo '<h1>YPF Plugins Settings</h1>';
@@ -64,7 +74,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
         }
 
         // Function for the pricing table settings page
-        public function ypf_plugins_pricing_table_setting_page() {
+        public function ypf_pricing_table_settings_page() {
             // Page content for Pricing Table settings
             echo '<div class="wrap">';
             echo '<h1>YPF Pricing Table Settings</h1>';
