@@ -1,17 +1,5 @@
 <?php
-
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              https://yourpropfirm.com/
- * @since             1.0.1
- * @package           YPF Plugins
- *
  * @wordpress-plugin
  * Plugin Name:       YPF Plugins
  * Plugin URI:        https://yourpropfirm.com/
@@ -89,9 +77,9 @@ class YPF_Plugins {
      * Register settings for the plugin.
      */
     public function register_settings() {
-        register_setting($this->plugin_name, 'ypf_enable_pricing_table');
-        register_setting($this->plugin_name, 'ypf_enable_elementor_widget');
-        register_setting($this->plugin_name, 'ypf_select_style_widget');
+        register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_pricing_table');
+        register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_elementor_widget');
+        register_setting('ypfPricingTableOptionsGroup', 'ypf_select_style_widget');
     }
 
     /**
