@@ -23,6 +23,14 @@ function ypf_acf_admin_notice(){
     <?php
 }
 
+// Add settings link to plugins page
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf_plugins_settings_link');
+function ypf_plugins_settings_link($links) {
+    $settings_link = '<a href="#">Settings</a>';
+    array_push($links, $settings_link);
+    return $links;
+}
+
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
 // Initialize the plugin class
