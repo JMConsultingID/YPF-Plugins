@@ -151,6 +151,66 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		              	<div class="pt__row">
 		                	<a href="">Start Challenge</a>
 		              	</div>
+
+		            </div>
+		          </div>
+		        </div>
+
+		        <div class="swiper-slide pt__option__item">
+		          <div class="pt__item recommend">
+		            <div class="pt__item__wrap">
+
+		            	<?php
+			            // Fetch the ACF group field for the current product
+			            $step_2_inspection_period = get_field('step_2:_inspection_period', $product_id);
+			            
+			            // Get the field object for the group
+			            $group_field_object = get_field_object('step_2:_inspection_period', $product_id);
+			            
+			            if ($step_2_inspection_period && $group_field_object) {
+			                foreach ($group_field_object['sub_fields'] as $sub_field) {
+			                    // The label is in the field object
+			                    $sub_field_label = $sub_field['label'];
+			                    $sub_field_name = $sub_field['name'];
+			                    // The value is in the values array
+			                    $sub_field_value = $step_2_inspection_period[$sub_field['name']];
+			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+			                }
+			            }
+			            ?>
+		              	<div class="pt__row">
+		                	<a href="">Start Challenge</a>
+		              	</div>
+		              	
+		            </div>
+		          </div>
+		        </div>
+
+		        <div class="swiper-slide pt__option__item">
+		          <div class="pt__item recommend">
+		            <div class="pt__item__wrap">
+
+		            	<?php
+			            // Fetch the ACF group field for the current product
+			            $step_3_prop_trader = get_field('step_3:_prop_trader', $product_id);
+			            
+			            // Get the field object for the group
+			            $group_field_object = get_field_object('step_3:_prop_trader', $product_id);
+			            
+			            if ($step_3_prop_trader && $group_field_object) {
+			                foreach ($group_field_object['sub_fields'] as $sub_field) {
+			                    // The label is in the field object
+			                    $sub_field_label = $sub_field['label'];
+			                    $sub_field_name = $sub_field['name'];
+			                    // The value is in the values array
+			                    $sub_field_value = $step_3_prop_trader[$sub_field['name']];
+			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+			                }
+			            }
+			            ?>
+		              	<div class="pt__row">
+		                	<a href="">Start Challenge</a>
+		              	</div>
 		              	
 		            </div>
 		          </div>
