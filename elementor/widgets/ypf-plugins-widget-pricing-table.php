@@ -50,6 +50,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+
     // Query to get all products
     $args = array(
         'post_type' => 'product',
@@ -80,14 +81,12 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             echo '<h2>' . get_the_title() . '</h2>';
 
             // Fetch the ACF group field for the current product
-            $step_1_fx_challenge = get_field('step_1_fx_challenge', $product_id);
-            if ($step_1_fx_challenge && is_array($step_1_fx_challenge)) {
+            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
+            if ($step_1_fx_challenge) {
                 echo '<ul>';
-                // Loop through the subfields using their keys
                 foreach ($step_1_fx_challenge as $sub_field_key => $sub_field_value) {
-                    // The $sub_field_key is the field name, you need to get the field key to use get_field_object()
-                    // If you have the field key, you can replace 'field_name' with the actual key
-                    $sub_field_object = get_field_object($sub_field_key, $product_id, false, true);
+                    // The correct key for the subfield within the group needs to be used
+                    $sub_field_object = get_field_object($sub_field_key, $product_id);
                     if ($sub_field_object) {
                         echo '<li>' . esc_html($sub_field_object['label']) . ': ' . esc_html($sub_field_value) . '</li>';
                     }
