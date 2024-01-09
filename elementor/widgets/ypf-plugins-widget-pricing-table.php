@@ -88,7 +88,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	                    // Assuming the subfield 'label' needs to be displayed
 	                    // Fetch subfield object to get its label
 	                    $sub_field_object = get_field_object($sub_field_key, $product_id);
-	                    echo '<li>' . esc_html($sub_field_object['label']) . ': ' . esc_html($sub_field_value) . '</li>';
+	                    echo '<li>' . esc_html($sub_field_object['text']) .  esc_html($sub_field_object['title']) . ': ' . esc_html($sub_field_value) . '</li>';
 	                }
 	                echo '</ul>';
 	            }
