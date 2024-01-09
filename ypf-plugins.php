@@ -152,17 +152,20 @@ function ypf_plugins_widgets() {
         wp_register_style( 'ypf-swiper-bundle-css', plugins_url( '/public/assets/css/swiper-bundle.min.css', __FILE__ ) );
         wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ), array('ypf-font-awesome-css', 'ypf-swiper-bundle-css'), '1.0.0', true );
 
+
         // Register scripts        
-        wp_register_script( 'ypf-swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ) );
-        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery', 'ypf-swiper-bundle-js' ] );
+        wp_register_script( 'ypf-swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ), array('jquery'), '1.0.0', true );
+        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js'), '1.0.0', true );
+
 
         // Enqueue styles and scripts
-        wp_enqueue_style( 'ypf-plugins-css' );
-        wp_enqueue_script( 'ypf-plugins-js' ); 
+        wp_enqueue_style( 'ypf-plugins-css',999 );
+        wp_enqueue_script( 'ypf-plugins-js',999 ); 
     }
 }
-add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets' );
+add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', );
 
 // Include the Elementor class
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 ?>
+
