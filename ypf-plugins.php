@@ -61,7 +61,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Pricing Table', 
                 'manage_options', 
                 'ypf-plugins-pricing-table', 
-                'ypf_plugins_pricing_table_settings'
+                'ypf_plugins_pricing_table_setting_page'
             );
         }
 
@@ -74,7 +74,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
         }
 
         // Function for the pricing table settings page
-        public function ypf_plugins_pricing_table_settings() {
+        public function ypf_plugins_pricing_table_setting_page() {
             // Page content for Pricing Table settings
             echo '<div class="wrap">';
             echo '<h1>YPF Pricing Table Settings</h1>';
