@@ -63,19 +63,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 	}
 
-	public function __construct($data = [], $args = null) {
-        parent::__construct($data, $args);
-
-        // Register styles        
-        wp_register_style( 'font-awesome-css', plugins_url( '/public/assets/css/font-awesome.min.css', __FILE__ ) );
-        wp_register_style( 'swiper-bundle-css', plugins_url( '/public/assets/css/swiper-bundle.min.css', __FILE__ ) );
-        wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ) );
-        
-        // Register scripts        
-        wp_register_script( 'swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ), [], false, true );
-        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery' ], false, true );
-    }
-
 	// Helper function to get available post types
     private function get_available_post_types() {
         $post_types = get_post_types(['public' => true], 'objects');
