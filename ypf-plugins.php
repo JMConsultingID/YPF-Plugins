@@ -28,7 +28,7 @@ function filter_action_ypf_plugins_links( $links ) {
      $links['support'] = '<a href="#">' . __( 'Documentation', 'ypf-plugins' ) . '</a>';
      return $links;
 }
-add_filter( 'plugin_action_links_ypf_plugins/ypf-plugins.php', 'filter_action_ypf_plugins_links', 10, 1 );
+add_filter( 'plugin_action_links_ypf-plugins/ypf-plugins.php', 'filter_action_ypf_plugins_links', 10, 1 );
 
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
