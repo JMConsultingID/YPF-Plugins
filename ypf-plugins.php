@@ -7,6 +7,46 @@
  * Author URI: https://yourpropfirm.com
  */
 
+<?php
+
+/**
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @link              https://yourpropfirm.com/
+ * @since             1.0.0
+ * @package           Sellkit_Ypf
+ *
+ * @wordpress-plugin
+ * Plugin Name:       YPF Plugins
+ * Plugin URI:        https://yourpropfirm.com/
+ * Description:       A plugin to create custom pricing tables and integrate with Elementor widgets.
+ * Version:           1.0.1
+ * Author:            Ardika JM Consulting
+ * Author URI:        https://yourpropfirm.com/
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       ypf-plugins
+ * Domain Path:       /languages
+ */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+
+/**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'SELLKIT_YPF_VERSION', '1.0.0' );
+
+
 // Check if ACF is active, if not show admin notice
 add_action('admin_init', 'ypf_check_acf_installed');
 function ypf_check_acf_installed(){
@@ -34,17 +74,17 @@ function ypf_plugins_settings_link($links) {
 /**
  * Register scripts and styles for Elementor test widgets.
  */
-function ypf_plugins_widgets_dependencies() {
+function ypf_plugins_widgets() {
     // Register styles        
     wp_register_style( 'ypf-font-awesome-css', plugins_url( '/public/assets/css/font-awesome.min.css', __FILE__ ) );
     wp_register_style( 'ypf-swiper-bundle-css', plugins_url( '/public/assets/css/swiper-bundle.min.css', __FILE__ ) );
-    wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ) );
+    wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ), array('ypf-plugins'), '1.0.0', true );
 
     // Register scripts        
     wp_register_script( 'ypf-swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ) );
     wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), [ 'jquery' ] );
 }
-add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets_dependencies' );
+add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets' );
 
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
