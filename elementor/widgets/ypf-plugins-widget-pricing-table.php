@@ -50,8 +50,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
-	    protected function render() {
     // Query to get all products
     $args = array(
         'post_type' => 'product',
@@ -103,8 +101,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
         echo '</div>'; // Close ypf-product-tabs
     }
     wp_reset_postdata();
-}
-
 
 
 		?>
