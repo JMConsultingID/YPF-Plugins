@@ -1,13 +1,4 @@
 <?php
-/**
- * Plugin Name: YPF Plugins
- * Description: A plugin to create custom pricing tables and integrate with Elementor widgets.
- * Version: 1.0
- * Author: Ardi
- * Author URI: https://yourpropfirm.com
- */
-
-<?php
 
 /**
  * The plugin bootstrap file
