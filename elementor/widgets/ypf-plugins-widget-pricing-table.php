@@ -71,16 +71,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		  <div class="pt__option">
 		    <div class="pt__option__mobile__nav">
 		        <a id="navBtnLeft" href="#" class="mobile__nav__btn">
-		          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		            <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		            <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		          </svg>
+		          back
 		        </a>
 		        <a id="navBtnRight" href="#" class="mobile__nav__btn">
-		            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		              <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		              <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		            </svg>
+		          next
 		        </a>
 		    </div>
 		    <div class="pt__option__slider swiper" id="pricingTableSlider">
