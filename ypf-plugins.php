@@ -23,12 +23,13 @@ function ypf_acf_admin_notice(){
     <?php
 }
 
-function filter_action_ypf_plugins_links( $links ) {
-     $links['settings'] = '<a href="#">' . __( 'Settings', 'ypf-plugins' ) . '</a>';
-     $links['support'] = '<a href="#">' . __( 'Documentation', 'ypf-plugins' ) . '</a>';
-     return $links;
+// Add settings link to plugins page
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf-plugins');
+function ypf_plugins_settings_link($links) {
+    $settings_link = '<a href="#">Settings</a>';
+    array_push($links, $settings_link);
+    return $links;
 }
-add_filter( 'plugin_action_links_ypf-plugins/ypf-plugins.php', 'filter_action_ypf_plugins_links', 10, 1 );
 
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
@@ -47,20 +48,20 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
             add_menu_page( 
                 'YPF Plugins', 
                 'YPF Plugins', 
-                'administrator', 
-                __FILE__, 
-                array( $this, 'ypf_settings_page' ), 
+                'manage_options', 
+                'ypf-plugins', 
+                'ypf_plugins_settings_page', 
                 'dashicons-admin-generic' 
             );
 
             // Create a sub menu
             add_submenu_page( 
-                __FILE__, 
+                'ypf-plugins', 
                 'YPF Pricing Table', 
                 'YPF Pricing Table', 
-                'administrator', 
-                __FILE__.'_pricing_table', 
-                array( $this, 'ypf_pricing_table_settings_page' )
+                'manage_options', 
+                'ypf-plugins-pricing-table', 
+                'ypf_plugins_pricing_table_settings'
             );
         }
 
