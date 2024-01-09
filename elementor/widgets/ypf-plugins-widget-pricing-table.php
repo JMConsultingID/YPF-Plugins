@@ -51,43 +51,56 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-		// Get all the products
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => -1  // Or any other number you wish to display
-    );
-    $products = new WP_Query($args);
+	    // Query to get all products
+	    $args = array(
+	        'post_type' => 'product',
+	        'posts_per_page' => -1 // Adjust as needed
+	    );
+	    $products = new WP_Query($args);
 
-    if ($products->have_posts()) {
-        echo '<div class="ypf-product-tabs">';
-        echo '<ul class="ypf-tabs-buttons">';
+	    if ($products->have_posts()) {
+	        echo '<div class="ypf-product-tabs">';
 
-        // Output the product names as tab buttons
-        while ($products->have_posts()) {
-            $products->the_post();
-            echo '<li>' . get_the_title() . '</li>';
-        }
-        echo '</ul>';
+	        // Generate the tab buttons
+	        echo '<ul class="ypf-tabs-buttons">';
+	        while ($products->have_posts()) {
+	            $products->the_post();
+	            echo '<li>' . get_the_title() . '</li>';
+	        }
+	        echo '</ul>';
 
-        // Rewind the loop to output the tab content
-        $products->rewind_posts();
-        echo '<div class="ypf-tabs-content">';
+	        // Generate the tab content
+	        $products->rewind_posts();
+	        echo '<div class="ypf-tabs-content">';
+	        while ($products->have_posts()) {
+	            $products->the_post();
+	            $product_id = get_the_ID();
 
-        // Output the product information as tab content
-        while ($products->have_posts()) {
-            $products->the_post();
-            echo '<div class="ypf-tab-panel">';
-            // Here you would output all the product information you want to display
-            echo '<h2>' . get_the_title() . '</h2>';
-            // You can include price, add to cart button, etc.
-            echo '</div>';
-        }
-        echo '</div>';
-        echo '</div>';
-    }
-    wp_reset_postdata();
+	            echo '<div class="ypf-tab-panel">';
+	            // Display the product information here
+	            echo '<h2>' . get_the_title() . '</h2>';
 
-		
+	            // Fetch the ACF group field for the current product
+	            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
+	            if ($step_1_fx_challenge) {
+	                echo '<ul>';
+	                foreach ($step_1_fx_challenge as $sub_field_key => $sub_field_value) {
+	                    // Assuming the subfield 'label' needs to be displayed
+	                    // Fetch subfield object to get its label
+	                    $sub_field_object = get_field_object($sub_field_key, $product_id);
+	                    echo '<li>' . esc_html($sub_field_object['label']) . ': ' . esc_html($sub_field_value) . '</li>';
+	                }
+	                echo '</ul>';
+	            }
+	            echo '</div>'; // Close ypf-tab-panel
+	        }
+	        echo '</div>'; // Close ypf-tabs-content
+
+	        echo '</div>'; // Close ypf-product-tabs
+	    }
+	    wp_reset_postdata();
+
+
 		?>
 
 
