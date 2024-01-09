@@ -26,7 +26,7 @@ function ypf_acf_admin_notice(){
 // Add settings link to plugins page
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf_plugins_settings_link');
 function ypf_plugins_settings_link($links) {
-    $settings_link = '<a href="#">Settings</a>';
+    $settings_link = '<a href="admin.php?page=ypf-plugins-menu">Settings</a>';
     array_push($links, $settings_link);
     return $links;
 }
