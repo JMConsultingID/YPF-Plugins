@@ -20,14 +20,6 @@ function ypf_acf_admin_notice(){
     <?php
 }
 
-// Add settings link to plugins page
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf_plugins_settings_link');
-function ypf_plugins_settings_link($links) {
-    $settings_link = '<a href="admin.php?page=ypf-plugins">Settings</a>';
-    array_push($links, $settings_link);
-    return $links;
-}
-
 require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
 // Initialize the plugin class
@@ -47,7 +39,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Plugins', 
                 'manage_options', 
                 'ypf-plugin-settings', 
-                array( $this, 'ypf_plugins_settings_page' ), // Corrected callback 'ypf_plugins_settings_page', 
+                array( $this, 'ypf_plugins_settings_page' ),
                 'dashicons-admin-generic',
                 22
             );
@@ -59,7 +51,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
                 'YPF Pricing Table', 
                 'manage_options', 
                 'ypf-plugins-pricing-table', 
-                array( $this, 'ypf_plugins_pricing_table_setting_page' ), // Corrected callback 'ypf_plugins_pricing_table_setting_page'
+                array( $this, 'ypf_plugins_pricing_table_setting_page' )
             );
         }
 
