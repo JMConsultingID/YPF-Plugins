@@ -26,7 +26,7 @@ function ypf_acf_admin_notice(){
 // Add settings link to plugins page
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ypf_plugins_settings_link');
 function ypf_plugins_settings_link($links) {
-    $settings_link = '<a href="#">Settings</a>';
+    $settings_link = '<a href="admin.php?page=ypf-plugins">Settings</a>';
     array_push($links, $settings_link);
     return $links;
 }
@@ -66,7 +66,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
         }
 
         // Function for the main settings page
-        public function ypf_settings_page() {
+        public function ypf_plugins_settings_page() {
             // Page content
             echo '<div class="wrap">';
             echo '<h1>YPF Plugins Settings</h1>';
@@ -74,7 +74,7 @@ if ( ! class_exists( 'YPF_Plugins' ) ) {
         }
 
         // Function for the pricing table settings page
-        public function ypf_pricing_table_settings_page() {
+        public function ypf_plugins_pricing_table_settings() {
             // Page content for Pricing Table settings
             echo '<div class="wrap">';
             echo '<h1>YPF Pricing Table Settings</h1>';
