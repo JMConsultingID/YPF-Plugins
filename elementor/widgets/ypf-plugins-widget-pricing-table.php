@@ -91,6 +91,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             // Get the field object for the group
             $group_field_object = get_field_object('step_1:_fx_challenge', $product_id);
             
+            if ($step_1_fx_challenge && $group_field_object) {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
                     // The label is in the field object
                     $sub_field_label = $sub_field['label'];
@@ -99,6 +100,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
                     $sub_field_value = $step_1_fx_challenge[$sub_field['name']];
                     echo '<div class="pt__row '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '</div>';
                 }
+            }
             ?>
 
             </div>
