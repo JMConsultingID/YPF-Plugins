@@ -101,8 +101,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             if ($group_field_object) {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
                     // The label is in the field object
-                    $sub_field_label = $sub_field['label'];
-                    $sub_field_name = $sub_field['name'];
+                    $sub_field_label = isset($sub_field['label']) ? $sub_field['label'] : $sub_field['label'];
+                    $sub_field_name = $sub_field['name'];                    
                     echo '<div class="pt__row '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '</div>';
                 }
             }
@@ -175,7 +175,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
-			                    $sub_field_value = isset($step_2_inspection_period[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
+			                    $sub_field_value = isset($step_2_inspection_period[$sub_field['name']]) ? $step_2_inspection_period[$sub_field['name']] : '-';
 			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
@@ -202,7 +202,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
-			                    $sub_field_value = isset($step_3_prop_trader[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
+			                    $sub_field_value = isset($step_3_prop_trader[$sub_field['name']]) ? $step_3_prop_trader[$sub_field['name']] : '-';
 			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
