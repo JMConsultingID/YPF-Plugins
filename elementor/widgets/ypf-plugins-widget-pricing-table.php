@@ -232,7 +232,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		?>
 
 
-		<div class="pricing__table">
+		<div class="pricing__table" style="display:none;">
 		  <div class="pt__title">
 		    <div class="pt__title__wrap">
 		      <div class="pt__row"></div>
