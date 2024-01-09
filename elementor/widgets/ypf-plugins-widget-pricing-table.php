@@ -132,7 +132,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		      <div class="swiper-wrapper">
 
 		      	<div class="swiper-slide pt__option__item">
-		          <div class="pt__item recommend">
+		          <div class="pt__item">
 		            <div class="pt__item__wrap">
 
 		            	<?php
