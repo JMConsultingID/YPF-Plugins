@@ -105,6 +105,52 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             ?>
             </div>
 		  	</div>
+
+		  	<div class="pt__option">
+
+		    <div class="pt__option__mobile__nav">
+		        <a id="navBtnLeft" href="#" class="mobile__nav__btn">
+		          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		            <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+		            <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+		          </svg>
+		        </a>
+		        <a id="navBtnRight" href="#" class="mobile__nav__btn">
+		            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		              <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+		              <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+		            </svg>
+		        </a>
+		    </div>
+
+		    <div class="pt__option__slider swiper" id="pricingTableSlider">
+		      <div class="swiper-wrapper">
+
+		      	<div class="swiper-slide pt__option__item">
+		          <div class="pt__item recommend">
+		            <div class="pt__item__wrap">
+		              <div class="pt__row">STEP 1</div>
+		              <div class="pt__row">150,000</div>
+		              <div class="pt__row">Unlimited</div>
+		              <div class="pt__row">Unlimited</div>
+		              <div class="pt__row">Phone & Priority Support</div>
+		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
+		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
+		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
+		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
+		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
+		              <div class="pt__row">
+		                <a href="">Start Challenge</a>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+
+		      </div>
+		    </div>
+
+
+			</div>
 			</div>
 
             <?php
