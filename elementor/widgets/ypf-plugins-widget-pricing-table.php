@@ -84,8 +84,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		  	<div class="pt__title">
 		    <div class="pt__title__wrap">
 
-            <?
-
+            <?php
             // Fetch the ACF group field for the current product
             $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
             
@@ -103,6 +102,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
                 }
             }
             ?>
+
             </div>
 		  	</div>
 
@@ -129,19 +129,29 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		      	<div class="swiper-slide pt__option__item">
 		          <div class="pt__item recommend">
 		            <div class="pt__item__wrap">
-		              <div class="pt__row">STEP 1</div>
-		              <div class="pt__row">150,000</div>
-		              <div class="pt__row">Unlimited</div>
-		              <div class="pt__row">Unlimited</div>
-		              <div class="pt__row">Phone & Priority Support</div>
-		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
-		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
-		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
-		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
-		              <div class="pt__row"><i class="fa-solid fa-check"></i></div>
-		              <div class="pt__row">
-		                <a href="">Start Challenge</a>
-		              </div>
+
+		            	<?php
+			            // Fetch the ACF group field for the current product
+			            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
+			            
+			            // Get the field object for the group
+			            $group_field_object = get_field_object('step_1:_fx_challenge', $product_id);
+			            
+			            if ($step_1_fx_challenge && $group_field_object) {
+			                foreach ($group_field_object['sub_fields'] as $sub_field) {
+			                    // The label is in the field object
+			                    $sub_field_label = $sub_field['label'];
+			                    $sub_field_name = $sub_field['name'];
+			                    // The value is in the values array
+			                    $sub_field_value = $step_1_fx_challenge[$sub_field['name']];
+			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+			                }
+			            }
+			            ?>
+		              	<div class="pt__row">
+		                	<a href="">Start Challenge</a>
+		              	</div>
+		              	
 		            </div>
 		          </div>
 		        </div>
