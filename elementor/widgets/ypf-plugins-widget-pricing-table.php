@@ -96,9 +96,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
                     // The label is in the field object
                     $sub_field_label = $sub_field['label'];
+                    $sub_field_name = $sub_field['name'];
                     // The value is in the values array
                     $sub_field_value = $step_1_fx_challenge[$sub_field['name']];
-                    echo '<div class="pt__row">' . esc_html($sub_field_label) . '</div>';
+                    echo '<div class="pt__row "'. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '</div>';
                 }
             }
             ?>

@@ -165,5 +165,7 @@ function ypf_plugins_widgets() {
 add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', );
 
 // Include the Elementor class
-require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
+if ( get_option('ypf_enable_pricing_table') ) {
+    require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
+}   
 ?>
