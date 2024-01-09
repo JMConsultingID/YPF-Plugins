@@ -28,5 +28,18 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+jQuery(document).ready(function($) {
+  // Initial tab setup
+  $('.ypf-tabs-buttons li:first-child').addClass('active');
+  $('.ypf-tab-panel:first-child').addClass('active');
+
+  // Tab click event
+  $('.ypf-tabs-buttons li').click(function() {
+    var index = $(this).index();
+    $('.ypf-tabs-buttons li').removeClass('active');
+    $(this).addClass('active');
+    $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
+  });
+});
 
 })( jQuery );
