@@ -31,6 +31,7 @@ function ypf_plugins_settings_link($links) {
     return $links;
 }
 
+require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 
 // Initialize the plugin class
 if ( ! class_exists( 'YPF_Plugins' ) ) {
