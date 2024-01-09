@@ -177,7 +177,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
 			                    $sub_field_value = !empty($step_2_inspection_period[$sub_field['name']]) ? $step_2_inspection_period[$sub_field['name']] : '-';
-			                    echo '<div class="pt__row '. esc_html($step_2_inspection_periode) . ' val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+			                    echo '<div class="pt__row '. esc_html($step_2_inspection_period) . ' val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
 			            ?>
