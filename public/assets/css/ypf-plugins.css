@@ -262,3 +262,7 @@
 .ypf-tab-panel.active {
   display: block;
 }
+
+.ypf-tab-panel .pt__row.step_name {
+  visibility: hidden;
+}
