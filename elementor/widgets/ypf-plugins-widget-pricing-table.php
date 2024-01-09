@@ -79,6 +79,12 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             echo '<div class="ypf-tab-panel">';
             // Display the product information here
             echo '<h2>' . get_the_title() . '</h2>';
+            ?>
+            <div class="pricing__table">
+		  	<div class="pt__title">
+		    <div class="pt__title__wrap">
+
+            <?
 
             // Fetch the ACF group field for the current product
             $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
@@ -87,16 +93,20 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             $group_field_object = get_field_object('field_659c082ae2052', $product_id);
             
             if ($step_1_fx_challenge && $group_field_object) {
-                echo '<ul>';
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
                     // The label is in the field object
                     $sub_field_label = $sub_field['label'];
                     // The value is in the values array
                     $sub_field_value = $step_1_fx_challenge[$sub_field['name']];
-                    echo '<li>' . esc_html($sub_field_label) . ': ' . esc_html($sub_field_value) . '</li>';
+                    echo '<div class="pt__row">' . esc_html($sub_field_label) . '</div>';
                 }
-                echo '</ul>';
             }
+            ?>
+            </div>
+		  	</div>
+			</div>
+
+            <?php
             echo '</div>'; // Close ypf-tab-panel
         }
         echo '</div>'; // Close ypf-tabs-content
