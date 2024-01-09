@@ -148,7 +148,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
-			                    $sub_field_value = isset($step_1_fx_challenge[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
+			                    $sub_field_value = !empty($step_1_fx_challenge[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
+                    
 			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
@@ -175,7 +176,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
-			                    $sub_field_value = isset($step_2_inspection_period[$sub_field['name']]) ? $step_2_inspection_period[$sub_field['name']] : '-';
+			                    $sub_field_value = !empty($step_2_inspection_period[$sub_field['name']]) ? $step_2_inspection_period[$sub_field['name']] : '-';
 			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
@@ -202,7 +203,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
-			                    $sub_field_value = isset($step_3_prop_trader[$sub_field['name']]) ? $step_3_prop_trader[$sub_field['name']] : '-';
+			                    $sub_field_value = !empty($step_3_prop_trader[$sub_field['name']]) ? $step_3_prop_trader[$sub_field['name']] : '-';
 			                    echo '<div class="pt__row val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
 			                }
 			            }
