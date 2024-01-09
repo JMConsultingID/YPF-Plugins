@@ -51,7 +51,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
-    // Query to get all products
+   // Query to get all products
     $args = array(
         'post_type' => 'product',
         'posts_per_page' => -1 // Adjust as needed
@@ -82,14 +82,18 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
             // Fetch the ACF group field for the current product
             $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
-            if ($step_1_fx_challenge) {
+            
+            // Get the field object for the group
+            $group_field_object = get_field_object('field_659c082ae2052', $product_id);
+            
+            if ($step_1_fx_challenge && $group_field_object) {
                 echo '<ul>';
-                foreach ($step_1_fx_challenge as $sub_field_key => $sub_field_value) {
-                    // The correct key for the subfield within the group needs to be used
-                    $sub_field_object = get_field_object($sub_field_key, $product_id);
-                    if ($sub_field_object) {
-                        echo '<li>' . esc_html($sub_field_object['label']) . ': ' . esc_html($sub_field_value) . '</li>';
-                    }
+                foreach ($group_field_object['sub_fields'] as $sub_field) {
+                    // The label is in the field object
+                    $sub_field_label = $sub_field['label'];
+                    // The value is in the values array
+                    $sub_field_value = $step_1_fx_challenge[$sub_field['name']];
+                    echo '<li>' . esc_html($sub_field_label) . ': ' . esc_html($sub_field_value) . '</li>';
                 }
                 echo '</ul>';
             }
@@ -100,7 +104,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
         echo '</div>'; // Close ypf-product-tabs
     }
     wp_reset_postdata();
-
 
 		?>
 
