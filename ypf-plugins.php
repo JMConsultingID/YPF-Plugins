@@ -158,13 +158,11 @@ function ypf_plugins_widgets() {
 
         // Enqueue styles and scripts
         wp_enqueue_style( 'ypf-plugins-css' );
-        wp_enqueue_script( 'ypf-plugins-js' );
-        
-        // Include the Elementor class
-        require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
+        wp_enqueue_script( 'ypf-plugins-js' ); 
     }
 }
 add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets' );
 
-
+// Include the Elementor class
+require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
 ?>
