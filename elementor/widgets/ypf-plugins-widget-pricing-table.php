@@ -43,6 +43,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
             ]
         );
 
+        // Add a select control for products
+        $this->add_control(
+            'selected_product',
+            [
+                'label' => __('Select Product', 'text-domain'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_woocommerce_products(),
+                'default' => '',
+            ]
+        );
+
 		$this->end_controls_section();
 
 
@@ -248,5 +259,20 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
         }
 
         return $options;
+    }
+
+    // Helper function to get WooCommerce products
+    private function get_woocommerce_products() {
+        $products = wc_get_products(array(
+            'status' => 'publish',
+            'limit' => -1,
+        ));
+
+        $product_options = [];
+        foreach ($products as $product) {
+            $product_options[$product->get_id()] = $product->get_name();
+        }
+
+        return $product_options;
     }
 }
