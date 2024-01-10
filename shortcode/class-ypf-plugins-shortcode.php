@@ -151,7 +151,6 @@ function ypf_pricing_table_shortcode( $atts ) {
 
                 <?php
             echo '</div>'; // Close ypf-tab-panel
-            <?php
             return ob_get_clean(); // Return the buffered output
         } else {
             return '<p>Product not found.</p>';
