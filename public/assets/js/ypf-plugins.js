@@ -82,8 +82,8 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
     this.classList.add('active');
 
     // Update active tab panel
-    document.querySelector('.tab-content.active').classList.remove('active');
-    document.querySelectorAll('.tab-content')[index].classList.add('active');
+    document.querySelector('.tab-content-list .tab-content.active').classList.remove('active');
+    document.querySelectorAll('.tab-content-list .tab-content')[index].classList.add('active');
 
     // Reinitialize Swiper
     initializeSwiper();
