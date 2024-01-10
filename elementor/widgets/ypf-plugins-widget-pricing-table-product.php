@@ -1,12 +1,12 @@
 <?php
-class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
+class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'ypfplugins_pricing_table';
+		return 'ypfplugins_pricing_table_per_product';
 	}
 
 	public function get_title() {
-		return esc_html__( 'YPF Plugins Pricing Table All Products', 'ypf-plugins' );
+		return esc_html__( 'YPF Plugins Pricing Table 1 Product', 'ypf-plugins' );
 	}
 
 	public function get_icon() {
@@ -40,7 +40,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
                 'label' => __('Select Product', 'text-domain'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => $this->get_woocommerce_products(),
-                'default' => '',
+                'default' => 'Select Product',
             ]
         );
 
@@ -50,44 +50,19 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+	// Get the selected product ID from the widget settings
+	$settings = $this->get_settings_for_display();
+	$selected_product_id = $settings['selected_product'];
 
-   	// Query to get all products
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => -1, // Adjust as needed
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-                'field'    => 'slug',
-                'terms'    => 'pricing-table', // Make sure to use the actual slug of the category
-            ),
-        ),
-    );
-    $products = new WP_Query($args);
+	// Check if a product ID is selected
+    if (!empty($selected_product_id)) {
 
-    if ($products->have_posts()) {
-        echo '<div class="ypf-product-tabs">';
+    	// Fetch the product object
+        $product = wc_get_product($selected_product_id);
 
-        // Generate the tab buttons
-        echo '<ul class="ypf-tabs-buttons">';
-        while ($products->have_posts()) {
-            $products->the_post();
-            echo '<li>' . get_the_title() . '</li>';
-        }
-        echo '</ul>';
-
-        // Generate the tab content
-        $products->rewind_posts();
-        $number = 1;
-        echo '<div class="ypf-tabs-content">';
-        while ($products->have_posts()) {
-            $products->the_post();
-            $product_id = get_the_ID();
-
-            echo '<div class="ypf-tab-panel">';
+        echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
             // Display the product information here
-            echo '<h2>' . get_the_title() . '</h2>';
+            echo '<h2>' . esc_html($product->get_name()) . '</h2>';
             ?>
             <div class="pricing__table">
 		  	<div class="pt__title">
@@ -95,10 +70,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
             <?php
             // Fetch the ACF group field for the current product
-            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
+            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
             
             // Get the field object for the group
-            $group_field_object = get_field_object('step_1:_fx_challenge', $product_id);
+            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
             
             if ($group_field_object) {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
@@ -139,10 +114,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 		            	<?php
 			            // Fetch the ACF group field for the current product
-			            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $product_id);
+			            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
 			            
 			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_1:_fx_challenge', $product_id);
+			            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
 			            
 			            if ($step_1_fx_challenge && $group_field_object) {
 			                foreach ($group_field_object['sub_fields'] as $sub_field) {
@@ -167,10 +142,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 		            	<?php
 			            // Fetch the ACF group field for the current product
-			            $step_2_inspection_period = get_field('step_2:_inspection_period', $product_id);
+			            $step_2_inspection_period = get_field('step_2:_inspection_period', $selected_product_id);
 			            
 			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_2:_inspection_period', $product_id);
+			            $group_field_object = get_field_object('step_2:_inspection_period', $selected_product_id);
 			            
 			            if ($step_2_inspection_period && $group_field_object) {
 			                foreach ($group_field_object['sub_fields'] as $sub_field) {
@@ -194,10 +169,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 		            	<?php
 			            // Fetch the ACF group field for the current product
-			            $step_3_prop_trader = get_field('step_3:_prop_trader', $product_id);
+			            $step_3_prop_trader = get_field('step_3:_prop_trader', $selected_product_id);
 			            
 			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_3:_prop_trader', $product_id);
+			            $group_field_object = get_field_object('step_3:_prop_trader', $selected_product_id);
 			            
 			            if ($step_3_prop_trader && $group_field_object) {
 			                foreach ($group_field_object['sub_fields'] as $sub_field) {
@@ -223,33 +198,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			</div>
 
             <?php
-            echo '</div>'; // Close ypf-tab-panel
-            $number++;
-        }
-        echo '</div>'; // Close ypf-tabs-content
-
-        echo '</div>'; // Close ypf-product-tabs
-    }
-    wp_reset_postdata();
-
-		?>
-		<script>
-			
-		</script>
-		<?php
+      	echo '</div>'; // Close ypf-tab-panel
+		}
 	}
-
-	// Helper function to get available post types
-    private function get_available_post_types() {
-        $post_types = get_post_types(['public' => true], 'objects');
-        $options = [];
-
-        foreach ($post_types as $post_type) {
-            $options[$post_type->name] = $post_type->labels->singular_name;
-        }
-
-        return $options;
-    }
 
     // Helper function to get WooCommerce products
     private function get_woocommerce_products() {
