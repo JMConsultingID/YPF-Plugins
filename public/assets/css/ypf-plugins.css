@@ -12,7 +12,7 @@
 }
  @media (max-width: 991px) {
    .pricing__table .pt__title {
-     max-width: 50%;
+     max-width: 40%;
   }
 }
  .pricing__table .pt__title .pt__title__wrap {
@@ -67,7 +67,7 @@
 }
  @media (max-width: 991px) {
    .pricing__table .pt__option {
-     max-width: 50%;
+     max-width: 60%;
   }
 }
  .pricing__table .pt__option .pt__option__mobile__nav {
