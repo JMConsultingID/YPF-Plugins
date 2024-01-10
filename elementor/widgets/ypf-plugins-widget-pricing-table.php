@@ -78,7 +78,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
         // Generate the tab content
         $products->rewind_posts();
-        $number = 1;
         echo '<div class="ypf-tabs-content">';
         while ($products->have_posts()) {
             $products->the_post();
@@ -115,13 +114,13 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		  	<div class="pt__option">
 
 		    <div class="pt__option__mobile__nav">
-		        <a id="navBtnLeft-<?php echo $number; ?>" href="#" class="mobile__nav__btn">
+		        <a id="navBtnLeft" href="#" class="mobile__nav__btn">
 		          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		            <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		            <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		          </svg>
 		        </a>
-		        <a id="navBtnRight-<?php echo $number; ?>" href="#" class="mobile__nav__btn">
+		        <a id="navBtnRight" href="#" class="mobile__nav__btn">
 		            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		              <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		              <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -129,7 +128,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		        </a>
 		    </div>
 
-		    <div class="pt__option__slider swiper" id="pricingTableSlider-<?php echo $number; ?>">
+		    <div class="pt__option__slider swiper" id="pricingTableSlider">
 		      <div class="swiper-wrapper">
 
 		      	<div class="swiper-slide pt__option__item">
@@ -223,7 +222,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
             <?php
             echo '</div>'; // Close ypf-tab-panel
-            $number++;
         }
         echo '</div>'; // Close ypf-tabs-content
 
@@ -233,34 +231,35 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 		?>
 		<script>
-			 // Pricing table - mobile only slider
-			var init = false;
-			var pricingCardSwiper;
-			var pricingLoanSwiper
-			function swiperCard() {
-			  if (window.innerWidth <= 991) {
-			    if (!init) {
-			      init = true;
-			      pricingCardSwiper = new Swiper("#pricingTableSlider-1", {
-			        slidesPerView: "auto",
-			        spaceBetween: 5,
-			        grabCursor: true,
-			        keyboard: true,
-			        autoHeight: false,
-			        navigation: {
-			          nextEl: "#navBtnRight-1",
-			          prevEl: "#navBtnLeft-1",
-			        },
-			      });
-			    }
-			  } else if (init) {
-			    pricingCardSwiper.destroy();
-			    init = false;
-			  }
-			}
-			swiperCard();
-			window.addEventListener("resize", swiperCard);
+		// Pricing table - mobile only slider
+		var init = false;
+		var pricingCardSwiper;
+		var pricingLoanSwiper
+		function swiperCard() {
+		  if (window.innerWidth <= 991) {
+		    if (!init) {
+		      init = true;
+		      pricingCardSwiper = new Swiper("#pricingTableSlider", {
+		        slidesPerView: "auto",
+		        spaceBetween: 5,
+		        grabCursor: true,
+		        keyboard: true,
+		        autoHeight: false,
+		        navigation: {
+		          nextEl: "#navBtnRight",
+		          prevEl: "#navBtnLeft",
+		        },
+		      });
+		    }
+		  } else if (init) {
+		    pricingCardSwiper.destroy();
+		    init = false;
+		  }
+		}
+		swiperCard();
+		window.addEventListener("resize", swiperCard);
 		</script>
+
 		<?php
 	}
 
