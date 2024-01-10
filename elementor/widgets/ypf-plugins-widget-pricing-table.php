@@ -232,7 +232,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
     wp_reset_postdata();
 
 		?>
-		<script type="text/javascript">
+		<script>
 			 // Pricing table - mobile only slider
 			var init = false;
 			var pricingCardSwiper;
@@ -250,64 +250,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 			        navigation: {
 			          nextEl: "#navBtnRight-1",
 			          prevEl: "#navBtnLeft-1",
-			        },
-			      });
-			    }
-			  } else if (init) {
-			    pricingCardSwiper.destroy();
-			    init = false;
-			  }
-			}
-			swiperCard();
-			window.addEventListener("resize", swiperCard);
-		</script>
-		<script type="text/javascript">
-			 // Pricing table - mobile only slider
-			var init = false;
-			var pricingCardSwiper;
-			var pricingLoanSwiper
-			function swiperCard() {
-			  if (window.innerWidth <= 991) {
-			    if (!init) {
-			      init = true;
-			      pricingCardSwiper = new Swiper("#pricingTableSlider-2", {
-			        slidesPerView: "auto",
-			        spaceBetween: 5,
-			        grabCursor: true,
-			        keyboard: true,
-			        autoHeight: false,
-			        navigation: {
-			          nextEl: "#navBtnRight-2",
-			          prevEl: "#navBtnLeft-2",
-			        },
-			      });
-			    }
-			  } else if (init) {
-			    pricingCardSwiper.destroy();
-			    init = false;
-			  }
-			}
-			swiperCard();
-			window.addEventListener("resize", swiperCard);
-		</script>
-		<script type="text/javascript">
-			 // Pricing table - mobile only slider
-			var init = false;
-			var pricingCardSwiper;
-			var pricingLoanSwiper
-			function swiperCard() {
-			  if (window.innerWidth <= 991) {
-			    if (!init) {
-			      init = true;
-			      pricingCardSwiper = new Swiper("#pricingTableSlider-3", {
-			        slidesPerView: "auto",
-			        spaceBetween: 5,
-			        grabCursor: true,
-			        keyboard: true,
-			        autoHeight: false,
-			        navigation: {
-			          nextEl: "#navBtnRight-3",
-			          prevEl: "#navBtnLeft-3",
 			        },
 			      });
 			    }
