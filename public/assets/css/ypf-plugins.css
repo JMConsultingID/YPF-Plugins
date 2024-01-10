@@ -3,7 +3,7 @@
 }
  @media (max-width: 640px) {
    .pricing__table {
-     margin: 60px 15px;
+     margin: 10px 5px;
   }
 }
  .pricing__table .pt__title {
