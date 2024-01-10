@@ -13,7 +13,7 @@ function ypf_pricing_table_shortcode( $atts ) {
 
         return 'Product ID: ' . $selected_product_id; // For testing
     } else {
-        return '<p>Please specify a product ID.</p>';
+        return '<p>Please specify a product ID : ' . $selected_product_id . '.</p>';
     }
 }
 add_shortcode( 'ypf-pricing-table', 'ypf_pricing_table_shortcode' );
