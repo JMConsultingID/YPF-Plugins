@@ -128,7 +128,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		        </a>
 		    </div>
 
-		    <div class="pt__option__slider swiper" id="pricingTableSlider">
+		    <div class="pt__option__slider swiper pricingTableSlider" id="pricingTableSlider">
 		      <div class="swiper-wrapper">
 
 		      	<div class="swiper-slide pt__option__item">
@@ -262,7 +262,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		            </svg>
 		        </a>
 		    </div>
-		    <div class="pt__option__slider swiper" id="pricingTableSlider">
+		    <div class="pt__option__slider swiper pricingTableSlider" id="pricingTableSlider">
 		      <div class="swiper-wrapper">
 		        <div class="swiper-slide pt__option__item">
 		          <div class="pt__item recommend">
@@ -327,33 +327,39 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		</div>
 		<script>
 		// Pricing table - mobile only slider
-		var init = false;
-		var pricingCardSwiper;
-		var pricingLoanSwiper
-		function swiperCard() {
-		  if (window.innerWidth <= 991) {
-		    if (!init) {
-		      init = true;
-		      pricingCardSwiper = new Swiper("#pricingTableSlider", {
+		var pricingSwipers = [];
+		var swiperInitialized = false;
+
+		function initializeSwipers() {
+		  if (window.innerWidth <= 991 && !swiperInitialized) {
+		    swiperInitialized = true;
+		    var sliders = document.querySelectorAll('.pricingTableSlider');
+		    sliders.forEach(function(slider, index) {
+		      pricingSwipers[index] = new Swiper(slider, {
 		        slidesPerView: "auto",
 		        spaceBetween: 5,
 		        grabCursor: true,
 		        keyboard: true,
 		        autoHeight: false,
 		        navigation: {
-		          nextEl: "#navBtnRight",
-		          prevEl: "#navBtnLeft",
+		          nextEl: slider.nextElementSibling.querySelector('.navBtnRight'),
+		          prevEl: slider.nextElementSibling.querySelector('.navBtnLeft'),
 		        },
 		      });
-		    }
-		  } else if (init) {
-		    pricingCardSwiper.destroy();
-		    init = false;
+		    });
+		  } else if (swiperInitialized) {
+		    pricingSwipers.forEach(function(swiper) {
+		      swiper.destroy();
+		    });
+		    pricingSwipers = [];
+		    swiperInitialized = false;
 		  }
 		}
-		swiperCard();
-		window.addEventListener("resize", swiperCard);
+
+		initializeSwipers();
+		window.addEventListener("resize", initializeSwipers);
 		</script>
+
 
 		<?php
 	}
