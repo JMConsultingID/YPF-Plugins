@@ -40,6 +40,8 @@ jQuery(document).ready(function($) {
     $(this).addClass('active');
     $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
   });
+
+ 
 });
 
 })( jQuery );

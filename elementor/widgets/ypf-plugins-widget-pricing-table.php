@@ -115,13 +115,13 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		  	<div class="pt__option">
 
 		    <div class="pt__option__mobile__nav">
-		        <a id="navBtnLeft" href="#" class="mobile__nav__btn">
+		        <a id="navBtnLeft-<?php echo $number; ?>" href="#" class="mobile__nav__btn">
 		          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		            <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		            <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		          </svg>
 		        </a>
-		        <a id="navBtnRight" href="#" class="mobile__nav__btn">
+		        <a id="navBtnRight-<?php echo $number; ?>" href="#" class="mobile__nav__btn">
 		            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		              <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
 		              <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -232,44 +232,93 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
     wp_reset_postdata();
 
 		?>
-		<script>
-// Pricing table - mobile only slider
-var pricingCardSwipers = [];
-var init = false;
-
-function swiperCard() {
-  var sliders = document.querySelectorAll('[id^="pricingTableSlider-"]'); // Select all elements with ID starting with "pricingTableSlider-"
-
-  if (window.innerWidth <= 991) {
-    if (!init) {
-      init = true;
-      sliders.forEach(function(slider, index) {
-        pricingCardSwipers[index] = new Swiper(slider, {
-          slidesPerView: "auto",
-          spaceBetween: 5,
-          grabCursor: true,
-          keyboard: true,
-          autoHeight: false,
-          navigation: {
-            nextEl: slider.nextElementSibling.querySelector('.navBtnRight'), // Adjust selector as needed
-            prevEl: slider.nextElementSibling.querySelector('.navBtnLeft'), // Adjust selector as needed
-          },
-        });
-      });
-    }
-  } else if (init) {
-    pricingCardSwipers.forEach(function(swiper) {
-      swiper.destroy();
-    });
-    pricingCardSwipers = [];
-    init = false;
-  }
-}
-
-swiperCard();
-window.addEventListener("resize", swiperCard);
-</script>
-
+		<script type="text/javascript">
+			 // Pricing table - mobile only slider
+			var init = false;
+			var pricingCardSwiper;
+			var pricingLoanSwiper
+			function swiperCard() {
+			  if (window.innerWidth <= 991) {
+			    if (!init) {
+			      init = true;
+			      pricingCardSwiper = new Swiper("#pricingTableSlider-1", {
+			        slidesPerView: "auto",
+			        spaceBetween: 5,
+			        grabCursor: true,
+			        keyboard: true,
+			        autoHeight: false,
+			        navigation: {
+			          nextEl: "#navBtnRight-1",
+			          prevEl: "#navBtnLeft-1",
+			        },
+			      });
+			    }
+			  } else if (init) {
+			    pricingCardSwiper.destroy();
+			    init = false;
+			  }
+			}
+			swiperCard();
+			window.addEventListener("resize", swiperCard);
+		</script>
+		<script type="text/javascript">
+			 // Pricing table - mobile only slider
+			var init = false;
+			var pricingCardSwiper;
+			var pricingLoanSwiper
+			function swiperCard() {
+			  if (window.innerWidth <= 991) {
+			    if (!init) {
+			      init = true;
+			      pricingCardSwiper = new Swiper("#pricingTableSlider-2", {
+			        slidesPerView: "auto",
+			        spaceBetween: 5,
+			        grabCursor: true,
+			        keyboard: true,
+			        autoHeight: false,
+			        navigation: {
+			          nextEl: "#navBtnRight-2",
+			          prevEl: "#navBtnLeft-2",
+			        },
+			      });
+			    }
+			  } else if (init) {
+			    pricingCardSwiper.destroy();
+			    init = false;
+			  }
+			}
+			swiperCard();
+			window.addEventListener("resize", swiperCard);
+		</script>
+		<script type="text/javascript">
+			 // Pricing table - mobile only slider
+			var init = false;
+			var pricingCardSwiper;
+			var pricingLoanSwiper
+			function swiperCard() {
+			  if (window.innerWidth <= 991) {
+			    if (!init) {
+			      init = true;
+			      pricingCardSwiper = new Swiper("#pricingTableSlider-3", {
+			        slidesPerView: "auto",
+			        spaceBetween: 5,
+			        grabCursor: true,
+			        keyboard: true,
+			        autoHeight: false,
+			        navigation: {
+			          nextEl: "#navBtnRight-3",
+			          prevEl: "#navBtnLeft-3",
+			        },
+			      });
+			    }
+			  } else if (init) {
+			    pricingCardSwiper.destroy();
+			    init = false;
+			  }
+			}
+			swiperCard();
+			window.addEventListener("resize", swiperCard);
+		</script>
 		<?php
 	}
 
