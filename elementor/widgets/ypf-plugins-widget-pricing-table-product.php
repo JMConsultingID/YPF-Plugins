@@ -50,6 +50,11 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	}
 
 	protected function render() {
+
+	// Check if Elementor editor is active
+    if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+        echo '<p>Elementor editor is active. Product details will be displayed on the frontend.</p>';
+    } else {
 	// Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
@@ -200,6 +205,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             <?php
       	echo '</div>'; // Close ypf-tab-panel
 		}
+	}
 	}
 
     // Helper function to get WooCommerce products
