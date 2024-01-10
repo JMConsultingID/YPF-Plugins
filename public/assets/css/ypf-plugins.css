@@ -259,6 +259,10 @@
   background: #fff;
 }
 
+.tab-content .ypf-tab-panel{
+  display: block;
+}
+
 .ypf-tab-panel.active {
   display: block;
 }
