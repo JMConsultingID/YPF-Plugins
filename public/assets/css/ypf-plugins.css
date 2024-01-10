@@ -216,3 +216,7 @@
      font-weight: 400;
   }
 }
+
+.ypf-tab-panel .pt__row.step_name {
+  visibility: hidden;
+}
