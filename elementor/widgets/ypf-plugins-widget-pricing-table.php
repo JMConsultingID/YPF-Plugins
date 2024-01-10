@@ -78,6 +78,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
         // Generate the tab content
         $products->rewind_posts();
+        $number = 1;
         echo '<div class="ypf-tabs-content">';
         while ($products->have_posts()) {
             $products->the_post();
@@ -128,7 +129,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 		        </a>
 		    </div>
 
-		    <div class="pt__option__slider swiper" id="pricingTableSlider">
+		    <div class="pt__option__slider swiper" id="pricingTableSlider-<?php echo $number; ?>">
 		      <div class="swiper-wrapper">
 
 		      	<div class="swiper-slide pt__option__item">
@@ -222,6 +223,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
             <?php
             echo '</div>'; // Close ypf-tab-panel
+            $number++;
         }
         echo '</div>'; // Close ypf-tabs-content
 
