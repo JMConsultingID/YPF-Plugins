@@ -1,6 +1,5 @@
 .pricing__table {
    display: flex;
-   margin: 30px 30px 90px 30px;
 }
  @media (max-width: 640px) {
    .pricing__table {
