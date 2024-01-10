@@ -5,7 +5,7 @@ function ypf_pricing_table_shortcode( $atts ) {
         'productID' => '',
     ), $atts );
 
-    $selected_product_id = '22';
+    $selected_product_id = $atts['productID'];
 
     if ( ! empty( $selected_product_id ) ) {
         $product = wc_get_product( $selected_product_id );
