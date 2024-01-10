@@ -42,50 +42,53 @@ jQuery(document).ready(function($) {
   });
 
 	// Pricing table - mobile only slider
-	var init = false;
-	var pricingCardSwiper;
+var pricingCardSwiper;
+var init = false;
 
-	function swiperCard() {
-	  if (window.innerWidth <= 991) {
-	    if (!init) {
-	      init = true;
-	      var activeTabPanel = document.querySelector('.ypf-tab-panel.active');
-	      if (activeTabPanel) {
-	        pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
-	          slidesPerView: "auto",
-	          spaceBetween: 5,
-	          grabCursor: true,
-	          keyboard: true,
-	          autoHeight: false,
-	          navigation: {
-	            nextEl: activeTabPanel.querySelector("#navBtnRight"),
-	            prevEl: activeTabPanel.querySelector("#navBtnLeft"),
-	          },
-	        });
-	      }
-	    }
-	  } else if (init && pricingCardSwiper) {
-	    pricingCardSwiper.destroy();
-	    init = false;
-	  }
-	}
+// Function to initialize Swiper
+function initializeSwiper() {
+  // Destroy the previous instance if it exists
+  if (pricingCardSwiper) {
+    pricingCardSwiper.destroy();
+    init = false;
+  }
 
-	swiperCard();
-	window.addEventListener("resize", function() {
-	  swiperCard();
+  var activeTabPanel = document.querySelector('.ypf-tab-panel.active');
+  if (activeTabPanel && window.innerWidth <= 991) {
+    pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
+      slidesPerView: "auto",
+      spaceBetween: 5,
+      grabCursor: true,
+      keyboard: true,
+      autoHeight: false,
+      navigation: {
+        nextEl: activeTabPanel.querySelector("#navBtnRight"),
+        prevEl: activeTabPanel.querySelector("#navBtnLeft"),
+      },
+    });
+    init = true;
+  }
+}
 
-	  // Reinitialize Swiper when the active tab changes
-	  if (window.innerWidth <= 991) {
-	    var tabs = document.querySelectorAll('.ypf-tab-panel');
-	    tabs.forEach(function(tab) {
-	      tab.addEventListener('click', function() {
-	        if (this.classList.contains('active')) {
-	          swiperCard();
-	        }
-	      });
-	    });
-	  }
-	});
+// Initialize Swiper on first load and on window resize
+initializeSwiper();
+window.addEventListener("resize", initializeSwiper);
+
+// Event listener for tab button clicks
+document.querySelectorAll('.ypf-tabs-buttons li').forEach(function(tabButton, index) {
+  tabButton.addEventListener('click', function() {
+    // Update active tab
+    document.querySelector('.ypf-tabs-buttons li.active').classList.remove('active');
+    this.classList.add('active');
+
+    // Update active tab panel
+    document.querySelector('.ypf-tab-panel.active').classList.remove('active');
+    document.querySelectorAll('.ypf-tab-panel')[index].classList.add('active');
+
+    // Reinitialize Swiper
+    initializeSwiper();
+  });
+});
 
 });
 
