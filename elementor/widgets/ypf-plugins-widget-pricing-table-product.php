@@ -204,7 +204,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
             <?php
       	echo '</div>'; // Close ypf-tab-panel
-		}
+		} else {
+        echo '<p>Please select a product.</p>';
+    }
 	}
 	}
 
