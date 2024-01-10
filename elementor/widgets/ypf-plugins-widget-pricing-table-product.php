@@ -58,8 +58,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
 
-	// Check if a product ID is selected   if (!empty($selected_product_id)) {
-
+	// Check if a product ID is selected   
+	if (!empty($selected_product_id)) {
     	// Fetch the product object
         $product = wc_get_product($selected_product_id);
 
