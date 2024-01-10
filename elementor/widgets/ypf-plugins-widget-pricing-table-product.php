@@ -49,20 +49,21 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 	}
 
-	protected function render() {
+	protected function render() {		
+	// Check if Elementor editor is active
+    if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+        echo '<p>Elementor editor is active. Product details will be displayed on the frontend.</p>';
+    } else {
 	// Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
 
-	// Check if a product ID is selected
-    if (!empty($selected_product_id)) {
+	// Check if a product ID is selected   if (!empty($selected_product_id)) {
 
     	// Fetch the product object
         $product = wc_get_product($selected_product_id);
 
         echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
-            // Display the product information here
-            echo '<h2>' . esc_html($product->get_name()) . '</h2>';
             ?>
             <div class="pricing__table">
 		  	<div class="pt__title">
