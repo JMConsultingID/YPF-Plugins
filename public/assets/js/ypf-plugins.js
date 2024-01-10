@@ -42,8 +42,9 @@ jQuery(document).ready(function($) {
   });
    // Pricing table - mobile only slider
 	var init = false;
-	var pricingCardSwiper;
-	var pricingLoanSwiper
+	var pricingCardSwiper1;
+	var pricingCardSwiper2;
+	var pricingCardSwiper3;
 	function swiperCard() {
 	  if (window.innerWidth <= 991) {
 	    if (!init) {
