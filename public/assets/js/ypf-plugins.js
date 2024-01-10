@@ -75,6 +75,12 @@ initializeSwiper();
 window.addEventListener("resize", initializeSwiper);
 
 // Event listener for tab button clicks
+document.querySelectorAll('.tab-nav-list toggle-tab').forEach(function(tabButton, index) {
+  	tabButton.addEventListener('click', function() {
+    // Reinitialize Swiper
+    initializeSwiper();
+  });
+});
 });
 
 })( jQuery );
