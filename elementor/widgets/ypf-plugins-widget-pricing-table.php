@@ -233,33 +233,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 
 		?>
 		<script>
-			 // Pricing table - mobile only slider
-			var init = false;
-			var pricingCardSwiper;
-			var pricingLoanSwiper
-			function swiperCard() {
-			  if (window.innerWidth <= 991) {
-			    if (!init) {
-			      init = true;
-			      pricingCardSwiper = new Swiper("#pricingTableSlider-1", {
-			        slidesPerView: "auto",
-			        spaceBetween: 5,
-			        grabCursor: true,
-			        keyboard: true,
-			        autoHeight: false,
-			        navigation: {
-			          nextEl: "#navBtnRight-1",
-			          prevEl: "#navBtnLeft-1",
-			        },
-			      });
-			    }
-			  } else if (init) {
-			    pricingCardSwiper.destroy();
-			    init = false;
-			  }
-			}
-			swiperCard();
-			window.addEventListener("resize", swiperCard);
+			
 		</script>
 		<?php
 	}
