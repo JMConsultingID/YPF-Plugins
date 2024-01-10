@@ -41,42 +41,47 @@ jQuery(document).ready(function($) {
     $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
   });
 
-  // Pricing table - mobile only slider
-	// Pricing table - mobile only slider
-	var pricingCardSwipers = [];
-	var init = false;
+  var pricingCardSwipers = [];
+    var init = false;
 
-	function swiperCard() {
-	  var sliders = document.querySelectorAll('[id^="pricingTableSlider-"]'); // Select all elements with ID starting with "pricingTableSlider-"
+    function initSwiper(slider) {
+        var nextEl = $(slider).siblings('.swiper-navigation').find('.navBtnRight')[0];
+        var prevEl = $(slider).siblings('.swiper-navigation').find('.navBtnLeft')[0];
 
-	  if (window.innerWidth <= 991) {
-	    if (!init) {
-	      init = true;
-	      sliders.forEach(function(slider, index) {
-	        pricingCardSwipers[index] = new Swiper(slider, {
-	          slidesPerView: "auto",
-	          spaceBetween: 5,
-	          grabCursor: true,
-	          keyboard: true,
-	          autoHeight: false,
-	          navigation: {
-	            nextEl: slider.nextElementSibling.querySelector('.navBtnRight'), // Adjust selector as needed
-	            prevEl: slider.nextElementSibling.querySelector('.navBtnLeft'), // Adjust selector as needed
-	          },
-	        });
-	      });
-	    }
-	  } else if (init) {
-	    pricingCardSwipers.forEach(function(swiper) {
-	      swiper.destroy();
-	    });
-	    pricingCardSwipers = [];
-	    init = false;
-	  }
-	}
+        return new Swiper(slider, {
+            slidesPerView: "auto",
+            spaceBetween: 5,
+            grabCursor: true,
+            keyboard: true,
+            autoHeight: false,
+            navigation: {
+                nextEl: nextEl,
+                prevEl: prevEl,
+            },
+        });
+    }
 
-	swiperCard();
-	window.addEventListener("resize", swiperCard);
+    function swiperCard() {
+        var sliders = $('[id^="pricingTableSlider-"]'); // Select all elements with ID starting with "pricingTableSlider-"
+
+        if (window.innerWidth <= 991 && !init) {
+            init = true;
+            sliders.each(function(index, slider) {
+                pricingCardSwipers.push(initSwiper(slider));
+            });
+        } else if (init && window.innerWidth > 991) {
+            $.each(pricingCardSwipers, function(index, swiper) {
+                if (swiper !== null && swiper !== undefined) {
+                    swiper.destroy();
+                }
+            });
+            pricingCardSwipers = [];
+            init = false;
+        }
+    }
+
+    swiperCard();
+    $(window).on("resize", swiperCard);
 });
 
 })( jQuery );
