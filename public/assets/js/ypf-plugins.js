@@ -41,32 +41,58 @@ jQuery(document).ready(function($) {
     $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
   });
    // Pricing table - mobile only slider
-			var init = false;
-			var pricingCardSwiper;
-			var pricingLoanSwiper
-			function swiperCard() {
-			  if (window.innerWidth <= 991) {
-			    if (!init) {
-			      init = true;
-			      pricingCardSwiper = new Swiper("#pricingTableSlider-1", {
-			        slidesPerView: "auto",
-			        spaceBetween: 5,
-			        grabCursor: true,
-			        keyboard: true,
-			        autoHeight: false,
-			        navigation: {
-			          nextEl: "#navBtnRight-1",
-			          prevEl: "#navBtnLeft-1",
-			        },
-			      });
-			    }
-			  } else if (init) {
-			    pricingCardSwiper.destroy();
-			    init = false;
-			  }
-			}
-			swiperCard();
-			window.addEventListener("resize", swiperCard);
+	var init = false;
+	var pricingCardSwiper;
+	var pricingLoanSwiper
+	function swiperCard() {
+	  if (window.innerWidth <= 991) {
+	    if (!init) {
+	      init = true;
+	      pricingCardSwiper1 = new Swiper("#pricingTableSlider-1", {
+	        slidesPerView: "auto",
+	        spaceBetween: 5,
+	        grabCursor: true,
+	        keyboard: true,
+	        autoHeight: false,
+	        navigation: {
+	          nextEl: "#navBtnRight-1",
+	          prevEl: "#navBtnLeft-1",
+	        },
+	      });
+
+	      pricingCardSwiper2 = new Swiper("#pricingTableSlider-2", {
+	        slidesPerView: "auto",
+	        spaceBetween: 5,
+	        grabCursor: true,
+	        keyboard: true,
+	        autoHeight: false,
+	        navigation: {
+	          nextEl: "#navBtnRight-2",
+	          prevEl: "#navBtnLeft-2",
+	        },
+	      });
+
+	       pricingCardSwiper3 = new Swiper("#pricingTableSlider-3", {
+	        slidesPerView: "auto",
+	        spaceBetween: 5,
+	        grabCursor: true,
+	        keyboard: true,
+	        autoHeight: false,
+	        navigation: {
+	          nextEl: "#navBtnRight-3",
+	          prevEl: "#navBtnLeft-3",
+	        },
+	      });
+	    }
+	  } else if (init) {
+	    pricingCardSwiper1.destroy();
+	    pricingCardSwiper2.destroy();
+	    pricingCardSwiper3.destroy();
+	    init = false;
+	  }
+	}
+	swiperCard();
+	window.addEventListener("resize", swiperCard);
 });
 
 })( jQuery );
