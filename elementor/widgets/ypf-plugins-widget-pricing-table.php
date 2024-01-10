@@ -10,7 +10,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-image-hotspot';
+		return 'eicon-price-table';
 	}
 
 	public function get_categories() {
