@@ -53,7 +53,7 @@ function initializeSwiper() {
     init = false;
   }
 
-  var activeTabPanel = document.querySelector('.ypf-tab-panel.active');
+  var activeTabPanel = document.querySelector('.tab-content.active');
   if (activeTabPanel && window.innerWidth <= 991) {
     pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
       slidesPerView: "auto",
@@ -75,15 +75,15 @@ initializeSwiper();
 window.addEventListener("resize", initializeSwiper);
 
 // Event listener for tab button clicks
-document.querySelectorAll('.ypf-tabs-buttons li').forEach(function(tabButton, index) {
+document.querySelectorAll('.tab-navigation .tab-nav.toggle-tab').forEach(function(tabButton, index) {
   tabButton.addEventListener('click', function() {
     // Update active tab
-    document.querySelector('.ypf-tabs-buttons li.active').classList.remove('active');
+    document.querySelector('.tab-navigation .tab-nav.toggle-tab.active').classList.remove('active');
     this.classList.add('active');
 
     // Update active tab panel
-    document.querySelector('.ypf-tab-panel.active').classList.remove('active');
-    document.querySelectorAll('.ypf-tab-panel')[index].classList.add('active');
+    document.querySelector('.tab-content.active').classList.remove('active');
+    document.querySelectorAll('.tab-content')[index].classList.add('active');
 
     // Reinitialize Swiper
     initializeSwiper();
