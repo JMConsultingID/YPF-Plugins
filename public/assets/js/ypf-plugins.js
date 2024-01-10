@@ -40,48 +40,6 @@ jQuery(document).ready(function($) {
     $(this).addClass('active');
     $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
   });
-
-  var pricingCardSwipers = [];
-    var init = false;
-
-    function initSwiper(slider) {
-        var nextEl = $(slider).siblings('.swiper-navigation').find('.navBtnRight')[0];
-        var prevEl = $(slider).siblings('.swiper-navigation').find('.navBtnLeft')[0];
-
-        return new Swiper(slider, {
-            slidesPerView: "auto",
-            spaceBetween: 5,
-            grabCursor: true,
-            keyboard: true,
-            autoHeight: false,
-            navigation: {
-                nextEl: nextEl,
-                prevEl: prevEl,
-            },
-        });
-    }
-
-    function swiperCard() {
-        var sliders = $('[id^="pricingTableSlider-"]'); // Select all elements with ID starting with "pricingTableSlider-"
-
-        if (window.innerWidth <= 991 && !init) {
-            init = true;
-            sliders.each(function(index, slider) {
-                pricingCardSwipers.push(initSwiper(slider));
-            });
-        } else if (init && window.innerWidth > 991) {
-            $.each(pricingCardSwipers, function(index, swiper) {
-                if (swiper !== null && swiper !== undefined) {
-                    swiper.destroy();
-                }
-            });
-            pricingCardSwipers = [];
-            init = false;
-        }
-    }
-
-    swiperCard();
-    $(window).on("resize", swiperCard);
 });
 
 })( jQuery );

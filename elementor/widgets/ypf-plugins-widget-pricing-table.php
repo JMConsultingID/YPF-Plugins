@@ -232,6 +232,44 @@ class Elementor_YpfPlugins_Widget_Pricing_Table extends \Elementor\Widget_Base {
     wp_reset_postdata();
 
 		?>
+		<script>
+// Pricing table - mobile only slider
+var pricingCardSwipers = [];
+var init = false;
+
+function swiperCard() {
+  var sliders = document.querySelectorAll('[id^="pricingTableSlider-"]'); // Select all elements with ID starting with "pricingTableSlider-"
+
+  if (window.innerWidth <= 991) {
+    if (!init) {
+      init = true;
+      sliders.forEach(function(slider, index) {
+        pricingCardSwipers[index] = new Swiper(slider, {
+          slidesPerView: "auto",
+          spaceBetween: 5,
+          grabCursor: true,
+          keyboard: true,
+          autoHeight: false,
+          navigation: {
+            nextEl: slider.nextElementSibling.querySelector('.navBtnRight'), // Adjust selector as needed
+            prevEl: slider.nextElementSibling.querySelector('.navBtnLeft'), // Adjust selector as needed
+          },
+        });
+      });
+    }
+  } else if (init) {
+    pricingCardSwipers.forEach(function(swiper) {
+      swiper.destroy();
+    });
+    pricingCardSwipers = [];
+    init = false;
+  }
+}
+
+swiperCard();
+window.addEventListener("resize", swiperCard);
+</script>
+
 		<?php
 	}
 
