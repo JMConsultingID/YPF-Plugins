@@ -14,7 +14,6 @@ function ypf_pricing_table_shortcode( $atts ) {
             ob_start(); // Start output buffering
                 echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
                 // Display the product information here
-                echo '<h2>' . esc_html($product->get_name()) . '</h2>';
                 ?>
                 <div class="pricing__table">
                 <div class="pt__title">
