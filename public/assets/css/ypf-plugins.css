@@ -256,7 +256,7 @@
 }
 
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.step_3_prop_trader.val:last-child{
-  border-radius: 0px 20px 0px 0px;  
+  border-radius: 0px 0px 20px 0px;  
 }
 
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.val{
