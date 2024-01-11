@@ -99,7 +99,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
                     echo $sub_field_tooltip;
                     echo '</div>';                   
                 }
-                echo '</div>'
+                echo '</div>';
             }
             ?>
 
