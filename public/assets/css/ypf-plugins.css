@@ -247,7 +247,7 @@
   border-radius: 20px 0px 0px 0px;
 }
 
-.pt__row.heading-vertical:last-child{
+.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical:nth-last-child(2){
   border-radius: 0px 0px 0px 20px;
 }
 
