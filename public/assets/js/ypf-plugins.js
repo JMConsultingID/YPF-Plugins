@@ -78,10 +78,11 @@ function initializeSwiper() {
     });
     init = true;
   }
+  // Set Swiper to the previously active slide
+  pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
 }
 
-// Set Swiper to the previously active slide
-pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
+
 
 // Initialize Swiper on first load and on window resize
 initializeSwiper();
