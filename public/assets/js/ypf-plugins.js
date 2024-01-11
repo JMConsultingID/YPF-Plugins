@@ -61,6 +61,11 @@ function initializeSwiper() {
       grabCursor: true,
       keyboard: true,
       autoHeight: false,
+      effect: 'fade', // Set the transition effect to 'fade'
+      fadeEffect: {
+        crossFade: true
+      },
+      speed: 1000, // Transition duration in milliseconds (1000ms = 1s)
       navigation: {
         nextEl: activeTabPanel.querySelector("#navBtnRight"),
         prevEl: activeTabPanel.querySelector("#navBtnLeft"),
