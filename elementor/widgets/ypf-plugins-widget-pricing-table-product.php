@@ -67,154 +67,42 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             ?>
             <div class="pricing__table product-<?php echo $selected_product_id; ?>">
 		  	<div class="pt__title">
-		    <div class="pt__title__wrap">
-
-            <?php
-            // Fetch the ACF group field for the current product
-            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
-            $fx_challenge_tooltips = get_field('fx_challenge_tooltips', $selected_product_id);
-            
-            // Get the field object for the group
-            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
-            $group_field_tooltips_object = get_field_object('fx_challenge_tooltips', $selected_product_id);
-            
-            if ($group_field_object) {
-                foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
-                    // The label is in the field object
-                    $sub_field_label = isset($sub_field['label']) ? $sub_field['label'] : $sub_field['label'];
-                    $sub_field_name = $sub_field['name'];
-                    $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
-
-					$sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : '';
-					$sub_field_tooltip_text ='';
-					if (!empty($sub_field_tooltip)) { 
-						$sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
-					}
-                                      
-                    echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>';                    
-
-                }
-                echo '<div style="display: none;">';
-                foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
-                	$sub_field_name = $sub_field['name'];
-                    $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
-                    $sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : '';
-                    echo '<div id="'. esc_html($sub_field_tooltips_name) . '">';
-                    echo $sub_field_tooltip;
-                    echo '</div>';                   
-                }
-                echo '</div>';
-            }
-            ?>
-
+                <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id); ?>
             </div>
-		  	</div>
 
 		  	<div class="pt__option">
 
-		    <div class="pt__option__mobile__nav">
-		        <a id="navBtnLeft" href="#" class="mobile__nav__btn">
-		          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		            <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		            <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		          </svg>
-		        </a>
-		        <a id="navBtnRight" href="#" class="mobile__nav__btn">
-		            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-		              <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		              <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-		            </svg>
-		        </a>
-		    </div>
+		    <?php display_swiper_navigation_buttons('navBtnLeft', 'navBtnRight'); ?>
 
 		    <div class="pt__option__slider swiper" id="pricingTableSlider">
-		      <div class="swiper-wrapper">
+                    <div class="swiper-wrapper">
 
-		      	<div class="swiper-slide pt__option__item">
-		          <div class="pt__item">
-		            <div class="pt__item__wrap">
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_1:_fx_challenge', $selected_product_id, 'step_1_fx_challenge'); ?>
+                                </div>
+                            </div>
+                        </div>
 
-		            	<?php
-			            // Fetch the ACF group field for the current product
-			            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
-			            
-			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
-			            
-			            if ($step_1_fx_challenge && $group_field_object) {
-			                foreach ($group_field_object['sub_fields'] as $sub_field) {
-			                    // The label is in the field object
-			                    $sub_field_label = $sub_field['label'];
-			                    $sub_field_name = $sub_field['name'];
-			                    // The value is in the values array
-			                    $sub_field_value = !empty($step_1_fx_challenge[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
-                    
-			                    echo '<div class="pt__row step_1_fx_challenge val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
-			                }
-			            }
-			            ?>
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_2:_inspection_period', $selected_product_id, 'step_2_inspection_period'); ?>
+                                </div>
+                            </div>
+                        </div>
 
-		            </div>
-		          </div>
-		        </div>
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_3:_prop_trader', $selected_product_id, 'step_3_prop_trader'); ?>
+                                </div>
+                            </div>
+                        </div>
 
-		        <div class="swiper-slide pt__option__item">
-		          <div class="pt__item">
-		            <div class="pt__item__wrap">
-
-		            	<?php
-			            // Fetch the ACF group field for the current product
-			            $step_2_inspection_period = get_field('step_2:_inspection_period', $selected_product_id);
-			            
-			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_2:_inspection_period', $selected_product_id);
-			            
-			            if ($step_2_inspection_period && $group_field_object) {
-			                foreach ($group_field_object['sub_fields'] as $sub_field) {
-			                    // The label is in the field object
-			                    $sub_field_label = $sub_field['label'];
-			                    $sub_field_name = $sub_field['name'];
-			                    // The value is in the values array
-			                    $sub_field_value = !empty($step_2_inspection_period[$sub_field['name']]) ? $step_2_inspection_period[$sub_field['name']] : '-';
-			                    echo '<div class="pt__row step_2_inspection_period val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
-			                }
-			            }
-			            ?>
-		              	
-		            </div>
-		          </div>
-		        </div>
-
-		        <div class="swiper-slide pt__option__item">
-		          <div class="pt__item">
-		            <div class="pt__item__wrap">
-
-		            	<?php
-			            // Fetch the ACF group field for the current product
-			            $step_3_prop_trader = get_field('step_3:_prop_trader', $selected_product_id);
-			            
-			            // Get the field object for the group
-			            $group_field_object = get_field_object('step_3:_prop_trader', $selected_product_id);
-			            
-			            if ($step_3_prop_trader && $group_field_object) {
-			                foreach ($group_field_object['sub_fields'] as $sub_field) {
-			                    // The label is in the field object
-			                    $sub_field_label = $sub_field['label'];
-			                    $sub_field_name = $sub_field['name'];
-			                    // The value is in the values array
-			                    $sub_field_value = !empty($step_3_prop_trader[$sub_field['name']]) ? $step_3_prop_trader[$sub_field['name']] : '-';
-			                    echo '<div class="pt__row step_3_prop_trader val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
-			                }
-			            }
-			            ?>
-		              	
-		            </div>
-		          </div>
-		        </div>
-
-		      </div>
-		    </div>
-
+                    </div>
+                </div>
 
 			</div>
 			</div>
@@ -241,4 +129,78 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
         return $product_options;
     }
+
+    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id) {
+	    $group_field_values = get_field($group_field_name, $product_id);
+	    $tooltips_field_values = get_field($tooltips_field_name, $product_id);
+
+	    $group_field_object = get_field_object($group_field_name, $product_id);
+	    $tooltips_field_object = get_field_object($tooltips_field_name, $product_id);
+
+	    if ($group_field_object) {
+	        echo '<div class="pt__title__wrap">';
+
+	        foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
+	            $sub_field_label = $sub_field['label'];
+	            $sub_field_name = $sub_field['name'];
+	            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+	            $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
+
+	            $sub_field_tooltip_text = '';
+	            if (!empty($sub_field_tooltip)) { 
+	                $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
+	            }
+	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . '"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
+	        }
+
+	        echo '<div style="display: none;">';
+	        foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
+	            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+	            $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
+	            echo '<div id="'. esc_html($sub_field_tooltips_name) . '">' . esc_html($sub_field_tooltip) . '</div>';                   
+	        }
+	        echo '</div>';
+
+	        echo '</div>'; // Close pt__title__wrap
+	    }
+	}
+
+	private function display_acf_group_fields($group_field_name, $product_id, $css_class_prefix) {
+	    // Fetch the ACF group field for the current product
+	    $group_field_values = get_field($group_field_name, $product_id);
+	            
+	    // Get the field object for the group
+	    $group_field_object = get_field_object($group_field_name, $product_id);
+	            
+	    if ($group_field_values && $group_field_object) {
+	        foreach ($group_field_object['sub_fields'] as $sub_field) {
+	            // The label is in the field object
+	            $sub_field_label = $sub_field['label'];
+	            $sub_field_name = $sub_field['name'];
+	            // The value is in the values array
+	            $sub_field_value = !empty($group_field_values[$sub_field['name']]) ? $group_field_values[$sub_field['name']] : '-';
+	            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+	        }
+	    }
+	}
+
+	private function display_swiper_navigation_buttons($left_button_id, $right_button_id) {
+	    ?>
+	    <div class="pt__option__mobile__nav">
+	        <a id="<?php echo esc_attr($left_button_id); ?>" href="#" class="mobile__nav__btn">
+	            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                <path d="M22.1538 11.9819H1.81972" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+	                <path d="M11.9863 22.1535L1.82043 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+	            </svg>
+	        </a>
+	        <a id="<?php echo esc_attr($right_button_id); ?>" href="#" class="mobile__nav__btn">
+	            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                <path d="M1.81934 11.9819H22.1534" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+	                <path d="M11.9863 22.1535L22.1522 11.9865L11.9863 1.81946" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+	            </svg>
+	        </a>
+	    </div>
+	    <?php
+	}
+
 }
