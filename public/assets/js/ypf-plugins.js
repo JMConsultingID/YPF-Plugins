@@ -62,6 +62,7 @@ function initializeSwiper() {
       keyboard: true,
       autoHeight: false,
       effect: 'fade', // Set the transition effect to 'fade'
+      noSwiping: true,
       fadeEffect: {
         crossFade: true
       },
