@@ -58,8 +58,8 @@ function initializeSwiper() {
     pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
       slidesPerView: "auto",
       spaceBetween: 5,
-      grabCursor: true,
-      keyboard: true,
+      grabCursor: false,
+      keyboard: false,
       autoHeight: false,
       effect: 'fade', // Set the transition effect to 'fade'
       noSwiping: true,
