@@ -97,8 +97,8 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 40px;
-   height: 40px;
+   width: 30px;
+   height: 30px;
    color: #fff;
    border-radius: 50%;
    background-color: #0061ff;
@@ -112,7 +112,7 @@
    pointer-events: none;
 }
  .pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn svg {
-   width: 16px;
+   width: 14px;
    color: #faf7f2;
 }
  @media (max-width: 991px) {
