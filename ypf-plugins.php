@@ -155,8 +155,8 @@ function ypf_plugins_widgets() {
 
         // Register scripts        
         wp_register_script( 'ypf-swiper-bundle-js', plugins_url( '/public/assets/js/swiper-bundle.min.js', __FILE__ ), array('jquery'), '1.0.0', true );
-        wp_register_script( 'ypf-popper-js', 'https://unpkg.com/@popperjs/core@2', __FILE__ , array('jquery'), '2.0.0', true );
-        wp_register_script( 'ypf-tippy-js', 'https://unpkg.com/tippy.js@6', __FILE__ , array('jquery'), '2.0.0', true );
+        wp_register_script( 'ypf-popper-js', 'https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js', __FILE__ , array(''), '2.0.0', true );
+        wp_register_script( 'ypf-tippy-js', 'https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js', __FILE__ , array(''), '2.0.0', true );
         wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js','ypf-popper-js', 'ypf-tippy-js'), '1.0.0', true );
 
         // Enqueue styles and scripts
