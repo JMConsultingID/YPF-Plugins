@@ -123,7 +123,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
 			            $group_field_tooltips_object = get_field_object('fx_challenge_tooltips', $selected_product_id);
 			            
-			            if ($group_field_object && $group_field_tooltips_object) {
+			            if ($group_field_object) {
 			                foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
 			                    // The label is in the field object
 			                    $sub_field_label = $sub_field['label'];
