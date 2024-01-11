@@ -63,6 +63,7 @@ function initializeSwiper() {
       autoHeight: false,
       effect: 'fade', // Set the transition effect to 'fade'
       noSwiping: true,
+      allowTouchMove: false,
       fadeEffect: {
         crossFade: true
       },
