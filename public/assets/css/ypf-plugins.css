@@ -102,7 +102,7 @@
  color: #fff;
  border-radius: 50%;
  background-color: #0061ff;
- transition: 0.25s;
+ transition: unset;
 }
 .pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn:hover {
  background-color: #0057e6;
@@ -200,7 +200,7 @@
  color: #fff;
  border-radius: 10px;
  background-color: #0061ff;
- transition: 0.25s;
+ transition: unset;
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child a:hover {
  background-color: #0057e6;
@@ -247,7 +247,9 @@
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.val.val-step_name{
   background: #C66C61;  
 }
-
+.pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn {
+ background-color: #971e23;
+}
 @media (max-width: 991px) {
 .pricing__table .pt__option .pt__option__item .pt__item {
     border: none;
