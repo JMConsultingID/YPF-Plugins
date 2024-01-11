@@ -51,7 +51,6 @@ var currentSlideIndex = 0; // Global variable to store the current slide index
 function initializeSwiper() {
   // Destroy the previous instance if it exists
   if (pricingCardSwiper) {
-  	currentSlideIndex = pricingCardSwiper.activeIndex;
     pricingCardSwiper.destroy();
     init = false;
   }
@@ -99,7 +98,7 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
     document.querySelector('.tab-content-list .tab-content.active').classList.remove('active');
     document.querySelectorAll('.tab-content-list .tab-content')[index].classList.add('active');
 
-    
+
     // Reset the Swiper to the first slide when a different tab is clicked
     currentSlideIndex = 0;
 
