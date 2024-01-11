@@ -44,11 +44,14 @@ jQuery(document).ready(function($) {
 	// Pricing table - mobile only slider
 var pricingCardSwiper;
 var init = false;
+var currentSlideIndex = 0; // Global variable to store the current slide index
+
 
 // Function to initialize Swiper
 function initializeSwiper() {
   // Destroy the previous instance if it exists
   if (pricingCardSwiper) {
+  	currentSlideIndex = pricingCardSwiper.activeIndex;
     pricingCardSwiper.destroy();
     init = false;
   }
@@ -77,6 +80,9 @@ function initializeSwiper() {
   }
 }
 
+// Set Swiper to the previously active slide
+pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
+
 // Initialize Swiper on first load and on window resize
 initializeSwiper();
 window.addEventListener("resize", initializeSwiper);
@@ -96,6 +102,8 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
     initializeSwiper();
   });
 });
+
+
 
 tippy('.data-template', {
     content(reference) {
