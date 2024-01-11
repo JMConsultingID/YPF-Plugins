@@ -218,6 +218,9 @@
 }
 
 /*Customize*/
+.pricing__table .pt__option .pt__option__item .pt__item {
+    border-radius: 0px;
+}
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child {
     display: flex;
     padding-left: 16px;
