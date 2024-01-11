@@ -99,6 +99,10 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
     document.querySelector('.tab-content-list .tab-content.active').classList.remove('active');
     document.querySelectorAll('.tab-content-list .tab-content')[index].classList.add('active');
 
+    
+    // Reset the Swiper to the first slide when a different tab is clicked
+    currentSlideIndex = 0;
+
     // Reinitialize Swiper
     initializeSwiper();
   });
