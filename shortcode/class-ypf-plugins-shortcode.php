@@ -35,7 +35,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                         $sub_field_name = $sub_field['name'];
                         $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
 
-                        $sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : $fx_challenge_tooltips[$sub_field_tooltips_name];
+                        $sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : '';
                         $sub_field_tooltip_text ='';
                         if (!empty($sub_field_tooltip)) { 
                             $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
