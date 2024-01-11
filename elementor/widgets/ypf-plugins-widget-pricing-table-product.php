@@ -75,6 +75,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             
             // Get the field object for the group
             $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
+            $group_field_tooltips_object = get_field_object('fx_challenge_tooltips', $selected_product_id);
             
             if ($group_field_object) {
                 foreach ($group_field_object['sub_fields'] as $sub_field) {
@@ -116,19 +117,24 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		            	<?php
 			            // Fetch the ACF group field for the current product
 			            $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
+			            $fx_challenge_tooltips = get_field('fx_challenge_tooltips', $selected_product_id);
 			            
 			            // Get the field object for the group
 			            $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
+			            $group_field_tooltips_object = get_field_object('fx_challenge_tooltips', $selected_product_id);
 			            
-			            if ($step_1_fx_challenge && $group_field_object) {
-			                foreach ($group_field_object['sub_fields'] as $sub_field) {
+			            if ($group_field_object && $group_field_tooltips_object) {
+			                foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
 			                    // The label is in the field object
 			                    $sub_field_label = $sub_field['label'];
 			                    $sub_field_name = $sub_field['name'];
 			                    // The value is in the values array
 			                    $sub_field_value = !empty($step_1_fx_challenge[$sub_field['name']]) ? $step_1_fx_challenge[$sub_field['name']] : '-';
+			                    $sub_field_value = isset($step_1_fx_challenge[$sub_field_name]) ? $step_1_fx_challenge[$sub_field_name] : '-';
+			                    // Assuming tooltips have the same index
+       							$sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_name]) ? $fx_challenge_tooltips[$sub_field_name] : '';
                     
-			                    echo '<div class="pt__row step_1_fx_challenge val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . '</div>';
+			                    echo '<div class="pt__row step_1_fx_challenge val val-'. esc_html($sub_field_name) . '">' . esc_html($sub_field_value) . ' Tooltips : ' . esc_html($$sub_field_tooltip) . '</div>';
 			                }
 			            }
 			            ?>
