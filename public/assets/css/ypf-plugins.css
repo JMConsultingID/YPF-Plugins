@@ -226,11 +226,12 @@
   color: #fff;
   border: solid 1px #E19287; 
 }
-.pricing__table .pt__option .pt__option__item.val{
+
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row.val{
   background: #971e23;
   color: #fff;
   border: solid 1px #E19287;  
 }
-.pricing__table .pt__option .pt__option__item.val.val-step_name{
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row.val.val-step_name{
   background: #C66C61;  
 }
