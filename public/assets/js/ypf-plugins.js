@@ -95,6 +95,14 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
   });
 });
 
+tippy('.data-template', {
+    content(reference) {
+        const id = reference.getAttribute('data-template');
+        const template = document.getElementById(id);
+        return template ? template.innerHTML : 'Tooltip content not found'; // Added a null check
+    },
+    allowHTML: true,
+});
 
 
 });
