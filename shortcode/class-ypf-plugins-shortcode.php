@@ -15,7 +15,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                 echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
                 // Display the product information here
                 ?>
-                <div class="pricing__table">
+                <div class="pricing__table product-<?php echo '$selected_product_id'; ?>">
                 <div class="pt__title">
                 <div class="pt__title__wrap">
 
