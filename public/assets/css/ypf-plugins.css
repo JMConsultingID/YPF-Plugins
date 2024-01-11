@@ -233,7 +233,8 @@
   color: #fff;
   border: solid 1px #E19287; 
 }
-.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span{
+.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span, 
+.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span i{
   display: contents; 
 }
 .pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical.step_name{
