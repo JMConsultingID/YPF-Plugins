@@ -95,10 +95,6 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
   });
 });
 
-// With the above scripts loaded, you can call `tippy()` with a CSS
-      // selector and a `content` prop:
-const template = document.getElementById('template');
-
 tippy('button', {
   content(reference) {
     const id = reference.getAttribute('data-template');
