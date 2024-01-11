@@ -250,6 +250,9 @@
 .pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn {
  background-color: #971e23;
 }
+.pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn:hover {
+ background-color: #971e23;
+}
 @media (max-width: 991px) {
 .pricing__table .pt__option .pt__option__item .pt__item {
     border: none;
