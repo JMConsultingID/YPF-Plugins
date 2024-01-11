@@ -82,9 +82,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
                 foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
                     // The label is in the field object
                     $sub_field_label = isset($sub_field['label']) ? $sub_field['label'] : $sub_field['label'];
-                    $sub_field_name = $sub_field['name'];  
+                    $sub_field_name = $sub_field['name'];
+                    $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
 
-					$sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_name]) ? $fx_challenge_tooltips[$sub_field_name] : '';
+					$sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_name] : $fx_challenge_tooltips[$sub_field_tooltips_name];
                                       
                     echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . ' Tooltips : ' . esc_html($sub_field_tooltip) . '</div>';
                 }
