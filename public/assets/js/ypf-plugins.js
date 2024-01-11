@@ -95,14 +95,17 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
   });
 });
 
-tippy('button', {
-  content(reference) {
-    const id = reference.getAttribute('data-template');
-    const template = document.getElementById(id);
-    return template.innerHTML;
-  },
-  allowHTML: true,
+document.addEventListener('DOMContentLoaded', (event) => {
+    tippy('button', {
+        content(reference) {
+            const id = reference.getAttribute('data-template');
+            const template = document.getElementById(id);
+            return template ? template.innerHTML : '';
+        },
+        allowHTML: true,
+    });
 });
+
 
 });
 
