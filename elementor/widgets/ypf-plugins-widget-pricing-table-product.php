@@ -87,7 +87,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 					$sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : $fx_challenge_tooltips[$sub_field_tooltips_name];
                                       
-                    echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '<span data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i>!</span>' . esc_html($sub_field_tooltip) . '</div>';                    
+                    echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '<span data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span></div>';                    
 
                 }
                 echo '<div style="display: none;">';
