@@ -65,7 +65,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
         echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
             ?>
-            <div class="pricing__table product-<?php echo '$selected_product_id'; ?>">
+            <div class="pricing__table product-<?php echo $selected_product_id; ?>">
 		  	<div class="pt__title">
 		    <div class="pt__title__wrap">
 
