@@ -237,6 +237,9 @@
 .pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span i{
   display: contents; 
 }
+.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span{
+  padding-left: 10px;
+}
 .pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical.step_name{
   color: transparent; /* make the text invisible */
   user-select: none; /* prevent selection of the text */
