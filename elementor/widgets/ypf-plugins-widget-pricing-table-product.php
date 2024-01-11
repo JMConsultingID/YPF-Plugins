@@ -2,11 +2,11 @@
 class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'ypfplugins_pricing_table_per_product';
+		return 'ypfplugins_pricing_table_product';
 	}
 
 	public function get_title() {
-		return esc_html__( 'YPF Plugins Pricing Table 1 Product', 'ypf-plugins' );
+		return esc_html__( 'YPF Plugins Product Table', 'ypf-plugins' );
 	}
 
 	public function get_icon() {
