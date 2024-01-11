@@ -22,17 +22,38 @@ function ypf_pricing_table_shortcode( $atts ) {
                 <?php
                 // Fetch the ACF group field for the current product
                 $step_1_fx_challenge = get_field('step_1:_fx_challenge', $selected_product_id);
+                $fx_challenge_tooltips = get_field('fx_challenge_tooltips', $selected_product_id);
                 
                 // Get the field object for the group
                 $group_field_object = get_field_object('step_1:_fx_challenge', $selected_product_id);
+                $group_field_tooltips_object = get_field_object('fx_challenge_tooltips', $selected_product_id);
                 
                 if ($group_field_object) {
-                    foreach ($group_field_object['sub_fields'] as $sub_field) {
+                    foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
                         // The label is in the field object
                         $sub_field_label = isset($sub_field['label']) ? $sub_field['label'] : $sub_field['label'];
-                        $sub_field_name = $sub_field['name'];                    
-                        echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '">' . esc_html($sub_field_label) . '</div>';
+                        $sub_field_name = $sub_field['name'];
+                        $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
+
+                        $sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : $fx_challenge_tooltips[$sub_field_tooltips_name];
+                        $sub_field_tooltip_text ='';
+                        if (!empty($sub_field_tooltip)) { 
+                            $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
+                        }
+                                          
+                        echo '<div class="pt__row heading-vertical '. esc_html($sub_field_name) . '"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>';                    
+
                     }
+                    echo '<div style="display: none;">';
+                    foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
+                        $sub_field_name = $sub_field['name'];
+                        $sub_field_tooltips_name = 'tooltips_'.$sub_field['name'];
+                        $sub_field_tooltip = isset($fx_challenge_tooltips[$sub_field_tooltips_name]) ? $fx_challenge_tooltips[$sub_field_tooltips_name] : $fx_challenge_tooltips[$sub_field_tooltips_name];
+                        echo '<div id="'. esc_html($sub_field_tooltips_name) . '">';
+                        echo $sub_field_tooltip;
+                        echo '</div>';                   
+                    }
+                    echo '</div>';
                 }
                 ?>
 
