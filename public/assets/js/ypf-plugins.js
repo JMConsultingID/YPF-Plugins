@@ -70,16 +70,17 @@ function initializeSwiper() {
       fadeEffect: {
         crossFade: true
       },
-      speed: 1000, // Transition duration in milliseconds (1000ms = 1s)
+      speed: 500, // Transition duration in milliseconds (1000ms = 1s)
       navigation: {
         nextEl: activeTabPanel.querySelector("#navBtnRight"),
         prevEl: activeTabPanel.querySelector("#navBtnLeft"),
       },
     });
     init = true;
+    // Set Swiper to the previously active slide
+    pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
   }
-  // Set Swiper to the previously active slide
-  pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
+  
 }
 
 
