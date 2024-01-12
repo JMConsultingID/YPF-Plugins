@@ -38,7 +38,9 @@
             <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
                 <td>
+                    <code>[ypf-pricing-table productid="23"]</code> or using button 
                     <code>[ypf-pricing-table productid="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
+                    please change the productid="23" following to the productId on woocommerce
                 </td>
             </tr>
 
