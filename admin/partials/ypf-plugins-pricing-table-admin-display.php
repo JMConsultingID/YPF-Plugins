@@ -44,6 +44,14 @@
                     <code>[ypf-pricing-table productID="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
                 </td>
             </tr>
+
+            <tr valign="top">
+                <th scope="row">Download ACF Configuration :</th>
+                <td>
+                    <a href="https://staging.finpr.com/upload/import-settings-acf.js">Download here</a>.
+                </td>
+            </tr>
+            
         </table>
 
         <?php submit_button(); ?>
