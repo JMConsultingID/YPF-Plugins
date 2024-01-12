@@ -289,6 +289,7 @@
 }
 a.ypf-button{
   text-decoration: none!important;
+  font-size: 15px;
 }
 a.ypf-button.free-trial {
     background-color: #F24F42;
