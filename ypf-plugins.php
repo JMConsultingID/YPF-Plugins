@@ -5,7 +5,7 @@
  * Plugin URI:        https://yourpropfirm.com/
  * Description:       A plugin to create custom pricing tables and integrate with Elementor widgets.
  * Version:           1.0.1
- * Author:            Ardika JM Consulting
+ * Author:            Ardi
  * Author URI:        https://yourpropfirm.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
