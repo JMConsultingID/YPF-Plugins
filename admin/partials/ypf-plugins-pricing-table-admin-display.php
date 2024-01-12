@@ -36,6 +36,14 @@
             </tr>
 
             <tr valign="top">
+                <th scope="row">Enable Tooltips:</th>
+                <td>
+                    <input type="checkbox" id="ypf_enable_tooltips" name="ypf_enable_tooltips" value="1" <?php checked(1, get_option('ypf_enable_tooltips'), true); ?> />
+                    <label for="ypf_enable_tooltips">Enable Tooltips on Side Title Pricing Table. <code>[under development, but you can use it]</code></label>
+                </td>
+            </tr>
+
+            <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
                 <td>
                     <code>[ypf-pricing-table productid="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
