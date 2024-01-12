@@ -56,13 +56,20 @@ function ypf_pricing_table_shortcode( $atts ) {
                     </div>
                 </div>
 
-
-
                 </div>
                 </div>
 
                 <?php
             echo '</div>'; // Close ypf-tab-panel
+            ?>
+
+            <div class="ypf-btn-wrap">
+                <a href="#" class="btn ypf-button free-trial">Free Trial</a>
+                <a href="#" class="btn ypf-button challenge-begins">Challenge Begins</a>
+            </div>
+
+
+            <?php
             return ob_get_clean(); // Return the buffered output
         } else {
             return '<p>Product not found.</p>';

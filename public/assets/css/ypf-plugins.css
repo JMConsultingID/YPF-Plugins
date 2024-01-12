@@ -218,6 +218,7 @@
 }
 
 /*Customize*/
+/*Table Section*/
 .pricing__table .pt__option .pt__option__item .pt__item {
     border-radius: 0px;
 }
@@ -273,6 +274,35 @@
 .pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn:hover {
  background-color: #971e23;
 }
+
+/*Button Section*/
+.ypf-btn-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.free-trial {
+    background-color: #F24F42;
+    color: #FFFFFF;
+    padding: 20px 25px;
+}
+
+.challenge-begins {
+    background-color: rgba(242, 79, 66, 0); /* #F24F4200 */
+    color: #939393;
+    border: 1px solid #ADADAD;
+    padding: 20px 28px;
+}
+
+
+/*Responsive Handle*/
 @media (max-width: 991px) {
 .pricing__table .pt__option .pt__option__item .pt__item {
     border: none;
