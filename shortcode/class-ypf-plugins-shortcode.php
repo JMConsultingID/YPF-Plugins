@@ -87,7 +87,7 @@ function ypf_pricing_table_shortcode( $atts ) {
 }
 add_shortcode( 'ypf-pricing-table', 'ypf_pricing_table_shortcode' );
 
-function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 860) {
+function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 1397) {
     // Fetch group field values and object for the product
     $group_field_values = get_field($group_field_name, $product_id);
     $group_field_object = get_field_object($group_field_name, $product_id);

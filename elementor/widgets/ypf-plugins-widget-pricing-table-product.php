@@ -138,7 +138,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         return $product_options;
     }
 
-    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 860) {
+    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 1397) {
 	    // Fetch group field values and object for the product
 	    $group_field_values = get_field($group_field_name, $product_id);
 	    $group_field_object = get_field_object($group_field_name, $product_id);
