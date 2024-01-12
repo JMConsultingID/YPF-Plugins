@@ -22,12 +22,12 @@
                 <th scope="row">Enable Elementor Widget:</th>
                 <td>
                     <input type="checkbox" id="ypf_enable_elementor_widget" name="ypf_enable_elementor_widget" value="1" <?php checked(1, get_option('ypf_enable_elementor_widget'), true); ?> />
-                    <label for="ypf_enable_elementor_widget">Enable the Elementor widget feature.</label>
+                    <label for="ypf_enable_elementor_widget">Enable the Elementor widget feature. [under development, but you can use it]</label>
                 </td>
             </tr>
 
             <tr valign="top">
-                <th scope="row">Select Widget Style:</th>
+                <th scope="row">Select Widget Style [under development]:</th>
                 <td>
                     <select id="ypf_widget_style" name="ypf_widget_style">
                         <option value="style1" <?php selected(get_option('ypf_widget_style'), 'style1'); ?>>Style 1</option>
