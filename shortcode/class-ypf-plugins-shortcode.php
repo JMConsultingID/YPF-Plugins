@@ -69,9 +69,10 @@ function ypf_pricing_table_shortcode( $atts ) {
             ?>
 
             <div class="ypf-btn-wrap">
-                <a href="#" class="<?php echo esc_url($free_trial_url); ?>">Free Trial <i class="fa-solid fa-square-arrow-up-right"></i></a>
-                <a href="#" class="<?php echo esc_url($challenge_begins_url); ?>">Challenge Begins <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <a href="<?php echo esc_url($free_trial_url); ?>" class="btn ypf-button free-trial">Free Trial <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <a href="<?php echo esc_url($challenge_begins_url); ?>" class="btn ypf-button challenge-begins">Challenge Begins <i class="fa-solid fa-square-arrow-up-right"></i></a>
             </div>
+
 
             <?php
             return ob_get_clean(); // Return the buffered output
