@@ -1,9 +1,6 @@
 <div class="wrap">
     <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
     <form action='options.php' method='post'>
-
-        <h2>YPF Pricing Table</h2>
-
         <?php
         settings_fields( 'ypfPricingTableOptionsGroup' );
         do_settings_sections( 'ypfPricingTableOptionsGroup' );
