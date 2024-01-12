@@ -171,7 +171,7 @@ function check_for_shortcode_and_enqueue_scripts() {
         global $post;
 
         // Check if the current post exists and contains your shortcode
-        if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'your-shortcode')) {
+        if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'ypf-pricing-table')) {
             // Enqueue scripts and styles here
             wp_enqueue_style('ypf-plugins-css');
             wp_enqueue_script('ypf-plugins-js');
