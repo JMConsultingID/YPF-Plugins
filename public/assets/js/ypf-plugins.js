@@ -64,7 +64,7 @@ function initializeSwiper() {
       grabCursor: false,
       keyboard: false,
       autoHeight: false,
-      effect: 'fade', // Set the transition effect to 'fade'
+      effect: 'slide', // Set the transition effect to 'fade'
       noSwiping: true,
       allowTouchMove: false,
       fadeEffect: {
