@@ -4,6 +4,8 @@
         <?php
         settings_fields( 'ypfPricingTableOptionsGroup' );
         do_settings_sections( 'ypfPricingTableOptionsGroup' );
+        // Get all posts of type 'tooltips-table'
+        $tooltips_posts = get_all_tooltips_posts();
         ?>
 
         <table class="form-table">
@@ -40,6 +42,19 @@
                 <td>
                     <input type="checkbox" id="ypf_enable_tooltips" name="ypf_enable_tooltips" value="1" <?php checked(1, get_option('ypf_enable_tooltips'), true); ?> />
                     <label for="ypf_enable_tooltips">Enable Tooltips on Side Title Pricing Table. <code>[under development, but you can use it]</code></label>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Select Tooltip Post:</th>
+                <td>
+                    <select id="ypf_select_post_tooltips" name="ypf_select_post_tooltips">
+                        <?php foreach ($tooltips_posts as $post): ?>
+                            <option value="<?php echo esc_attr($post->ID); ?>" <?php selected(get_option('ypf_select_post_tooltips'), $post->ID); ?>>
+                                <?php echo esc_html($post->post_title); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </td>
             </tr>
 
