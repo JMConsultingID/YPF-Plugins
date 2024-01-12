@@ -281,7 +281,7 @@
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row font {
     vertical-align: inherit;
-    display: inline; /* Ensure these elements don't disrupt flex layout */
+    display: contents; /* Ensure these elements don't disrupt flex layout */
 }
 
 /*Button Section*/
