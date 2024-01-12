@@ -60,7 +60,7 @@ function initializeSwiper() {
   if (activeTabPanel && window.innerWidth <= 991) {
     pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
       slidesPerView: "auto",
-      spaceBetween: 2,
+      spaceBetween: 0,
       grabCursor: false,
       keyboard: false,
       autoHeight: false,
