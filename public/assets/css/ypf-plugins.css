@@ -301,7 +301,8 @@ a.ypf-button{
   font-size: 15px;
 }
 a.ypf-button i{
-  padding: 10px;
+  padding-left:10px;
+  padding-right:10px;
 }
 a.ypf-button.free-trial {
     background-color: #F24F42;
