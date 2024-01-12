@@ -66,6 +66,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
 
+	$tooltips_post = get_option('ypf_select_post_tooltips');
+    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
+
 	// Check if a product ID is selected   
 	if (!empty($selected_product_id)) {
     	// Fetch the product object
@@ -75,7 +78,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             ?>
             <div class="pricing__table product-<?php echo $selected_product_id; ?>">
 		  	<div class="pt__title">
-                <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id); ?>
+                <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
             </div>
 
 		  	<div class="pt__option">
@@ -138,7 +141,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         return $product_options;
     }
 
-    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 1397) {
+    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id) {
 	    // Fetch group field values and object for the product
 	    $group_field_values = get_field($group_field_name, $product_id);
 	    $group_field_object = get_field_object($group_field_name, $product_id);

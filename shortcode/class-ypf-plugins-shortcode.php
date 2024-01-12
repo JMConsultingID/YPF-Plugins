@@ -9,6 +9,9 @@ function ypf_pricing_table_shortcode( $atts ) {
 
     $selected_product_id = $atts['productid'];
 
+    $tooltips_post = get_option('ypf_select_post_tooltips');
+    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
+
     if ( ! empty( $selected_product_id ) ) {
         $product = wc_get_product( $selected_product_id );
 
@@ -19,7 +22,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                 ?>
                 <div class="pricing__table product-<?php echo $selected_product_id; ?>">
                 <div class="pt__title">
-                    <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id); ?>
+                    <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
                 </div>
 
 
@@ -91,7 +94,7 @@ function ypf_pricing_table_shortcode( $atts ) {
 }
 add_shortcode( 'ypf-pricing-table', 'ypf_pricing_table_shortcode' );
 
-function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 1397) {
+function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id) {
     // Fetch group field values and object for the product
     $group_field_values = get_field($group_field_name, $product_id);
     $group_field_object = get_field_object($group_field_name, $product_id);
