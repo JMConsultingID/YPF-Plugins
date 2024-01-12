@@ -53,6 +53,7 @@
             </tr>
             
         </table>
+        <p>If you have any questions or need assistance, Please Open an issue in the <a href="https://github.com/JMConsultingID/ypf-plugins">[GitHub repository]</a></p>
 
         <?php submit_button(); ?>
 
