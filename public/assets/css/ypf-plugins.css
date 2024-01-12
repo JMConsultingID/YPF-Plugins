@@ -330,4 +330,7 @@ a.ypf-button.challenge-begins:hover {
    padding-left: 15px;
    padding-right: 15px;
 }
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
+ font-size: 16px;
+}
 }
