@@ -64,8 +64,8 @@ function ypf_pricing_table_shortcode( $atts ) {
             ?>
 
             <div class="ypf-btn-wrap">
-                <a href="#" class="btn ypf-button free-trial">Free Trial <i class="fa-solid fa-arrow-up-right"></i></a>
-                <a href="#" class="btn ypf-button challenge-begins">Challenge Begins <i class="fa-solid fa-arrow-up-right"></i></a>
+                <a href="#" class="btn ypf-button free-trial">Free Trial <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <a href="#" class="btn ypf-button challenge-begins">Challenge Begins <i class="fa-solid fa-square-arrow-up-right"></i></a>
             </div>
 
 
