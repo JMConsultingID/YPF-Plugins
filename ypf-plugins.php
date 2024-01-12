@@ -69,7 +69,7 @@ class YPF_Plugins {
      * Register the administration menu for this plugin into the WordPress Dashboard menu.
      */
     public function add_plugin_admin_menu() {
-        add_menu_page('YPF Plugins', 'YPF Plugins', 'manage_options', $this->plugin_name, array($this, 'display_plugin_admin_page'), 'dashicons-editor-table',98);
+        add_menu_page('YPF Plugins', 'YPF Plugins', 'manage_options', $this->plugin_name, array($this, 'display_plugin_admin_page'), 'dashicons-editor-table',99);
         add_submenu_page($this->plugin_name, 'YPF Pricing Table', 'YPF Pricing Table', 'manage_options', $this->plugin_name . '-pricing-table', array($this, 'display_ypf_pricing_table_admin_page'));
     }
 
