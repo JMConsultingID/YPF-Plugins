@@ -87,12 +87,13 @@ function ypf_pricing_table_shortcode( $atts ) {
 }
 add_shortcode( 'ypf-pricing-table', 'ypf_pricing_table_shortcode' );
 
-function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id) {
+function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id = 860) {
+    // Fetch group field values and object for the product
     $group_field_values = get_field($group_field_name, $product_id);
-    $tooltips_field_values = get_field($tooltips_field_name, $product_id);
-
     $group_field_object = get_field_object($group_field_name, $product_id);
-    $tooltips_field_object = get_field_object($tooltips_field_name, $product_id);
+
+    // Fetch tooltips field values from the global tooltips post
+    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id);
 
     if ($group_field_object) {
         echo '<div class="pt__title__wrap">';
@@ -121,6 +122,7 @@ function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_fiel
         echo '</div>'; // Close pt__title__wrap
     }
 }
+
 
 function display_acf_group_fields($group_field_name, $product_id, $css_class_prefix) {
     // Fetch the ACF group field for the current product
