@@ -274,6 +274,15 @@
 .pricing__table .pt__option .pt__option__mobile__nav .mobile__nav__btn:hover {
  background-color: #971e23;
 }
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row {
+    overflow: hidden; /* Add this to handle overflow */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add an ellipsis for overflowed text */
+}
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row font {
+    vertical-align: inherit;
+    display: inline; /* Ensure these elements don't disrupt flex layout */
+}
 
 /*Button Section*/
 .ypf-btn-wrap {
