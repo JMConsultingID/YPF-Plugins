@@ -293,7 +293,7 @@ a.ypf-button{
 a.ypf-button.free-trial {
     background-color: #F24F42;
     color: #FFFFFF;
-    padding: 20px 25px;
+    padding: 16px 25px;
 }
 a.ypf-button.free-trial:hover {
     color: #FFFFFF;
@@ -302,7 +302,7 @@ a.ypf-button.challenge-begins {
     background-color: rgba(242, 79, 66, 0); /* #F24F4200 */
     color: #939393;
     border: 1px solid #ADADAD;
-    padding: 20px 28px;
+    padding: 16px 28px;
 }
 a.ypf-button.challenge-begins:hover {
     color: #939393;
