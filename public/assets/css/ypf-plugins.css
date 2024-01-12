@@ -288,8 +288,8 @@
     padding: 20px;
 }
 
-.ypf-button{
-  text-decoration: none;
+a.ypf-button{
+  text-decoration: none!important;
 }
 
 .free-trial {
