@@ -80,6 +80,7 @@ class YPF_Plugins {
         register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_pricing_table');
         register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_elementor_widget');
         register_setting('ypfPricingTableOptionsGroup', 'ypf_select_style_widget');
+        register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_tooltips');
     }
 
     /**
