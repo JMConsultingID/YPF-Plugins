@@ -158,10 +158,6 @@ function ypf_plugins_widgets() {
         wp_register_script( 'ypf-popper-js', 'https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js', __FILE__ , array(''), '2.0.0', true );
         wp_register_script( 'ypf-tippy-js', 'https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js', __FILE__ , array(''), '2.0.0', true );
         wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js','ypf-popper-js', 'ypf-tippy-js'), '1.0.0', true );
-
-        // Enqueue styles and scripts
-        wp_enqueue_style( 'ypf-plugins-css',999 );
-        wp_enqueue_script( 'ypf-plugins-js',999 ); 
     }
 }
 add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', );
@@ -173,8 +169,8 @@ function check_for_shortcode_and_enqueue_scripts() {
         // Check if the current post exists and contains your shortcode
         if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'ypf-pricing-table')) {
             // Enqueue scripts and styles here
-            wp_enqueue_style('ypf-plugins-css');
-            wp_enqueue_script('ypf-plugins-js');
+            wp_enqueue_style('ypf-plugins-css',999);
+            wp_enqueue_script('ypf-plugins-js',999);
         }
     }
 }

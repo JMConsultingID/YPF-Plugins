@@ -22,11 +22,11 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	}
 
 	public function get_style_depends() {
-        return ['ypf-font-awesome-css', 'ypf-swiper-bundle-css', 'ypf-plugins-css'];
+        return ['ypf-plugins-css'];
     }
 
     public function get_script_depends() {
-        return ['ypf-swiper-bundle-js', 'ypf-popper-js', 'ypf-tippy-js', 'ypf-plugins-js'];
+        return ['ypf-plugins-js'];
     }
 
 	protected function register_controls() {
