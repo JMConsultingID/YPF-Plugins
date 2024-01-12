@@ -39,9 +39,9 @@
             </tr>
 
             <tr valign="top">
-                <th scope="row">Shortcode:</th>
+                <th scope="row">Default Shortcode Format :</th>
                 <td>
-                    Default Shortcode Format <code>[ypf-pricing-table productID="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
+                    <code>[ypf-pricing-table productID="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
                 </td>
             </tr>
         </table>
