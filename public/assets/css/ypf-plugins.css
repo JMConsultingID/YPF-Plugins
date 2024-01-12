@@ -288,6 +288,10 @@
     padding: 20px;
 }
 
+.ypf-button{
+  text-decoration: none;
+}
+
 .free-trial {
     background-color: #F24F42;
     color: #FFFFFF;
