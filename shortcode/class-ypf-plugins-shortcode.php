@@ -3,8 +3,8 @@ function ypf_pricing_table_shortcode( $atts ) {
     // Extract shortcode attributes
     $atts = shortcode_atts( array(
         'productid' => '',
-        'free_trial_btn' => 'Free Trial', // Default text for the Free Trial button
-        'challenge_begins_btn' => 'Challenge Begins', // Default text for the Challenge Begins button
+        'free_trial_btn' => '', // Default text for the Free Trial button
+        'challenge_begins_btn' => '', // Default text for the Challenge Begins button
     ), $atts );
 
     $selected_product_id = $atts['productid'];
@@ -71,8 +71,12 @@ function ypf_pricing_table_shortcode( $atts ) {
             ?>
 
             <div class="ypf-btn-wrap">
+                <?php if (!empty($atts['free_trial_btn'])): ?>
                 <a href="<?php echo esc_url($free_trial_url); ?>" class="btn ypf-button free-trial"><?php echo esc_html($atts['free_trial_btn']); ?> <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <?php endif; ?>
+                <?php if (!empty($atts['challenge_begins_btn'])): ?>
                 <a href="<?php echo esc_url($challenge_begins_url); ?>" class="btn ypf-button challenge-begins"><?php echo esc_html($atts['challenge_begins_btn']); ?> <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <?php endif; ?>
             </div>
 
 
