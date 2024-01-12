@@ -67,7 +67,7 @@ function initializeSwiper() {
       effect: 'slide', // Set the transition effect to 'fade'
       noSwiping: true,
       allowTouchMove: false,
-      speed: 1000, // Transition duration in milliseconds (1000ms = 1s)
+      speed: 700, // Transition duration in milliseconds (1000ms = 1s)
       navigation: {
         nextEl: activeTabPanel.querySelector("#navBtnRight"),
         prevEl: activeTabPanel.querySelector("#navBtnLeft"),
