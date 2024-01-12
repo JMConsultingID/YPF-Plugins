@@ -61,13 +61,17 @@ function ypf_pricing_table_shortcode( $atts ) {
 
                 <?php
             echo '</div>'; // Close ypf-tab-panel
+
+            // Fetch URLs from ACF fields
+            $free_trial_url = get_field('free_trial_url', $selected_product_id);
+            $challenge_begins_url = get_field('challenge_begins_url', $selected_product_id);
+
             ?>
 
             <div class="ypf-btn-wrap">
-                <a href="#" class="btn ypf-button free-trial">Free Trial <i class="fa-solid fa-square-arrow-up-right"></i></a>
-                <a href="#" class="btn ypf-button challenge-begins">Challenge Begins <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <a href="#" class="<?php echo esc_url($free_trial_url); ?>">Free Trial <i class="fa-solid fa-square-arrow-up-right"></i></a>
+                <a href="#" class="<?php echo esc_url($challenge_begins_url); ?>">Challenge Begins <i class="fa-solid fa-square-arrow-up-right"></i></a>
             </div>
-
 
             <?php
             return ob_get_clean(); // Return the buffered output
