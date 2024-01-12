@@ -81,6 +81,7 @@ class YPF_Plugins {
         register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_elementor_widget');
         register_setting('ypfPricingTableOptionsGroup', 'ypf_select_style_widget');
         register_setting('ypfPricingTableOptionsGroup', 'ypf_enable_tooltips');
+        register_setting('ypfPricingTableOptionsGroup', 'ypf_select_post_tooltips');
     }
 
     /**
@@ -140,6 +141,16 @@ function ypf_plugins_settings_link($links) {
     $settings_link = '<a href="admin.php?page=ypf-plugins">Settings</a>';
     array_push($links, $settings_link);
     return $links;
+}
+
+function get_all_tooltips_posts() {
+    $args = array(
+        'post_type' => 'tooltips-table',
+        'posts_per_page' => -1,  // Retrieve all posts
+    );
+
+    $posts = get_posts($args);
+    return $posts;
 }
 
 /**
