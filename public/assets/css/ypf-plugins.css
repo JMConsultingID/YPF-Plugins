@@ -300,6 +300,9 @@ a.ypf-button{
   text-decoration: none!important;
   font-size: 15px;
 }
+a.ypf-button i{
+  padding: 10px;
+}
 a.ypf-button.free-trial {
     background-color: #F24F42;
     color: #FFFFFF;
