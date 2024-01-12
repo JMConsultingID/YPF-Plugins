@@ -112,17 +112,21 @@ function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_fiel
             $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 
             $sub_field_tooltip_text = '';
-            if (!empty($sub_field_tooltip)) { 
-                $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
+            if (get_option('ypf_enable_tooltips')) {
+                if (!empty($sub_field_tooltip)) { 
+                    $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
+                }
             }
             echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . '"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
         }
 
         echo '<div style="display: none;">';
-        foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
-            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
-            $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
-            echo '<div id="'. esc_html($sub_field_tooltips_name) . '">' . esc_html($sub_field_tooltip) . '</div>';                   
+        if (get_option('ypf_enable_tooltips')) {
+            foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
+                $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+                $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
+                echo '<div id="'. esc_html($sub_field_tooltips_name) . '">' . esc_html($sub_field_tooltip) . '</div>';                   
+            }
         }
         echo '</div>';
 
