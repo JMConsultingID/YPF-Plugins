@@ -37,6 +37,13 @@
                     <label for="ypf_widget_style">Choose the style for the Elementor widget.</label>
                 </td>
             </tr>
+
+            <tr valign="top">
+                <th scope="row">Shortcode:</th>
+                <td>
+                    Default Shortcode Format <code>[ypf-pricing-table productID="23" free_trial_btn="無料体験" challenge_begins_btn="チャレンジ開始"]</code>
+                </td>
+            </tr>
         </table>
 
         <?php submit_button(); ?>
