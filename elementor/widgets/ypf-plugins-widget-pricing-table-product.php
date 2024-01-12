@@ -21,6 +21,14 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		return [ 'ypf plugins', 'ypf','pricing', 'table' ];
 	}
 
+	public function get_style_depends() {
+        return ['ypf-font-awesome-css', 'ypf-swiper-bundle-css', 'ypf-plugins-css'];
+    }
+
+    public function get_script_depends() {
+        return ['ypf-swiper-bundle-js', 'ypf-popper-js', 'ypf-tippy-js', 'ypf-plugins-js'];
+    }
+
 	protected function register_controls() {
 
 		// Content Tab Start
