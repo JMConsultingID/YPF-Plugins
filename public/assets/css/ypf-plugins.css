@@ -243,22 +243,6 @@
   color: transparent; /* make the text invisible */
   user-select: none; /* prevent selection of the text */
 }
-.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical:first-child{
-  border-radius: 20px 0px 0px 0px;
-}
-
-.pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical:nth-last-child(2){
-  border-radius: 0px 0px 0px 20px;
-}
-
-.pricing__table .pt__option .pt__option__item .pt__item .pt__row.step_3_prop_trader.val:first-child{
-  border-radius: 0px 20px 0px 0px;  
-}
-
-.pricing__table .pt__option .pt__option__item .pt__item .pt__row.step_3_prop_trader.val:last-child{
-  border-radius: 0px 0px 20px 0px;  
-}
-
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.val{
   background: #971e23;
   color: #fff;
@@ -281,6 +265,12 @@
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row font {
     vertical-align: inherit;
     display: contents; /* Ensure these elements don't disrupt flex layout */
+}
+
+.pricing__table .pt__title .pt__title__wrap {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow: hidden;
 }
 
 .pricing__table .pt__option .pt__option__item:last-child{
