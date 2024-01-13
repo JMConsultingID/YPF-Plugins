@@ -208,10 +208,10 @@
 }
 }
 @media (max-width: 640px) {
- .pricing__table .pt__option .pt__option__item .pt__item .pt__row {
+/* .pricing__table .pt__option .pt__option__item .pt__item .pt__row {
    font-size: 14px;
    font-weight: 400;
-}
+}*/
 }
 
 /*Customize*/
@@ -327,7 +327,7 @@ a.ypf-button.challenge-begins:hover {
    padding-left: 15px;
    padding-right: 15px;
 }
-.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
+/*.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
  font-size: 14px;
-}
+}*/
 }
