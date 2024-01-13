@@ -221,7 +221,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 					'px' => [
 						'min' => 0,
 						'max' => 100,
-						'step' => 20,
+						'step' => 5,
 					],
 				],
 				'default' => [
@@ -233,7 +233,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 				],
 			]
 		);
-	    
+
     
 		$this->add_control(
 			'general_border_radius_right',
@@ -245,7 +245,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 					'px' => [
 						'min' => 0,
 						'max' => 100,
-						'step' => 20,
+						'step' => 5,
 					],
 				],
 				'default' => [
