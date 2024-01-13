@@ -113,8 +113,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 	protected function render() {		
 	// Check if Elementor editor is active
-    if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
-        // Get the selected product ID from the widget settings
+    // Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
 	$tooltips_post = get_option('ypf_select_post_tooltips');
@@ -176,68 +175,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		} else {
         echo '<p>Please select a product.</p>';
     	}
-    } else {
-	// Get the selected product ID from the widget settings
-	$settings = $this->get_settings_for_display();
-	$selected_product_id = $settings['selected_product'];
-	$tooltips_post = get_option('ypf_select_post_tooltips');
-    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
-
-	// Check if a product ID is selected   
-	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
-    	// Fetch the product object
-        $product = wc_get_product($selected_product_id);
-
-        echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
-            ?>
-            <div class="pricing__table product-<?php echo $selected_product_id; ?>">
-
-            <?php 
-        	// Get the first repeater field for the title
-    		$first_item = $settings['slide_items'][0] ?? null;
-    		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
-			  	<div class="pt__title">
-	                <?php display_acf_group_labels_and_tooltips($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
-	            </div>
-	        <?php 
-	         }
-	        ?>
-
-		  	<div class="pt__option">
-
-		    <?php display_swiper_navigation_buttons('navBtnLeft', 'navBtnRight'); ?>
-
-		    <?php
-		    	if (!empty($settings['slide_items'])) {
-			        echo '<div class="pt__option__slider swiper" id="pricingTableSlider">
-			                 <div class="swiper-wrapper">';
-			        foreach ($settings['slide_items'] as $item) {
-			            echo '<div class="swiper-slide pt__option__item">
-			                      <div class="pt__item">
-			                          <div class="pt__item__wrap">';
-			            
-			            // Assuming $product_id is available in scope
-			            $this->display_acf_group_fields($item['acf_group_field'], $selected_product_id, $item['acf_group_field']);
-			            
-			            echo '        </div>
-			                      </div>
-			                  </div>';
-			        }
-
-			        echo '    </div>
-			              </div>';
-			    }
-		    ?>
-
-			</div>
-			</div>
-
-            <?php
-      	echo '</div>'; // Close ypf-tab-panel
-		} else {
-        echo '<p>Please select a product.</p>';
-    	}
-	}
 	}
 
     // Helper function to get WooCommerce products
