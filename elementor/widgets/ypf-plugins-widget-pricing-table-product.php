@@ -123,7 +123,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Side Title Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}}!important;', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
@@ -135,7 +135,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Table Content Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_content__elementor' => 'background-color: {{VALUE}}!important;', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__table_content__elementor' => 'background-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
@@ -147,7 +147,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('General Text Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_text_color' => 'color: {{VALUE}}!important;', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__table_general_text_color' => 'color: {{VALUE}}!important;',
 	            ],
 	        ]
 	    );
@@ -159,10 +159,47 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('General Border Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
+
+	    // Mobile Button Backgound Control
+	    $this->add_control(
+	        'mobile_button_background_color', // Unique name for the control
+	        [
+	            'label' => __('Mobile Button Backgound', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_background__elementor' => 'background-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+
+	    // Mobile Button Arrow Color Control
+	    $this->add_control(
+	        'mobile_button_arrow_color', // Unique name for the control
+	        [
+	            'label' => __('Mobile Button Arrow Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_arrow__elementor' => 'color: {{VALUE}}!important;',
+	            ],
+	        ]
+	    );
+
+	    // Mobile Button Arrow Color Control
+	    $this->add_control(
+	        'disable_mobile_button_background_color', // Unique name for the control
+	        [
+	            'label' => __('DisabeMobile Mobile Button', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_background__elementor.swiper-button-disabled' => 'background-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+	    
 
 	    $this->end_controls_section();
 
