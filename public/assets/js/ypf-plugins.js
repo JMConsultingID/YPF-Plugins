@@ -33,6 +33,7 @@ jQuery(document).ready(function($) {
 var pricingCardSwiper;
 var pricingCardSwiperSingle;
 var init = false;
+var initSwiperSingle = false;
 var currentSlideIndex = 0;
 
 // Function to initialize Swiper for #pricingTableSlider
@@ -68,13 +69,9 @@ function initializeSwiper() {
 
 // Function to initialize Swiper for #pricingTableSliderSingle
 function initializeSwiperSingle() {
-    var swiperContainerSingle = document.querySelector('#pricingTableSliderSingle');
-
-    // Check if the swiper container exists
-    if (swiperContainerSingle) {
-        if (window.innerWidth <= 991 && !pricingCardSwiperSingle) {
-            // Initialize Swiper if not already initialized and on small screens
-            pricingCardSwiperSingle = new Swiper(swiperContainerSingle, {
+    if (window.innerWidth <= 991) {
+        if (!initSwiperSingle) {
+            pricingCardSwiperSingle = new Swiper("#pricingTableSliderSingle", {
                 slidesPerView: "auto",
                 spaceBetween: 0,
                 grabCursor: false,
@@ -89,14 +86,13 @@ function initializeSwiperSingle() {
                   prevEl: "#navBtnLeftSingle",
                 },
             });
-        } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
-            // Destroy Swiper on larger screens
+            initSwiperSingle = true;
+        } else {
             pricingCardSwiperSingle.destroy();
-            pricingCardSwiperSingle = null;
+            initSwiperSingle = false;
         }
     }
 }
-
 
 // Initialize Swipers on first load and on window resize
 initializeSwiper();
@@ -135,7 +131,6 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
         }
     });
 });
-
 
 tippy('.data-template', {
     content(reference) {
