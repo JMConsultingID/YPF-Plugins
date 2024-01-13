@@ -214,7 +214,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
                     $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
                 }
             }
-            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' pt__title__elementor"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
+            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' pt__title__elementor pt__table_general_text_color pt__table_general_border_color"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
         }
 
         echo '<div style="display: none;">';
@@ -248,7 +248,7 @@ function display_acf_group_fields_el($group_field_name, $product_id, $css_class_
             // Determine the class to add based on whether it's the first item
             $additional_class = $is_first_item ? 'pt__title__elementor' : 'pt__table_content__elementor';
 
-            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . '">' . $sub_field_value . '</div>';
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_text_color pt__table_general_border_color">' . $sub_field_value . '</div>';
             $is_first_item = false; // After the first iteration, set this flag to false
         }
     }

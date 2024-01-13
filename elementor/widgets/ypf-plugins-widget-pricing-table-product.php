@@ -116,7 +116,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // Side Title Background Control
+	    // Side and Top Title Background Control
 	    $this->add_control(
 	        'side_title_background', // Unique name for the control
 	        [
@@ -136,6 +136,30 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
 	                '{{WRAPPER}} .pt__table_content__elementor' => 'background-color: {{VALUE}}!important;', // Apply style to .pt__title
+	            ],
+	        ]
+	    );
+
+	    // General Text Color Control
+	    $this->add_control(
+	        'general_text_color', // Unique name for the control
+	        [
+	            'label' => __('General Text Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__table_general_text_color' => 'color: {{VALUE}}!important;', // Apply style to .pt__title
+	            ],
+	        ]
+	    );
+
+	    // General Border Color Control
+	    $this->add_control(
+	        'general_border_color', // Unique name for the control
+	        [
+	            'label' => __('General Border Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', // Apply style to .pt__title
 	            ],
 	        ]
 	    );
