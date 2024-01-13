@@ -123,7 +123,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Side Title Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .heading-vertical' => 'background-color: {{VALUE}};', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}};', // Apply style to .pt__title
 	            ],
 	        ]
 	    );
@@ -159,7 +159,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
 			  	<div class="pt__title">
-	                <?php display_acf_group_labels_and_tooltips($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
+	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
 	            </div>
 	        <?php 
 	         }
@@ -167,7 +167,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 		  	<div class="pt__option">
 
-		    <?php display_swiper_navigation_buttons('navBtnLeft', 'navBtnRight'); ?>
+		    <?php display_swiper_navigation_buttons_el('navBtnLeft', 'navBtnRight'); ?>
 
 		    <?php
 		    	if (!empty($settings['slide_items'])) {
@@ -179,7 +179,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			                          <div class="pt__item__wrap">';
 			            
 			            // Assuming $product_id is available in scope
-			            $this->display_acf_group_fields($item['acf_group_field'], $selected_product_id, $item['acf_group_field']);
+			            $this->display_acf_group_fields_el($item['acf_group_field'], $selected_product_id, $item['acf_group_field']);
 			            
 			            echo '        </div>
 			                      </div>
@@ -216,7 +216,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         return $product_options;
     }
 
-    private function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id) {
+    private function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id) {
 	    // Fetch group field values and object for the product
 	    $group_field_values = get_field($group_field_name, $product_id);
 	    $group_field_object = get_field_object($group_field_name, $product_id);
@@ -239,7 +239,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		                $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
 		            }
 	        	}
-	            echo '<div class="pt__row heading-vertical"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
+	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' pt__title__elementor"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
 	        }
 
 	        echo '<div style="display: none;">';
@@ -255,7 +255,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    }
 	}
 
-	private function display_acf_group_fields($group_field_name, $product_id, $css_class_prefix) {
+	private function display_acf_group_fields_el($group_field_name, $product_id, $css_class_prefix) {
 	    // Fetch the ACF group field for the current product
 	    $group_field_values = get_field($group_field_name, $product_id);
 	            
@@ -274,7 +274,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    }
 	}
 
-	private function display_swiper_navigation_buttons($left_button_id, $right_button_id) {
+	private function display_swiper_navigation_buttons_el($left_button_id, $right_button_id) {
 	    ?>
 	    <div class="pt__option__mobile__nav">
 	        <a id="<?php echo esc_attr($left_button_id); ?>" href="#" class="mobile__nav__btn swiper-button-prev">
