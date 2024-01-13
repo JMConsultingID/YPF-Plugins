@@ -280,55 +280,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			]
 		);
 
-		$this->end_controls_section();
-
-
-		$this->start_controls_section(
-	        'table_additional_section', // Unique name for the section
-	        [
-	            'label' => __('Additional Settings', 'ypf-plugins'), // Section label
-	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
-	        ]
-	    );
-
-	    // Mobile Button Backgound Control
-	    $this->add_control(
-	        'mobile_button_background_color', // Unique name for the control
-	        [
-	            'label' => __('Mobile Button Backgound', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::COLOR,
-	            'selectors' => [
-	                '{{WRAPPER}} .pt__mobile_button_background__elementor' => 'background-color: {{VALUE}}!important;', 
-	            ],
-	        ]
-	    );
-
-	    // Mobile Button Arrow Color Control
-	    $this->add_control(
-	        'mobile_button_arrow_color', // Unique name for the control
-	        [
-	            'label' => __('Mobile Button Arrow Color', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::COLOR,
-	            'selectors' => [
-	                '{{WRAPPER}} .pt__mobile_button_arrow__elementor svg' => 'color: {{VALUE}}!important;',
-	            ],
-	        ]
-	    );
-
-	    // Mobile Button Arrow Color Control
-	    $this->add_control(
-	        'disable_mobile_button_background_color', // Unique name for the control
-	        [
-	            'label' => __('Disable Mobile Mobile Button', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::COLOR,
-	            'selectors' => [
-	                '{{WRAPPER}} .pt__mobile_button_background__elementor.swiper-button-disabled' => 'background-color: {{VALUE}}!important;', 
-	            ],
-	        ]
-	    );
-	    
-
-	    $this->end_controls_section();
+		$this->end_controls_section();		
 
 	    $this->start_controls_section(
 	        'border_radius_section', // Unique name for the section
@@ -406,6 +358,53 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		);
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+	        'table_additional_section', // Unique name for the section
+	        [
+	            'label' => __('Additional Settings', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
+	        ]
+	    );
+
+	    // Mobile Button Backgound Control
+	    $this->add_control(
+	        'mobile_button_background_color', // Unique name for the control
+	        [
+	            'label' => __('Mobile Button Backgound', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_background__elementor' => 'background-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+
+	    // Mobile Button Arrow Color Control
+	    $this->add_control(
+	        'mobile_button_arrow_color', // Unique name for the control
+	        [
+	            'label' => __('Mobile Button Arrow Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_arrow__elementor svg' => 'color: {{VALUE}}!important;',
+	            ],
+	        ]
+	    );
+
+	    // Mobile Button Arrow Color Control
+	    $this->add_control(
+	        'disable_mobile_button_background_color', // Unique name for the control
+	        [
+	            'label' => __('Disable Mobile Mobile Button', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__mobile_button_background__elementor.swiper-button-disabled' => 'background-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+	    
+
+	    $this->end_controls_section();
 
 
 	}
