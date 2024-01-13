@@ -180,11 +180,11 @@
  border-bottom: 1px solid rgba(73, 72, 74, .1);
  max-height: 70px;
 }
-.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
+/*.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
  border-bottom: 0;
  font-size: 18px;
  font-weight: 600;
-}
+}*/
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child {
  display: inline-flex;
  padding: 20px 15px;
