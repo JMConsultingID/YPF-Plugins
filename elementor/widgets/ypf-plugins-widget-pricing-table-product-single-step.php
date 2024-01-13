@@ -1,12 +1,12 @@
 <?php
-class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\Widget_Base {
+class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elementor\Widget_Base {
 
 	public function get_name() {
 		return 'ypfplugins_pricing_table_product';
 	}
 
 	public function get_title() {
-		return esc_html__( 'YPF Product Multiple Step', 'ypf-plugins' );
+		return esc_html__( 'YPF Product Single Step (Development)', 'ypf-plugins' );
 	}
 
 	public function get_icon() {
@@ -66,8 +66,18 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		    ]
 		);	  
 
-        // Add a select control for products
-        $this->add_control(
+        $repeater = new \Elementor\Repeater();
+
+        // Step Name Field
+	    $repeater->add_control(
+	        'step_name', [
+	            'label' => __('Header Name', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::TEXT,
+	        ]
+	    );
+
+	    // Add a select control for products
+       $repeater->add_control(
             'selected_product',
             [
                 'label' => __('Select Product', 'ypf-plugins'),
@@ -76,16 +86,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
                 'default' => 'Select Product',
             ]
         );
-
-        $repeater = new \Elementor\Repeater();
-
-        // Step Name Field
-	    $repeater->add_control(
-	        'step_name', [
-	            'label' => __('Step Name', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::TEXT,
-	        ]
-	    );
 
 	    $repeater->add_control(
 	        'acf_group_field', [
@@ -404,69 +404,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	}
 
 	protected function render() {		
-	// Check if Elementor editor is active
-    // Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
-	$selected_product_id = $settings['selected_product'];
-	$tooltips_post = get_option('ypf_select_post_tooltips');
-    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
-    // Check the value of 'pricing_table_card' control
-    $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
-
-	// Check if a product ID is selected   
-	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
-    	// Fetch the product object
-        $product = wc_get_product($selected_product_id);
-
-        echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
-            ?>
-            <div class="pricing__table product-<?php echo $selected_product_id; ?>">
-
-            <?php 
-        	// Get the first repeater field for the title
-    		$first_item = $settings['slide_items'][0] ?? null;
-    		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
-			  	<div class="pt__title">
-	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
-	            </div>
-	        <?php 
-	         }
-	        ?>
-
-		  	<div class="pt__option">
-
-		    <?php display_swiper_navigation_buttons_el('navBtnLeft', 'navBtnRight'); ?>
-
-		    <?php
-		    	if (!empty($settings['slide_items'])) {
-		    		echo '<div class="pt__option__slider swiper" id="' . esc_attr($swiperID) . '">
-			                 <div class="swiper-wrapper">';
-			        foreach ($settings['slide_items'] as $item) {
-			            echo '<div class="swiper-slide pt__option__item">
-			                      <div class="pt__item">
-			                          <div class="pt__item__wrap">';
-			            
-			            // Assuming $product_id is available in scope
-			            display_acf_group_fields_el($item['acf_group_field'], $selected_product_id, $item['acf_group_field']);
-			            
-			            echo '        </div>
-			                      </div>
-			                  </div>';
-			        }
-
-			        echo '    </div>
-			              </div>';
-			    }
-		    ?>
-
-			</div>
-			</div>
-
-            <?php
-      	echo '</div>'; // Close ypf-tab-panel
-		} else {
-        echo '<p>Please select a product.</p>';
-    	}
+        echo '<p>Ops..!!, This widget still under Development, Stay tuned until the next update.</p>';
 	}
 
     // Helper function to get WooCommerce products
