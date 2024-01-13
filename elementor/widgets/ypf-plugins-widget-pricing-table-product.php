@@ -261,7 +261,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-	        'border_radius_section', // Unique name for the section
+	        'general_typography', // Unique name for the section
 	        [
 	            'label' => __('Font and Size', 'ypf-plugins'), // Section label
 	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
