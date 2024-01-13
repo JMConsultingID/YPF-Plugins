@@ -96,12 +96,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
-
-    protected function render() {
-    $settings = $this->get_settings_for_display();
-    $selected_product_id = $settings['product_id'];  // Ensure this is set correctly in your widget controls
-    $tooltips_post_id = get_option('ypf_select_post_tooltips') ?: '1397';  // Default tooltips post ID
-
 	// Check if a product ID is selected   
 	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
     	// Fetch the product object
