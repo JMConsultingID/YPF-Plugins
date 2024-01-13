@@ -37,7 +37,9 @@ function ypf_pricing_table_shortcode( $atts ) {
 
                             // Iterate through attributes and display group fields
                             foreach ($atts as $key => $value) {
-                                echo $value;
+                                if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
+                                    echo $value;
+                                }
                             }
                         ?>
 
