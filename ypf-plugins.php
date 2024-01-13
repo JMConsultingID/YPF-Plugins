@@ -238,13 +238,18 @@ function display_acf_group_fields_el($group_field_name, $product_id, $css_class_
     $group_field_object = get_field_object($group_field_name, $product_id);
             
     if ($group_field_values && $group_field_object) {
+        $is_first_item = true; // Flag to check if we are on the first item
         foreach ($group_field_object['sub_fields'] as $sub_field) {
             // The label is in the field object
             $sub_field_label = $sub_field['label'];
             $sub_field_name = $sub_field['name'];
             // The value is in the values array
             $sub_field_value = !empty($group_field_values[$sub_field['name']]) ? $group_field_values[$sub_field['name']] : '-';
-            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' pt__table_content__elementor">' . $sub_field_value . '</div>';
+            // Determine the class to add based on whether it's the first item
+            $additional_class = $is_first_item ? 'pt__title__elementor' : 'pt__table_content__elementor';
+
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . '">' . $sub_field_value . '</div>';
+            $is_first_item = false; // After the first iteration, set this flag to false
         }
     }
 }
