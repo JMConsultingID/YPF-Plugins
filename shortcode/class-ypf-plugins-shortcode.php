@@ -33,21 +33,39 @@ function ypf_pricing_table_shortcode( $atts ) {
                 <div class="pt__option__slider swiper" id="pricingTableSlider">
                     <div class="swiper-wrapper">
 
-                        <?php
+                        <?php 
+
+                            // Iterate through attributes and display group fields
                             foreach ($atts as $key => $value) {
                                 if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
-                                    ?>
-                                    <div class="swiper-slide pt__option__item">
-                                        <div class="pt__item">
-                                            <div class="pt__item__wrap">
-                                                <?php display_acf_group_fields($value, $selected_product_id, $value); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php
+                                    display_acf_group_fields($value, $selected_product_id, 'custom-css-class');
                                 }
                             }
                         ?>
+
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_1:_fx_challenge', $selected_product_id, 'step_1_fx_challenge'); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_2:_inspection_period', $selected_product_id, 'step_2_inspection_period'); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide pt__option__item">
+                            <div class="pt__item">
+                                <div class="pt__item__wrap">
+                                    <?php display_acf_group_fields('step_3:_prop_trader', $selected_product_id, 'step_3_prop_trader'); ?>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
