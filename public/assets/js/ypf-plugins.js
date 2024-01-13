@@ -68,6 +68,10 @@ function initializeSwiper() {
 
 // Function to initialize Swiper for #pricingTableSliderSingle
 function initializeSwiperSingle() {
+    if (pricingCardSwiperSingle) {
+        pricingCardSwiperSingle.destroy();
+        init = false;
+    }
     if (window.innerWidth <= 991 && !pricingCardSwiperSingle) {
         pricingCardSwiperSingle = new Swiper("#pricingTableSliderSingle", {
             slidesPerView: "auto",
@@ -84,6 +88,7 @@ function initializeSwiperSingle() {
               prevEl: "#navBtnLeftSingle",
             },
         });
+        init = true;
     } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
         pricingCardSwiperSingle.destroy();
         pricingCardSwiperSingle = null;
