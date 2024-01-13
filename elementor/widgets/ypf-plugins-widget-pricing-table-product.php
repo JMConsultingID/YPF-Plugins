@@ -160,7 +160,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // Side Title Background Control
+	    // Step Title Background Control
 	    $this->add_control(
 	        'step_title_background', // Unique name for the control
 	        [
@@ -172,7 +172,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // Side Title  Text Color Control
+	    // Step Title  Text Color Control
 	    $this->add_control(
 	        'step_title_text_color', // Unique name for the control
 	        [
@@ -184,7 +184,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // Side Title Typography Control
+	    // Step Title Typography Control
 	    $this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -228,7 +228,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // Side Title Typography Control
+	    // Content Title Typography Control
 	    $this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
@@ -360,6 +360,24 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 	}
 
+	// This method would be part of your Elementor widget class
+	public function print_typography_custom_css() {
+	    $settings = $this->get_settings_for_display();
+	    $typography_settings = $settings['step_title_typography'];
+
+	    if (!empty($typography_settings)) {
+	        // Generate CSS code with !important
+	        $css = "{{WRAPPER}} .ypf_step_title_bg_elementor {";
+	        $css .= "font-family: {$typography_settings['font_family']} !important;";
+	        $css .= "font-size: {$typography_settings['size']['size']}{$typography_settings['size']['unit']} !important;";
+	        // Add other typography properties (weight, transform, style, line-height, letter-spacing) as needed
+	        $css .= "}";
+
+	        // Print the CSS code
+	        echo '<style>' . $css . '</style>';
+	    }
+	}
+
 	protected function render() {		
 	// Check if Elementor editor is active
     // Get the selected product ID from the widget settings
@@ -369,6 +387,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
     // Check the value of 'pricing_table_card' control
     $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
+
+    $this->print_typography_custom_css();
 
 	// Check if a product ID is selected   
 	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
