@@ -109,48 +109,145 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 
 		$this->start_controls_section(
-	        'style_section', // Unique name for the section
+	        'side_title_style_section', // Unique name for the section
 	        [
-	            'label' => __('Background & Color', 'ypf-plugins'), // Section label
+	            'label' => __('General Side Title', 'ypf-plugins'), // Section label
 	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
 	        ]
 	    );
 
-	    // Side and Top Title Background Control
+	    // Side Title Background Control
 	    $this->add_control(
 	        'side_title_background', // Unique name for the control
 	        [
 	            'label' => __('Side Title Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}}!important;', 
+	                '{{WRAPPER}} .ypf_side_title_bg_elementor' => 'background-color: {{VALUE}}!important;', 
 	            ],
+	        ]
+	    );
+
+	    // Side Title  Text Color Control
+	    $this->add_control(
+	        'side_title_text_color', // Unique name for the control
+	        [
+	            'label' => __('Side Title Text Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .ypf_side_title_text_elementor' => 'color: {{VALUE}}!important;',
+	            ],
+	        ]
+	    );
+
+	    // Side Title Typography Control
+	    $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'side_title_typography',
+				'selector' => '{{WRAPPER}} .ypf_side_title_bg_elementor',
+			]
+		);
+
+	    $this->end_controls_section();
+
+
+	    $this->start_controls_section(
+	        'step_title_style_section', // Unique name for the section
+	        [
+	            'label' => __('General Step Title', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
 	        ]
 	    );
 
 	    // Side Title Background Control
 	    $this->add_control(
-	        'table_content_background', // Unique name for the control
+	        'step_title_background', // Unique name for the control
 	        [
-	            'label' => __('Table Content Background', 'ypf-plugins'),
+	            'label' => __('Step Title Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_content__elementor' => 'background-color: {{VALUE}}!important;', 
+	                '{{WRAPPER}} .ypf_step_title_bg_elementor' => 'background-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
 
-	    // General Text Color Control
+	    // Side Title  Text Color Control
 	    $this->add_control(
-	        'general_text_color', // Unique name for the control
+	        'step_title_text_color', // Unique name for the control
 	        [
-	            'label' => __('General Text Color', 'ypf-plugins'),
+	            'label' => __('Step Title Text Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_text_color' => 'color: {{VALUE}}!important;',
+	                '{{WRAPPER}} .ypf_step_title_text_elementor' => 'color: {{VALUE}}!important;',
 	            ],
 	        ]
 	    );
+
+	    // Side Title Typography Control
+	    $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'step_title_typography',
+				'selector' => '{{WRAPPER}} .ypf_step_title_bg_elementor',
+			]
+		);
+
+	    $this->end_controls_section();
+
+	    $this->start_controls_section(
+	        'content_style_section', // Unique name for the section
+	        [
+	            'label' => __('General Content', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
+	        ]
+	    );
+
+
+	    // Content Background Control
+	    $this->add_control(
+	        'table_content_background', 
+	        [
+	            'label' => __('Table Content Background', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .ypf_table_content_bg_elementor' => 'background-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+
+	    // Content Text Color Control
+	    $this->add_control(
+	        'table_content_text_color', // Unique name for the control
+	        [
+	            'label' => __('Content Text Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .ypf_table_content_text_elementor' => 'color: {{VALUE}}!important;',
+	            ],
+	        ]
+	    );
+
+	    // Side Title Typography Control
+	    $this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'content_text_typography',
+				'selector' => '{{WRAPPER}} .ypf_table_content_bg_elementor',
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		$this->start_controls_section(
+	        'table_additional_section', // Unique name for the section
+	        [
+	            'label' => __('Additional Settings', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
+	        ]
+	    );
+
 
 	    // General Border Color Control
 	    $this->add_control(
@@ -259,24 +356,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		);
 
 		$this->end_controls_section();
-
-		$this->start_controls_section(
-	        'general_typography', // Unique name for the section
-	        [
-	            'label' => __('Font and Size', 'ypf-plugins'), // Section label
-	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
-	        ]
-	    );
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'title_typography',
-				'selector' => '{{WRAPPER}} .pt__title__elementor',
-			]
-		);
-
-	    $this->end_controls_section();
 
 
 	}
