@@ -82,8 +82,8 @@ function initializeSwiperSingle() {
                 allowTouchMove: false,
                 speed: 700, // Transition duration in milliseconds
                 navigation: {
-                  nextEl: "#navBtnRightSingle", // Update these selectors to the correct ones for your single slider
-                  prevEl: "#navBtnLeftSingle",
+                  nextEl: "#navBtnRight", // Update these selectors to the correct ones for your single slider
+                  prevEl: "#navBtnLeft",
                 },
             });
             initSwiperSingle = true;
