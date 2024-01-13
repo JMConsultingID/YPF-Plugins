@@ -123,7 +123,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Side Title Background', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}};', // Apply style to .pt__title
+	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}}!important;', // Apply style to .pt__title
 	            ],
 	        ]
 	    );
