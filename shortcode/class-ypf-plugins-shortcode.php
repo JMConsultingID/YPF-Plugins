@@ -27,7 +27,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                 <?php
                 // Display titles from the first ypf-table
                 if (!empty($first_table)) {
-                    echo '<div class="pt__title">';
+                    echo '<div class="pt__title">sss';
                     display_acf_group_labels_and_tooltips($first_table, 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id);
                     echo '</div>';
                 }
