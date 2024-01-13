@@ -259,7 +259,7 @@
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row {
     overflow: hidden; /* Add this to handle overflow */
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: unset; /* Prevent text wrapping */
     text-overflow: ellipsis; /* Add an ellipsis for overflowed text */
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row font {
