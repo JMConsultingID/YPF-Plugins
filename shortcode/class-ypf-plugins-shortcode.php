@@ -5,7 +5,7 @@ function ypf_pricing_table_shortcode($atts) {
         'productid' => '',
         'free_trial_btn' => '',
         'challenge_begins_btn' => '',
-        // Additional attributes can be handled here
+        // No need to explicitly define ypf-table-1, ypf-table-2, etc. here
     ), $atts);
 
     $selected_product_id = $atts['productid'];
@@ -16,11 +16,12 @@ function ypf_pricing_table_shortcode($atts) {
         echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
         echo '<div class="pricing__table product-' . esc_attr($selected_product_id) . '">';
 
-        // Debugging: Check each attribute
-        foreach ($atts as $key => $value) {
-            if (strpos($key, 'ypf-table-') === 0) {
-                echo "<div>Debugging: Found $key with value $value</div>";
-                // Here you would call your function to display the ACF group field
+        // Assume a maximum number of tables, for example, 10
+        for ($i = 1; $i <= 10; $i++) {
+            $table_key = 'ypf-table-' . $i;
+            if (isset($atts[$table_key])) {
+                echo "<div>Displaying ACF group field for {$table_key}: {$atts[$table_key]}</div>";
+                // Replace this with your actual function to display the group field
             }
         }
 
@@ -36,4 +37,3 @@ function ypf_pricing_table_shortcode($atts) {
     return ob_get_clean(); // Return the buffered output
 }
 add_shortcode('ypf-pricing-table', 'ypf_pricing_table_shortcode');
-
