@@ -2,7 +2,7 @@
 class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elementor\Widget_Base {
 
 	public function get_name() {
-		return 'ypfplugins_pricing_table_product';
+		return 'ypfplugins_pricing_table_single_product';
 	}
 
 	public function get_title() {
