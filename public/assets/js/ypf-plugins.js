@@ -75,13 +75,13 @@ function initializeSwiperSingle() {
             grabCursor: false,
             keyboard: false,
             autoHeight: false,
-            effect: 'slide', // Set the transition effect to 'fade'
+            effect: 'slide',
             noSwiping: true,
             allowTouchMove: false,
-            speed: 700, // Transition duration in milliseconds (1000ms = 1s)
+            speed: 700, // Transition duration in milliseconds
             navigation: {
-              nextEl: activeTabPanel.querySelector("#navBtnRight"),
-              prevEl: activeTabPanel.querySelector("#navBtnLeft"),
+              nextEl: "#navBtnRightSingle", // Update these selectors to the correct ones for your single slider
+              prevEl: "#navBtnLeftSingle",
             },
         });
     } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
