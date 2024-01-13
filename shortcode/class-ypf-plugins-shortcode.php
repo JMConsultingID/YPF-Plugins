@@ -39,6 +39,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                             foreach ($atts as $key => $value) {
                                 if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
                                     echo $value;
+                                    echo "bu";
                                 }
                             }
                         ?>
