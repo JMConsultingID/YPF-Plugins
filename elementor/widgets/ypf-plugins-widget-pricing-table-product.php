@@ -111,19 +111,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		    	if (!empty($settings['slide_items'])) {
 			        echo '<div class="pt__option__slider swiper" id="pricingTableSlider">
 			                 <div class="swiper-wrapper">';
-			        $css_ypf = 1;
 			        foreach ($settings['slide_items'] as $item) {
 			            echo '<div class="swiper-slide pt__option__item">
 			                      <div class="pt__item">
 			                          <div class="pt__item__wrap">';
 			            
 			            // Assuming $product_id is available in scope
-			            $this->display_acf_group_fields($item['acf_group_field'], $product_id, 'ypf-'.$item['acf_group_field']);
+			            $this->display_acf_group_fields($item['acf_group_field'], $product_id, $item['acf_group_field']);
 			            
 			            echo '        </div>
 			                      </div>
 			                  </div>';
-			        $css_ypf++;
 			        }
 
 			        echo '    </div>
