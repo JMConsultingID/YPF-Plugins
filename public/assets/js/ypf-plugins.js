@@ -29,62 +29,74 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 jQuery(document).ready(function($) {
-  // Initial tab setup
-  $('.ypf-tabs-buttons li:first-child').addClass('active');
-  $('.ypf-tab-panel:first-child').addClass('active');
 
-  // Tab click event
-  $('.ypf-tabs-buttons li').click(function() {
-    var index = $(this).index();
-    $('.ypf-tabs-buttons li').removeClass('active');
-    $(this).addClass('active');
-    $('.ypf-tab-panel').removeClass('active').eq(index).addClass('active');
-  });
-
-	// Pricing table - mobile only slider
 var pricingCardSwiper;
+var pricingCardSwiperSingle;
 var init = false;
-var currentSlideIndex = 0; // Global variable to store the current slide index
+var currentSlideIndex = 0;
 
-
-// Function to initialize Swiper
+// Function to initialize Swiper for #pricingTableSlider
 function initializeSwiper() {
-  // Destroy the previous instance if it exists
-  if (pricingCardSwiper) {
-  	currentSlideIndex = pricingCardSwiper.activeIndex;
-    pricingCardSwiper.destroy();
-    init = false;
-  }
+    // Destroy the previous instance if it exists
+    if (pricingCardSwiper) {
+        currentSlideIndex = pricingCardSwiper.activeIndex;
+        pricingCardSwiper.destroy();
+        init = false;
+    }
 
-  var activeTabPanel = document.querySelector('.tab-content.active');
-  if (activeTabPanel && window.innerWidth <= 991) {
-    pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
-      slidesPerView: "auto",
-      spaceBetween: 0,
-      grabCursor: false,
-      keyboard: false,
-      autoHeight: false,
-      effect: 'slide', // Set the transition effect to 'fade'
-      noSwiping: true,
-      allowTouchMove: false,
-      speed: 700, // Transition duration in milliseconds (1000ms = 1s)
-      navigation: {
-        nextEl: activeTabPanel.querySelector("#navBtnRight"),
-        prevEl: activeTabPanel.querySelector("#navBtnLeft"),
-      },
-    });
-    init = true;
-    // Set Swiper to the previously active slide
-    pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
-  }
-  
+    var activeTabPanel = document.querySelector('.tab-content.active');
+    if (activeTabPanel && window.innerWidth <= 991) {
+        pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
+            slidesPerView: "auto",
+            spaceBetween: 0,
+            grabCursor: false,
+            keyboard: false,
+            autoHeight: false,
+            effect: 'slide', // Set the transition effect to 'fade'
+            noSwiping: true,
+            allowTouchMove: false,
+            speed: 700, // Transition duration in milliseconds (1000ms = 1s)
+            navigation: {
+              nextEl: activeTabPanel.querySelector("#navBtnRight"),
+              prevEl: activeTabPanel.querySelector("#navBtnLeft"),
+            },
+        });
+        init = true;
+        pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
+    }
 }
 
+// Function to initialize Swiper for #pricingTableSliderSingle
+function initializeSwiperSingle() {
+    if (window.innerWidth <= 991 && !pricingCardSwiperSingle) {
+        pricingCardSwiperSingle = new Swiper("#pricingTableSliderSingle", {
+            slidesPerView: "auto",
+            spaceBetween: 0,
+            grabCursor: false,
+            keyboard: false,
+            autoHeight: false,
+            effect: 'slide', // Set the transition effect to 'fade'
+            noSwiping: true,
+            allowTouchMove: false,
+            speed: 700, // Transition duration in milliseconds (1000ms = 1s)
+            navigation: {
+              nextEl: activeTabPanel.querySelector("#navBtnRight"),
+              prevEl: activeTabPanel.querySelector("#navBtnLeft"),
+            },
+        });
+    } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
+        pricingCardSwiperSingle.destroy();
+        pricingCardSwiperSingle = null;
+    }
+}
 
-
-// Initialize Swiper on first load and on window resize
+// Initialize Swipers on first load and on window resize
 initializeSwiper();
-window.addEventListener("resize", initializeSwiper);
+initializeSwiperSingle();
+window.addEventListener("resize", function() {
+    initializeSwiper();
+    initializeSwiperSingle();
+});
 
 // Event listener for tab button clicks
 document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index) {
@@ -105,8 +117,6 @@ document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index)
     initializeSwiper();
   });
 });
-
-
 
 tippy('.data-template', {
     content(reference) {
