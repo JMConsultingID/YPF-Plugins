@@ -158,7 +158,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         	// Get the first repeater field for the title
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
-			  	<div class="pt__title pt__title__elementor">
+			  	<div class="pt__title">
 	                <?php display_acf_group_labels_and_tooltips($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
 	            </div>
 	        <?php 
@@ -239,7 +239,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		                $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
 		            }
 	        	}
-	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . '"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
+	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' pt__title__elementor"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
 	        }
 
 	        echo '<div style="display: none;">';
