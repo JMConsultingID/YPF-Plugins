@@ -5,38 +5,37 @@ function ypf_pricing_table_shortcode($atts) {
         'productid' => '',
         'free_trial_btn' => '',
         'challenge_begins_btn' => '',
+        // Potentially more attributes
     ), $atts);
 
-    ob_start(); // Start output buffering
-
-    // Debugging: Output the attributes
-    echo "<pre>Attributes: " . print_r($atts, true) . "</pre>";
-
     $selected_product_id = $atts['productid'];
+
+    ob_start(); // Start output buffering
 
     if (!empty($selected_product_id)) {
         echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
         echo '<div class="pricing__table product-' . esc_attr($selected_product_id) . '">';
 
-        // Iterate through attributes and display group fields
+        // Handle ACF group fields
         foreach ($atts as $key => $value) {
             if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
-                echo "<div>Processing $key: $value</div>";
+                // Display ACF group field
+                echo "<div>Displaying ACF group field: $value</div>";
                 // Replace this with your actual function to display the group field
-                echo "<div>Displaying group field: $value</div>";
+                // display_acf_group_fields($value, $selected_product_id, 'some-css-class');
             }
         }
 
-        // Add buttons if set
+        echo '</div>'; // Close pricing__table
+        echo '</div>'; // Close ypf-tab-panel
+
+        // Add buttons
         if (!empty($atts['free_trial_btn'])) {
             echo "<div>Free Trial Button: {$atts['free_trial_btn']}</div>";
         }
         if (!empty($atts['challenge_begins_btn'])) {
             echo "<div>Challenge Begins Button: {$atts['challenge_begins_btn']}</div>";
         }
-
-        echo '</div>'; // Close pricing__table
-        echo '</div>'; // Close ypf-tab-panel
     } else {
         echo '<p>Please specify a product ID.</p>';
     }
