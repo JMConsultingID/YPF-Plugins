@@ -8,6 +8,8 @@ function ypf_pricing_table_shortcode( $atts ) {
     ), $atts );
 
     $selected_product_id = $atts['productid'];
+    $tooltips_post = get_option('ypf_select_post_tooltips');
+    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '861';
 
     $tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
@@ -127,8 +129,8 @@ function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_fiel
                 $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
                 echo '<div id="'. esc_html($sub_field_tooltips_name) . '">' . esc_html($sub_field_tooltip) . '</div>';                   
             }
-        }
-        echo '</div>';
+          }
+          echo '</div>';
 
         echo '</div>'; // Close pt__title__wrap
     }

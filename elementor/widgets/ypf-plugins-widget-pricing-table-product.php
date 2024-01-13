@@ -65,6 +65,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	// Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
+	$tooltips_post = get_option('ypf_select_post_tooltips');
+	$tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '861';
 
 	$tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
@@ -174,9 +176,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		            $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 		            echo '<div id="'. esc_html($sub_field_tooltips_name) . '">' . esc_html($sub_field_tooltip) . '</div>';                   
 		        }
-		    }
+		      }
 	        echo '</div>';
-
 	        echo '</div>'; // Close pt__title__wrap
 	    }
 	}
