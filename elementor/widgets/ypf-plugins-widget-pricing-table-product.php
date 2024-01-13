@@ -111,7 +111,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		$this->start_controls_section(
 	        'style_section', // Unique name for the section
 	        [
-	            'label' => __('Style', 'ypf-plugins'), // Section label
+	            'label' => __('Background & Color', 'ypf-plugins'), // Section label
 	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
 	        ]
 	    );
@@ -192,7 +192,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    $this->add_control(
 	        'disable_mobile_button_background_color', // Unique name for the control
 	        [
-	            'label' => __('DisabeMobile Mobile Button', 'ypf-plugins'),
+	            'label' => __('Disable Mobile Mobile Button', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
 	                '{{WRAPPER}} .pt__mobile_button_background__elementor.swiper-button-disabled' => 'background-color: {{VALUE}}!important;', 
@@ -202,6 +202,63 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    
 
 	    $this->end_controls_section();
+
+	    $this->start_controls_section(
+	        'border_radius_section', // Unique name for the section
+	        [
+	            'label' => __('General Border Radius', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
+	        ]
+	    );
+
+	    $this->add_control(
+			'general_border_radius_left',
+			[
+				'label' => esc_html__( 'Border Radius Left', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 20,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table .pt__title .pt__title__wrap' => 'border-top-left-radius: {{SIZE}}{{UNIT}}!important;border-bottom-left-radius: {{SIZE}}{{UNIT}}!important;',
+				],
+			]
+		);
+	    
+    
+		$this->add_control(
+			'general_border_radius_right',
+			[
+				'label' => esc_html__( 'Border Radius Right', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 20,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table .pt__option .pt__option__item:last-child' => 'border-top-right-radius: {{SIZE}}{{UNIT}}!important;border-bottom-right-radius: {{SIZE}}{{UNIT}}!important;',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 
 
 	}
