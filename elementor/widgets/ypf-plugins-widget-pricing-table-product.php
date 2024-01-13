@@ -70,7 +70,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         $this->add_control(
             'selected_product',
             [
-                'label' => __('Select Product', 'text-domain'),
+                'label' => __('Select Product', 'ypf-plugins'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => $this->get_woocommerce_products(),
                 'default' => 'Select Product',
@@ -82,14 +82,14 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         // Step Name Field
 	    $repeater->add_control(
 	        'step_name', [
-	            'label' => __('Step Name', 'plugin-name'),
+	            'label' => __('Step Name', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::TEXT,
 	        ]
 	    );
 
 	    $repeater->add_control(
 	        'acf_group_field', [
-	            'label' => __('Select ACF Group Field', 'plugin-name'),
+	            'label' => __('Select ACF Group Field', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::SELECT,
 	            'options' => $this->get_acf_group_field_options(), // You need to define this method
 	        ]
@@ -98,7 +98,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    $this->add_control(
 	        'slide_items',
 	        [
-	            'label' => __('Slide Items', 'plugin-name'),
+	            'label' => __('Slide Items', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::REPEATER,
 	            'fields' => $repeater->get_controls(),
 	            'title_field' => '{{{ step_name }}}',
@@ -106,6 +106,31 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    );
 
 		$this->end_controls_section();
+
+
+		$this->start_controls_section(
+	        'style_section', // Unique name for the section
+	        [
+	            'label' => __('Style', 'ypf-plugins'), // Section label
+	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
+	        ]
+	    );
+
+	    // Side Title Background Control
+	    $this->add_control(
+	        'side_title_background', // Unique name for the control
+	        [
+	            'label' => __('Side Title Background', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__title__elementor' => 'background-color: {{VALUE}};', // Apply style to .pt__title
+	            ],
+	        ]
+	    );
+
+	    // ... other style controls
+
+	    $this->end_controls_section();
 
 
 	}
@@ -133,7 +158,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
         	// Get the first repeater field for the title
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
-			  	<div class="pt__title">
+			  	<div class="pt__title pt__title__elementor">
 	                <?php display_acf_group_labels_and_tooltips($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
 	            </div>
 	        <?php 
