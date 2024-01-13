@@ -365,7 +365,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    $settings = $this->get_settings_for_display();
 	    $typography_settings = $settings['step_title_typography'];
 
-	    if (!empty($typography_settings)) {
+	    if (!empty($settings['step_title_typography']) && is_array($settings['step_title_typography'])) {
+        // Access the typography settings safely here
 	        // Generate CSS code with !important
 	        $css = "{{WRAPPER}} .ypf_step_title_bg_elementor {";
 	        $css .= "font-family: {$typography_settings['font_family']} !important;";
@@ -388,7 +389,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     // Check the value of 'pricing_table_card' control
     $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
 
-    $this->print_typography_custom_css();
+    if (isset($settings['step_title_typography'])) {
+        // Now you can safely use $settings['step_title_typography']
+        $this->print_typography_custom_css();
+    }
 
 	// Check if a product ID is selected   
 	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
