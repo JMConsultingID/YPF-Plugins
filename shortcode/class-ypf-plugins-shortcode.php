@@ -35,13 +35,17 @@ function ypf_pricing_table_shortcode( $atts ) {
 
                         <?php 
 
-                            // Iterate through attributes and display group fields
-                            foreach ($atts as $key => $value) {
-                                if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
-                                    echo $value;
-                                    echo "bu";
-                                }
-                            }
+                        // Iterate through attributes and display group fields
+        foreach ($atts as $key => $value) {
+            if (strpos($key, 'ypf-table-') === 0 && !empty($value)) {
+                // Debugging output
+                echo "<div>Found attribute $key with value $value</div>";
+
+                // Here you'd call your function to display the group field
+                // For debugging, we're just outputting the value
+                echo "<div>Group Field: $value</div>";
+            }
+        }
                         ?>
 
                         <div class="swiper-slide pt__option__item">
