@@ -36,10 +36,36 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		$this->start_controls_section(
 			'section_pricing_table',
 			[
-				'label' => esc_html__( 'Pricing Table Section', 'ypf-plugins' ),
+				'label' => esc_html__( 'Pricing Table Settings', 'ypf-plugins' ),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
+
+		$this->add_control(
+		    'pricing_table_card',
+		    [
+		        'label' => __('Table Type', 'ypf-plugins'),
+		        'type' => \Elementor\Controls_Manager::SELECT,
+		        'options' => [
+		            'tab_content' => __('Tab Content', 'ypf-plugins'),
+		            'single' => __('Single Use', 'ypf-plugins'),
+		        ],
+		        'default' => 'tab_content',
+		    ]
+		);
+
+		$this->add_control(
+		    'pricing_table_format_style',
+		    [
+		        'label' => __('Format Style (under development)', 'ypf-plugins'),
+		        'type' => \Elementor\Controls_Manager::SELECT,
+		        'options' => [
+		            'style1' => __('Style 1', 'ypf-plugins'),
+		            'style2' => __('Style 2', 'ypf-plugins'),
+		        ],
+		        'default' => 'style1',
+		    ]
+		);	  
 
         // Add a select control for products
         $this->add_control(
@@ -93,6 +119,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$selected_product_id = $settings['selected_product'];
 	$tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
+    // Check the value of 'pricing_table_card' control
+    $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
 
 	// Check if a product ID is selected   
 	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
@@ -120,7 +148,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 		    <?php
 		    	if (!empty($settings['slide_items'])) {
-			        echo '<div class="pt__option__slider swiper" id="pricingTableSlider">
+		    		echo '<div class="pt__option__slider swiper" id="' . esc_attr($swiperID) . '">
 			                 <div class="swiper-wrapper">';
 			        foreach ($settings['slide_items'] as $item) {
 			            echo '<div class="swiper-slide pt__option__item">
