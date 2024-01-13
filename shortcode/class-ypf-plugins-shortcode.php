@@ -19,12 +19,19 @@ function ypf_pricing_table_shortcode( $atts ) {
             ob_start(); // Start output buffering
                 echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
                 // Display the product information here
+                // Split the 'ypf-table' attribute into an array and get the first item
+                $tables = array_map('trim', explode(',', $atts['ypf-step-table']));
+                $first_table = $tables[0] ?? ''; // Fallback to an empty string if no tables are set
                 ?>
                 <div class="pricing__table product-<?php echo $selected_product_id; ?>">
-                <div class="pt__title">
-                    <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
-                </div>
-
+                <?php
+                // Display titles from the first ypf-table
+                if (!empty($first_table)) {
+                    echo '<div class="pt__title">';
+                    display_acf_group_labels_and_tooltips($first_table, 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id);
+                    echo '</div>';
+                }
+                ?>
 
                 <div class="pt__option">
 
