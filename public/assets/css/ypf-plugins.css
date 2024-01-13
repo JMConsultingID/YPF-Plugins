@@ -284,6 +284,12 @@
     display: contents; /* Ensure these elements don't disrupt flex layout */
 }
 
+.pricing__table .pt__option .pt__option__item:last-child{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
 /*Button Section*/
 .ypf-btn-wrap {
     display: flex;
