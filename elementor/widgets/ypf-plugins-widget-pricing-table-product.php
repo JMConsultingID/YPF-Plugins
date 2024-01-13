@@ -291,19 +291,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-
-	    // General Border Color Control
-	    $this->add_control(
-	        'general_border_color', // Unique name for the control
-	        [
-	            'label' => __('General Border Color', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::COLOR,
-	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', 
-	            ],
-	        ]
-	    );
-
 	    // Mobile Button Backgound Control
 	    $this->add_control(
 	        'mobile_button_background_color', // Unique name for the control
@@ -346,10 +333,30 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    $this->start_controls_section(
 	        'border_radius_section', // Unique name for the section
 	        [
-	            'label' => __('General Border Radius', 'ypf-plugins'), // Section label
+	            'label' => __('General Border', 'ypf-plugins'), // Section label
 	            'tab' => \Elementor\Controls_Manager::TAB_STYLE, // The section tab
 	        ]
 	    );
+
+	    // General Border Color Control
+	    $this->add_control(
+	        'general_border_color', // Unique name for the control
+	        [
+	            'label' => __('General Border Color', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', 
+	            ],
+	        ]
+	    );
+
+	    $this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'selector' => '{{WRAPPER}} .pt__table_general_border_color',
+			]
+		);
 
 	    $this->add_control(
 			'general_border_radius_left',
