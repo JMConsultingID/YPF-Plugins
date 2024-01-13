@@ -173,7 +173,7 @@ function ypf_plugins_widgets() {
 
     }
 }
-add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', );
+add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', 2);
 
 function check_for_shortcode_and_enqueue_scripts() {
     if ( get_option('ypf_enable_pricing_table') ) {
