@@ -128,7 +128,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // ... other style controls
+	    // Side Title Background Control
+	    $this->add_control(
+	        'table_content_background', // Unique name for the control
+	        [
+	            'label' => __('Table Content Background', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::COLOR,
+	            'selectors' => [
+	                '{{WRAPPER}} .pt__table_content__elementor' => 'background-color: {{VALUE}}!important;', // Apply style to .pt__title
+	            ],
+	        ]
+	    );
 
 	    $this->end_controls_section();
 
