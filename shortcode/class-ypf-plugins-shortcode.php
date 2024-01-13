@@ -4,13 +4,13 @@ function ypf_pricing_table_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'productid' => '',
         'ypf-step-table' => '',
-        'ypf-table-format' => 'tab', // 'tab' or 'single'
+        'format' => 'tab', // 'tab' or 'single'
         'free_trial_btn' => '', // Default text for the Free Trial button
         'challenge_begins_btn' => '', // Default text for the Challenge Begins button
     ), $atts );
 
     $selected_product_id = $atts['productid'];
-    $table_format = $atts['ypf-table-format'];
+    $table_format = $atts['format'];
     $tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
