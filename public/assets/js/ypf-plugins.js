@@ -68,32 +68,35 @@ function initializeSwiper() {
 
 // Function to initialize Swiper for #pricingTableSliderSingle
 function initializeSwiperSingle() {
-    if (pricingCardSwiperSingle) {
-        pricingCardSwiperSingle.destroy();
-        init = false;
-    }
-    if (window.innerWidth <= 991 && !pricingCardSwiperSingle) {
-        pricingCardSwiperSingle = new Swiper("#pricingTableSliderSingle", {
-            slidesPerView: "auto",
-            spaceBetween: 0,
-            grabCursor: false,
-            keyboard: false,
-            autoHeight: false,
-            effect: 'slide',
-            noSwiping: true,
-            allowTouchMove: false,
-            speed: 700, // Transition duration in milliseconds
-            navigation: {
-              nextEl: "#navBtnRightSingle", // Update these selectors to the correct ones for your single slider
-              prevEl: "#navBtnLeftSingle",
-            },
-        });
-        init = true;
-    } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
-        pricingCardSwiperSingle.destroy();
-        pricingCardSwiperSingle = null;
+    var swiperContainerSingle = document.querySelector('#pricingTableSliderSingle');
+
+    // Check if the swiper container exists
+    if (swiperContainerSingle) {
+        if (window.innerWidth <= 991 && !pricingCardSwiperSingle) {
+            // Initialize Swiper if not already initialized and on small screens
+            pricingCardSwiperSingle = new Swiper(swiperContainerSingle, {
+                slidesPerView: "auto",
+                spaceBetween: 0,
+                grabCursor: false,
+                keyboard: false,
+                autoHeight: false,
+                effect: 'slide',
+                noSwiping: true,
+                allowTouchMove: false,
+                speed: 700, // Transition duration in milliseconds
+                navigation: {
+                  nextEl: "#navBtnRightSingle", // Update these selectors to the correct ones for your single slider
+                  prevEl: "#navBtnLeftSingle",
+                },
+            });
+        } else if (window.innerWidth > 991 && pricingCardSwiperSingle) {
+            // Destroy Swiper on larger screens
+            pricingCardSwiperSingle.destroy();
+            pricingCardSwiperSingle = null;
+        }
     }
 }
+
 
 // Initialize Swipers on first load and on window resize
 initializeSwiper();
@@ -105,23 +108,34 @@ window.addEventListener("resize", function() {
 
 // Event listener for tab button clicks
 document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index) {
-  tabButton.addEventListener('click', function() {
-    // Update active tab
-    document.querySelector('.tab-nav-list li.active').classList.remove('active');
-    this.classList.add('active');
+    tabButton.addEventListener('click', function() {
+        // Update active tab
+        var activeTab = document.querySelector('.tab-nav-list li.active');
+        if (activeTab) {
+            activeTab.classList.remove('active');
+        }
+        this.classList.add('active');
 
-    // Update active tab panel
-    document.querySelector('.tab-content-list .tab-content.active').classList.remove('active');
-    document.querySelectorAll('.tab-content-list .tab-content')[index].classList.add('active');
+        // Update active tab panel
+        var activeTabContent = document.querySelector('.tab-content-list .tab-content.active');
+        if (activeTabContent) {
+            activeTabContent.classList.remove('active');
+        }
+        var newActiveTabContent = document.querySelectorAll('.tab-content-list .tab-content')[index];
+        newActiveTabContent.classList.add('active');
 
-    
-    // Reset the Swiper to the first slide when a different tab is clicked
-    currentSlideIndex = 0;
+        // Check if the new active tab content contains #pricingTableSlider
+        var pricingTableSlider = newActiveTabContent.querySelector('#pricingTableSlider');
+        if (pricingTableSlider) {
+            // Reset the Swiper to the first slide when a different tab is clicked
+            currentSlideIndex = 0;
 
-    // Reinitialize Swiper
-    initializeSwiper();
-  });
+            // Reinitialize Swiper
+            initializeSwiper();
+        }
+    });
 });
+
 
 tippy('.data-template', {
     content(reference) {
