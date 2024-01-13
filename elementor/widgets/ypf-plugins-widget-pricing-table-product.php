@@ -123,7 +123,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			            echo '        </div>
 			                      </div>
 			                  </div>';
-			        $css_ypf++
+			        $css_ypf++;
 			        }
 
 			        echo '    </div>
