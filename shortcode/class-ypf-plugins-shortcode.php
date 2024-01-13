@@ -9,9 +9,6 @@ function ypf_pricing_table_shortcode( $atts ) {
 
     $selected_product_id = $atts['productid'];
     $tooltips_post = get_option('ypf_select_post_tooltips');
-    $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '861';
-
-    $tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
     if ( ! empty( $selected_product_id ) ) {

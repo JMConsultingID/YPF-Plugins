@@ -54,6 +54,14 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
         $repeater = new \Elementor\Repeater();
 
+        // Step Name Field
+	    $repeater->add_control(
+	        'step_name', [
+	            'label' => __('Step Name', 'plugin-name'),
+	            'type' => \Elementor\Controls_Manager::TEXT,
+	        ]
+	    );
+
 	    $repeater->add_control(
 	        'acf_group_field', [
 	            'label' => __('Select ACF Group Field', 'plugin-name'),
@@ -85,9 +93,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	// Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
-	$tooltips_post = get_option('ypf_select_post_tooltips');
-	$tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '861';
-
 	$tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
