@@ -241,13 +241,22 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        $field_groups = acf_get_field_groups();
 
 	        foreach ($field_groups as $group) {
-	            // Use the group key or title as needed
-	            $group_fields[$group['key']] = $group['title'];
+	            // Get fields for each group
+	            $fields = acf_get_fields($group['key']);
+
+	            foreach ($fields as $field) {
+	                // Check if the field type is a group
+	                if ($field['type'] == 'group') {
+	                    // Use field key or name as needed
+	                    $group_fields[$field['key']] = $field['label'];
+	                }
+	            }
 	        }
 	    }
 
 	    return $group_fields;
 	}
+
 
 
 }
