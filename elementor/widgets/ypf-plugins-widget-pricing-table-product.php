@@ -117,7 +117,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			                          <div class="pt__item__wrap">';
 			            
 			            // Assuming $product_id is available in scope
-			            $this->display_acf_group_fields($item['acf_group_field'], $product_id, $item['acf_group_field']);
+			            $this->display_acf_group_fields($item['acf_group_field'], $selected_product_id, $item['acf_group_field']);
 			            
 			            echo '        </div>
 			                      </div>
