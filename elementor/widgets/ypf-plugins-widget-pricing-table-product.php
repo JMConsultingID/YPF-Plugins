@@ -57,11 +57,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		$this->add_control(
 		    'pricing_table_format_style',
 		    [
-		        'label' => __('Format Style (under development)', 'ypf-plugins'),
+		        'label' => __('Format Style', 'ypf-plugins'),
 		        'type' => \Elementor\Controls_Manager::SELECT,
 		        'options' => [
 		            'style1' => __('Style 1', 'ypf-plugins'),
-		            'style2' => __('Style 2', 'ypf-plugins'),
 		        ],
 		        'default' => 'style1',
 		    ]

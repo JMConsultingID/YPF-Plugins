@@ -4,11 +4,13 @@ function ypf_pricing_table_shortcode( $atts ) {
     $atts = shortcode_atts( array(
         'productid' => '',
         'ypf-step-table' => '',
+        'ypf-table-format' => 'tab', // 'tab' or 'single'
         'free_trial_btn' => '', // Default text for the Free Trial button
         'challenge_begins_btn' => '', // Default text for the Challenge Begins button
     ), $atts );
 
     $selected_product_id = $atts['productid'];
+    $table_format = $atts['ypf-table-format'];
     $tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
@@ -37,8 +39,12 @@ function ypf_pricing_table_shortcode( $atts ) {
 
                 <?php display_swiper_navigation_buttons('navBtnLeft', 'navBtnRight'); ?>
 
+                <?php
+                // Determine the swiper container ID based on the 'ypf-table-format' attribute
+                $swiper_container_id = $table_format === 'single' ? 'pricingTableSliderSingle' : 'pricingTableSlider';
+                ?>
 
-                <div class="pt__option__slider swiper" id="pricingTableSlider">
+                <div class="pt__option__slider swiper" id="<?php echo esc_attr($swiper_container_id); ?>">
                     <div class="swiper-wrapper">
 
                         <?php 
