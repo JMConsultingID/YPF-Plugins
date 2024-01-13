@@ -96,17 +96,31 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$tooltips_post = get_option('ypf_select_post_tooltips');
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
 
+
+    protected function render() {
+    $settings = $this->get_settings_for_display();
+    $selected_product_id = $settings['product_id'];  // Ensure this is set correctly in your widget controls
+    $tooltips_post_id = get_option('ypf_select_post_tooltips') ?: '1397';  // Default tooltips post ID
+
 	// Check if a product ID is selected   
-	if (!empty($selected_product_id)) {
+	if (!empty($selected_product_id) && !empty($settings['slide_items'])) {
     	// Fetch the product object
         $product = wc_get_product($selected_product_id);
 
         echo '<div class="ypf-pricing-table-container ypf-tab-panel">';
             ?>
             <div class="pricing__table product-<?php echo $selected_product_id; ?>">
-		  	<div class="pt__title">
-                <?php display_acf_group_labels_and_tooltips('step_1:_fx_challenge', 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
-            </div>
+
+            <?php 
+        	// Get the first repeater field for the title
+    		$first_item = $settings['slide_items'][0] ?? null;
+    		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
+			  	<div class="pt__title">
+	                <?php display_acf_group_labels_and_tooltips($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
+	            </div>
+	        <?php 
+	         }
+	        ?>
 
 		  	<div class="pt__option">
 
