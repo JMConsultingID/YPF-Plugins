@@ -297,7 +297,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('General Border Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', 
+	                '{{WRAPPER}} .pt__table_general_border' => 'border-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
@@ -306,7 +306,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'border',
-				'selector' => '{{WRAPPER}} .pt__table_general_border_color',
+				'selector' => '{{WRAPPER}} .pt__table_general_border',
 			]
 		);
 
