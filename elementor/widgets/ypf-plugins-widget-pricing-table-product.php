@@ -86,34 +86,34 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		    <?php display_swiper_navigation_buttons('navBtnLeft', 'navBtnRight'); ?>
 
 		    <div class="pt__option__slider swiper" id="pricingTableSlider">
-                    <div class="swiper-wrapper">
+                <div class="swiper-wrapper">
 
-                        <div class="swiper-slide pt__option__item">
-                            <div class="pt__item">
-                                <div class="pt__item__wrap">
-                                    <?php display_acf_group_fields('step_1:_fx_challenge', $selected_product_id, 'step_1_fx_challenge'); ?>
-                                </div>
+                    <div class="swiper-slide pt__option__item">
+                        <div class="pt__item">
+                            <div class="pt__item__wrap">
+                                <?php display_acf_group_fields('step_1:_fx_challenge', $selected_product_id, 'step_1_fx_challenge'); ?>
                             </div>
                         </div>
-
-                        <div class="swiper-slide pt__option__item">
-                            <div class="pt__item">
-                                <div class="pt__item__wrap">
-                                    <?php display_acf_group_fields('step_2:_inspection_period', $selected_product_id, 'step_2_inspection_period'); ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide pt__option__item">
-                            <div class="pt__item">
-                                <div class="pt__item__wrap">
-                                    <?php display_acf_group_fields('step_3:_prop_trader', $selected_product_id, 'step_3_prop_trader'); ?>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="swiper-slide pt__option__item">
+                        <div class="pt__item">
+                            <div class="pt__item__wrap">
+                                <?php display_acf_group_fields('step_2:_inspection_period', $selected_product_id, 'step_2_inspection_period'); ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide pt__option__item">
+                        <div class="pt__item">
+                            <div class="pt__item__wrap">
+                                <?php display_acf_group_fields('step_3:_prop_trader', $selected_product_id, 'step_3_prop_trader'); ?>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
 			</div>
 			</div>
