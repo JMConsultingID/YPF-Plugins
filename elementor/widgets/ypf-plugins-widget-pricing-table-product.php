@@ -76,7 +76,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Slide Items', 'plugin-name'),
 	            'type' => \Elementor\Controls_Manager::REPEATER,
 	            'fields' => $repeater->get_controls(),
-	            'title_field' => '{{{ acf_group_field }}}',
+	            'title_field' => '{{{ step_name }}}',
 	        ]
 	    );
 
