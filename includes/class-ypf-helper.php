@@ -135,7 +135,7 @@ function display_acf_group_fields_el($group_field_name, $product_id, $css_class_
             // Determine the class to add based on whether it's the first item
             $additional_class = $is_first_item ? 'ypf_step_title_bg_elementor ypf_step_title_text_elementor' : 'ypf_table_content_bg_elementor ypf_table_content_text_elementor';
 
-            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border" style="border: solid 1px #E19287;">' . $sub_field_value . '</div>';
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border">' . $sub_field_value . '</div>';
             $is_first_item = false; // After the first iteration, set this flag to false
         }
     }
