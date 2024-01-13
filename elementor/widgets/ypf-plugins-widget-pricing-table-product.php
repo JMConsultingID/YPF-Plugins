@@ -239,7 +239,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		                $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
 		            }
 	        	}
-	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' "><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
+	            echo '<div class="pt__row heading-vertical ' . esc_html($sub_field_name) . ' yyy"><div class="pt__row-heading-text">' . esc_html($sub_field_label) . $sub_field_tooltip_text . '</div></div>'; 
 	        }
 
 	        echo '<div style="display: none;">';
