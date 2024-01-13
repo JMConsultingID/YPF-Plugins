@@ -51,6 +51,7 @@ function ypf_pricing_table_shortcode( $atts ) {
                                             </div>
                                         </div>
                                     </div>
+                                <?php
                                 }
                             }
                         ?>
