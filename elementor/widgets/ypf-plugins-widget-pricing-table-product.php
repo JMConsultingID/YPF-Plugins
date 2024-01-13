@@ -232,4 +232,22 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    <?php
 	}
 
+	private function get_acf_group_field_options() {
+	    $group_fields = array();
+
+	    // Check if ACF function exists
+	    if (function_exists('acf_get_field_groups')) {
+	        // Get all ACF field groups
+	        $field_groups = acf_get_field_groups();
+
+	        foreach ($field_groups as $group) {
+	            // Use the group key or title as needed
+	            $group_fields[$group['key']] = $group['title'];
+	        }
+	    }
+
+	    return $group_fields;
+	}
+
+
 }
