@@ -183,7 +183,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	            'label' => __('Mobile Button Arrow Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__mobile_button_arrow__elementor' => 'color: {{VALUE}}!important;',
+	                '{{WRAPPER}} .pt__mobile_button_arrow__elementor svg' => 'color: {{VALUE}}!important;',
 	            ],
 	        ]
 	    );
