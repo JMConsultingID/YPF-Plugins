@@ -61,8 +61,11 @@
             <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
                 <td>
-                    Use Shortcode <code>[ypf-pricing-table productid="23" format="tab" ypf-step-table="step_1:_fx_challenge, step_2:_inspection_period"]</code><br/> using button <code>[ypf-pricing-table productid="23" format="tab" ypf-step-table="step_1:_fx_challenge, step_2:_inspection_period" free_trial_btn="Free Trial" challenge_begins_btn="Challenge Begins"]</code><br/>
-                    please change the productid="23" following to the productId on woocommerce
+                    <ul>
+                        <li>To Use Shortcode <code>[ypf-pricing-table productid="23" format="tab" ypf-step-table="step_1:_fx_challenge, step_2:_inspection_period"]</code>
+                        <li>Using button <code>[ypf-pricing-table productid="23" format="tab" ypf-step-table="step_1:_fx_challenge, step_2:_inspection_period" free_trial_btn="Free Trial" challenge_begins_btn="Challenge Begins"]</code></li>
+                    </li>
+                    note : please change the productid="23" following to the productId on woocommerce
                 </td>
             </tr>
 
