@@ -428,7 +428,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	$tooltips_post = get_option('ypf_select_post_tooltips');
 	$tooltips_post_elementor = $settings['selected_tooltips'];
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
-    $tooltips_post_id_elementor = isset($tooltips_post) ? $tooltips_post : '1397';
+    $tooltips_post_id_elementor = isset($tooltips_post_elementor) ? $tooltips_post : '1397';
     // Check the value of 'pricing_table_card' control
     $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
 
@@ -446,7 +446,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
 			  	<div class="pt__title">
-	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id); ?>
+	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id_elementor); ?>
 	            </div>
 	        <?php 
 	         }
