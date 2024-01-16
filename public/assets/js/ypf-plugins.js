@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
     var initSwiperSingle = false;
     var currentSlideIndex = 0;
 
-    window.addEventListener('load', function() {
+    $( window ).load(function() {
         // Function to initialize Swiper for #pricingTableSlider
         function initializeSwiper() {
             if (pricingCardSwiper) {
