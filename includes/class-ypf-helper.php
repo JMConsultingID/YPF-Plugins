@@ -84,7 +84,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
     $group_field_object = get_field_object($group_field_name, $product_id);
 
     // Fetch tooltips field values from the global tooltips post
-    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor);
+    $tooltips_field_values = get_field($tooltips_field_name, '995');
 
     if ($group_field_object) {
         echo '<div class="pt__title__wrap">';
