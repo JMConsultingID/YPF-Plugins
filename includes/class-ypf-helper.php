@@ -78,13 +78,13 @@ function display_swiper_navigation_buttons($left_button_id, $right_button_id) {
     <?php
 }
 
-function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_field_name, $product_id, $tooltips_switch, $tooltips_post_id) {
+function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_field_name, $product_id, $tooltips_switch, $tooltips_post_id_elementor) {
     // Fetch group field values and object for the product
     $group_field_values = get_field($group_field_name, $product_id);
     $group_field_object = get_field_object($group_field_name, $product_id);
 
     // Fetch tooltips field values from the global tooltips post
-    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id);
+    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor);
 
     if ($group_field_object) {
         echo '<div class="pt__title__wrap">';
