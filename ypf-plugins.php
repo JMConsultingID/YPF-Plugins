@@ -149,3 +149,26 @@ if ( get_option('ypf_enable_pricing_table') ) {
     require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
     require plugin_dir_path( __FILE__ ) . 'shortcode/class-ypf-plugins-shortcode.php';
 }
+
+/**
+ * Register scripts and styles for Elementor test widgets.
+ */
+function ypf_plugins_widgets() {
+    // Check if the pricing table is enabled
+    if ( get_option('ypf_enable_pricing_table') ) {
+        // Register styles        
+        wp_register_style( 'ypf-font-awesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+        wp_register_style( 'ypf-swiper-bundle-css', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css');
+        wp_register_style( 'ypf-plugins-css', plugins_url( '/public/assets/css/ypf-plugins.css', __FILE__ ), array('ypf-font-awesome-css', 'ypf-swiper-bundle-css'), '1.0.0', 'all' );
+
+
+        // Register scripts        
+        wp_register_script( 'ypf-swiper-bundle-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js', array('jquery'), null, true );
+        wp_register_script( 'ypf-popper-js', 'https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js', null, array(), null, true );
+        wp_register_script( 'ypf-tippy-js', 'https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js', null, array(), null, true );
+
+        wp_register_script( 'ypf-plugins-js', plugins_url( '/public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js','ypf-popper-js', 'ypf-tippy-js'), '1.0.0', true );
+
+    }
+}
+add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', 2);
