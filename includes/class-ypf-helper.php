@@ -96,7 +96,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
             $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 
             $sub_field_tooltip_text = '';
-            if (get_option('ypf_enable_tooltips')) {
+            if ($tooltips_switch == 'yes') {
                 if (!empty($sub_field_tooltip)) { 
                     $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
                 }
