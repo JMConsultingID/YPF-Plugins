@@ -98,7 +98,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
                 'options' => $this->get_post_tooltips(),
                 'default' => 'Select Tooltips',
                 'condition' => [
-	                'step_button_switch' => 'yes',
+	                'tooltips_switch' => 'yes',
 	            ],
             ]
         );
