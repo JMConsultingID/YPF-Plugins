@@ -78,7 +78,7 @@ function display_swiper_navigation_buttons($left_button_id, $right_button_id) {
     <?php
 }
 
-function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_field_name, $product_id, $tooltips_post_id) {
+function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_field_name, $product_id, $tooltips_switch, $tooltips_post_id) {
     // Fetch group field values and object for the product
     $group_field_values = get_field($group_field_name, $product_id);
     $group_field_object = get_field_object($group_field_name, $product_id);
@@ -105,7 +105,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
         }
 
         echo '<div style="display: none;">';
-        if (get_option('ypf_enable_tooltips')) {
+        if ($tooltips_switch == 'yes') {
             foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
                 $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
                 $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';

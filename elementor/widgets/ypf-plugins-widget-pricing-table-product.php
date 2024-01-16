@@ -77,6 +77,18 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             ]
         );
 
+        $this->add_control(
+			'tooltips_switch',
+			[
+				'label' => esc_html__( 'Show Tooltips Label', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'ypf-plugins' ),
+				'label_off' => esc_html__( 'Hide', 'ypf-plugins' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
         // Add a select control for products
         $this->add_control(
             'selected_tooltips',
@@ -85,6 +97,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => $this->get_post_tooltips(),
                 'default' => 'Select Tooltips',
+                'condition' => [
+	                'step_button_switch' => 'yes',
+	            ],
             ]
         );
 
@@ -425,6 +440,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     // Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
 	$selected_product_id = $settings['selected_product'];
+	$tooltips_switch = $settings['tooltips_switch'];
 	$tooltips_post = get_option('ypf_select_post_tooltips');
 	$tooltips_post_elementor = $settings['selected_tooltips'];
     $tooltips_post_id = isset($tooltips_post) ? $tooltips_post : '1397';
@@ -446,7 +462,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
 			  	<div class="pt__title">
-	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_post_id_elementor); ?>
+	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_switch , $tooltips_post_id_elementor); ?>
 	            </div>
 	        <?php 
 	         }
@@ -534,8 +550,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             'posts_per_page' => -1, // Retrieve all posts
             'post_status' => 'publish', // Make sure to get only published posts
         ]);
-
-        $options = ['' => 'Select Tooltips']; // Default option
 
         foreach ($tooltip_posts as $post) {
             $options[$post->ID] = $post->post_title;
