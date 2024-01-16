@@ -5,6 +5,7 @@ var init = false;
 var initSwiperSingle = false;
 var currentSlideIndex = 0;
 
+window.addEventListener('load', function() {
 // Function to initialize Swiper for #pricingTableSlider
 function initializeSwiper() {
     // Destroy the previous instance if it exists
@@ -110,5 +111,5 @@ tippy('.data-template', {
     allowHTML: true,
 });
 
-
+});
 });
