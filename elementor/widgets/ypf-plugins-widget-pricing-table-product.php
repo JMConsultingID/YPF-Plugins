@@ -83,7 +83,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
             [
                 'label' => __('Select Tooltips', 'ypf-plugins'),
                 'type' => \Elementor\Controls_Manager::SELECT,
-                'options' => get_all_tooltips_posts(),
+                'options' => $this->get_post_tooltips(),
                 'default' => 'Select Tooltips',
             ]
         );
@@ -527,5 +527,21 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 
 	    return $group_fields;
 	}
+
+	private function get_post_tooltips() {
+        $tooltip_posts = get_posts([
+            'post_type' => 'tooltips-table',
+            'posts_per_page' => -1, // Retrieve all posts
+            'post_status' => 'publish', // Make sure to get only published posts
+        ]);
+
+        $options = ['' => 'Select Tooltips']; // Default option
+
+        foreach ($tooltip_posts as $post) {
+            $options[$post->ID] = $post->post_title;
+        }
+
+        return $options;
+    }
 
 }
