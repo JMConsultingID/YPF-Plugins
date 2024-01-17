@@ -58,7 +58,7 @@
                 </td>
             </tr>
 
-            <tr valign="top">
+            <!-- <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
                 <td>
                     <ul>
@@ -74,7 +74,7 @@
                 <td>
                     This plugin requires the <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields Plugin</a>. Please ensure it is installed and activated. here is to download the default configuration file for the plugin. <a href="https://staging.finpr.com/wp-content/uploads/2024/01/tradergp-acf-export-2024-01-12.json" target="_blank">Download here</a>.</p>
                 </td>
-            </tr>
+            </tr> -->
             
         </table>
         <p>If you have any questions or need assistance, Please Open an issue in the <a href="https://github.com/JMConsultingID/ypf-plugins">[GitHub repository]</a></p>
