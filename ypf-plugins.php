@@ -143,7 +143,6 @@ function ypf_plugins_settings_link($links) {
     return $links;
 }
 
-ypf_enable_tooltips
 // Include the Elementor class
 if ( get_option('ypf_enable_pricing_table') ) {
     if ( get_option('ypf_enable_tooltips') ) {
