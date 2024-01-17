@@ -143,10 +143,14 @@ function ypf_plugins_settings_link($links) {
     return $links;
 }
 
+ypf_enable_tooltips
 // Include the Elementor class
 if ( get_option('ypf_enable_pricing_table') ) {
+    if ( get_option('ypf_enable_tooltips') ) {
+        require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-tooltips.php';
+    }    
+    if ( get_option('ypf_enable_elementor_widget') ) {
+        require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
+    }    
     require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-helper.php';
-    require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-tooltips.php';
-    require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
-    require plugin_dir_path( __FILE__ ) . 'shortcode/class-ypf-plugins-shortcode.php';
 }

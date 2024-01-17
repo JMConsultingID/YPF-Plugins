@@ -38,14 +38,14 @@
             </tr>
 
             <tr valign="top">
-                <th scope="row">Enable Tooltips:</th>
+                <th scope="row">Enable Tooltips Post Type:</th>
                 <td>
                     <input type="checkbox" id="ypf_enable_tooltips" name="ypf_enable_tooltips" value="1" <?php checked(1, get_option('ypf_enable_tooltips'), true); ?> />
                     <label for="ypf_enable_tooltips">Enable Tooltips on Side Title Pricing Table. <code>[under development, but you can use it]</code></label>
                 </td>
             </tr>
 
-            <tr valign="top">
+            <!-- <tr valign="top">
                 <th scope="row">Select Tooltip Post:</th>
                 <td>
                     <select id="ypf_select_post_tooltips" name="ypf_select_post_tooltips">
@@ -56,7 +56,7 @@
                         <?php endforeach; ?>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
 
             <!-- <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
