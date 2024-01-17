@@ -87,7 +87,15 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
             ]
         );
 
-       $repeater->add_control(
+        $repeater->add_control(
+	        'acf_group_field', [
+	            'label' => __('Select ACF Group Field', 'ypf-plugins'),
+	            'type' => \Elementor\Controls_Manager::SELECT,
+	            'options' => $this->get_acf_group_field_options(), // You need to define this method
+	        ]
+	    );
+
+	    $repeater->add_control(
 			'tooltips_switch',
 			[
 				'label' => esc_html__( 'Show Tooltips Label', 'ypf-plugins' ),
@@ -112,14 +120,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 	            ],
             ]
         );
-
-	    $repeater->add_control(
-	        'acf_group_field', [
-	            'label' => __('Select ACF Group Field', 'ypf-plugins'),
-	            'type' => \Elementor\Controls_Manager::SELECT,
-	            'options' => $this->get_acf_group_field_options(), // You need to define this method
-	        ]
-	    );
 
 	    $repeater->add_control(
 			'step_button_switch',
