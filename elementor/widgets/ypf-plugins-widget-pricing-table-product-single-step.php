@@ -42,19 +42,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 		);
 
 		$this->add_control(
-		    'pricing_table_card',
-		    [
-		        'label' => __('Table Type', 'ypf-plugins'),
-		        'type' => \Elementor\Controls_Manager::SELECT,
-		        'options' => [
-		            'tab_content' => __('Tab Content', 'ypf-plugins'),
-		            'single' => __('Single Use', 'ypf-plugins'),
-		        ],
-		        'default' => 'tab_content',
-		    ]
-		);
-
-		$this->add_control(
 		    'pricing_table_format_style',
 		    [
 		        'label' => __('Format Style', 'ypf-plugins'),
