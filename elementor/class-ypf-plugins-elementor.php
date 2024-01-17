@@ -16,10 +16,12 @@ function register_ypfplugins_widget( $widgets_manager ) {
 
     // require_once( __DIR__ . '/widgets/ypf-plugins-widget-pricing-table.php' );
     require_once( __DIR__ . '/widgets/ypf-plugins-widget-pricing-table-product.php' ); 
+    require_once( __DIR__ . '/widgets/ypf-plugins-widget-pricing-table-product-single-step.php' );  
 
     
 
     // $widgets_manager->register( new \Elementor_YpfPlugins_Widget_Pricing_Table() ); 
     $widgets_manager->register( new \Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product() );
+    $widgets_manager->register( new \Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product() ); 
 }
 add_action( 'elementor/widgets/register', 'register_ypfplugins_widget' );
