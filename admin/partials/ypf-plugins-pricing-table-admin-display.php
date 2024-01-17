@@ -15,23 +15,13 @@
                     <input type="checkbox" id="ypf_enable_pricing_table" name="ypf_enable_pricing_table" value="1" <?php checked(1, get_option('ypf_enable_pricing_table'), true); ?> />
                     <label for="ypf_enable_pricing_table">Enable the pricing table feature.</label>
                 </td>
-            </tr>
+            </tr>            
 
             <tr valign="top">
                 <th scope="row">Enable Elementor Widget:</th>
                 <td>
                     <input type="checkbox" id="ypf_enable_elementor_widget" name="ypf_enable_elementor_widget" value="1" <?php checked(1, get_option('ypf_enable_elementor_widget'), true); ?> />
                     <label for="ypf_enable_elementor_widget">Enable the Elementor widget feature. <code>[under development, but you can use it]</code></label>
-                </td>
-            </tr>
-
-            <tr valign="top">
-                <th scope="row">Select Widget Style:</th>
-                <td>
-                    <select id="ypf_widget_style" name="ypf_widget_style">
-                        <option value="style1" <?php selected(get_option('ypf_widget_style'), 'style1'); ?>>Style 1</option>
-                    </select>
-                    <label for="ypf_widget_style">Choose the style for the Elementor widget. <code>[under development]</code></label>
                 </td>
             </tr>
 
@@ -43,7 +33,17 @@
                 </td>
             </tr>
 
-            <!-- <tr valign="top">
+           <!--  <tr valign="top">
+                <th scope="row">Select Widget Style:</th>
+                <td>
+                    <select id="ypf_widget_style" name="ypf_widget_style">
+                        <option value="style1" <?php selected(get_option('ypf_widget_style'), 'style1'); ?>>Style 1</option>
+                    </select>
+                    <label for="ypf_widget_style">Choose the style for the Elementor widget. <code>[under development]</code></label>
+                </td>
+            </tr>
+
+            <tr valign="top">
                 <th scope="row">Select Tooltip Post:</th>
                 <td>
                     <select id="ypf_select_post_tooltips" name="ypf_select_post_tooltips">
@@ -54,9 +54,9 @@
                         <?php endforeach; ?>
                     </select>
                 </td>
-            </tr> -->
+            </tr> 
 
-            <!-- <tr valign="top">
+            <tr valign="top">
                 <th scope="row">Default Shortcode Format :</th>
                 <td>
                     <ul>
