@@ -30,8 +30,6 @@
                 <td>
                     <select id="ypf_widget_style" name="ypf_widget_style">
                         <option value="style1" <?php selected(get_option('ypf_widget_style'), 'style1'); ?>>Style 1</option>
-                        <option value="style2" <?php selected(get_option('ypf_widget_style'), 'style2'); ?>>Style 2</option>
-                        <option value="style3" <?php selected(get_option('ypf_widget_style'), 'style3'); ?>>Style 3</option>
                     </select>
                     <label for="ypf_widget_style">Choose the style for the Elementor widget. <code>[under development]</code></label>
                 </td>
@@ -41,7 +39,7 @@
                 <th scope="row">Enable Tooltips :</th>
                 <td>
                     <input type="checkbox" id="ypf_enable_tooltips" name="ypf_enable_tooltips" value="1" <?php checked(1, get_option('ypf_enable_tooltips'), true); ?> />
-                    <label for="ypf_enable_tooltips">Enable Tooltips Post Type:. <code>[under development, but you can use it]</code></label>
+                    <label for="ypf_enable_tooltips">Enable Tooltips Post Type. <code>[under development]</code></label>
                 </td>
             </tr>
 
