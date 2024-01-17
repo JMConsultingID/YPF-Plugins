@@ -42,19 +42,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 		);
 
 		$this->add_control(
-		    'pricing_table_card',
-		    [
-		        'label' => __('Table Type', 'ypf-plugins'),
-		        'type' => \Elementor\Controls_Manager::SELECT,
-		        'options' => [
-		            'tab_content' => __('Tab Content', 'ypf-plugins'),
-		            'single' => __('Single Use', 'ypf-plugins'),
-		        ],
-		        'default' => 'tab_content',
-		    ]
-		);
-
-		$this->add_control(
 		    'pricing_table_format_style',
 		    [
 		        'label' => __('Format Style', 'ypf-plugins'),
@@ -94,6 +81,32 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 	            'options' => $this->get_acf_group_field_options(), // You need to define this method
 	        ]
 	    );
+
+	    $repeater->add_control(
+			'tooltips_switch',
+			[
+				'label' => esc_html__( 'Show Tooltips Label', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'ypf-plugins' ),
+				'label_off' => esc_html__( 'Hide', 'ypf-plugins' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+        // Add a select control for products
+        $repeater->add_control(
+            'selected_tooltips',
+            [
+                'label' => __('Select Tooltips', 'ypf-plugins'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_post_tooltips(),
+                'default' => 'Select Tooltips',
+                'condition' => [
+	                'tooltips_switch' => 'yes',
+	            ],
+            ]
+        );
 
 	    $repeater->add_control(
 			'step_button_switch',
@@ -447,5 +460,19 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 
 	    return $group_fields;
 	}
+
+	private function get_post_tooltips() {
+        $tooltip_posts = get_posts([
+            'post_type' => 'tooltips-table',
+            'posts_per_page' => -1, // Retrieve all posts
+            'post_status' => 'publish', // Make sure to get only published posts
+        ]);
+
+        foreach ($tooltip_posts as $post) {
+            $options[$post->ID] = $post->post_title;
+        }
+
+        return $options;
+    }
 
 }
