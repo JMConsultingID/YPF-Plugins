@@ -87,6 +87,32 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
             ]
         );
 
+       $repeater->add_control(
+			'tooltips_switch',
+			[
+				'label' => esc_html__( 'Show Tooltips Label', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Show', 'ypf-plugins' ),
+				'label_off' => esc_html__( 'Hide', 'ypf-plugins' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+        // Add a select control for products
+        $repeater->add_control(
+            'selected_tooltips',
+            [
+                'label' => __('Select Tooltips', 'ypf-plugins'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_post_tooltips(),
+                'default' => 'Select Tooltips',
+                'condition' => [
+	                'tooltips_switch' => 'yes',
+	            ],
+            ]
+        );
+
 	    $repeater->add_control(
 	        'acf_group_field', [
 	            'label' => __('Select ACF Group Field', 'ypf-plugins'),

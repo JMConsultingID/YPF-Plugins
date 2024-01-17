@@ -121,48 +121,6 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    $repeater->add_control(
-			'step_button_switch',
-			[
-				'label' => esc_html__( 'Show Button', 'ypf-plugins' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'ypf-plugins' ),
-				'label_off' => esc_html__( 'Hide', 'ypf-plugins' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$repeater->add_control(
-			'step_button_title',
-			[
-				'label' => esc_html__( 'Button Text', 'ypf-plugins' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Button Text', 'ypf-plugins' ),
-				'condition' => [
-	                'step_button_switch' => 'yes',
-	            ],
-			]
-		);
-
-		$repeater->add_control(
-			'step_button_link',
-			[
-				'label' => esc_html__( 'Button Link', 'ypf-plugins' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'options' => [ 'url', 'is_external', 'nofollow' ],
-				'default' => [
-					'url' => '',
-					'is_external' => false,
-					'nofollow' => false,
-					'custom_attributes' => '',
-				],
-				'label_block' => true,
-				'condition' => [
-	                'step_button_switch' => 'yes',
-	            ],
-			]
-		);
 
 	    $this->add_control(
 	        'slide_items',
