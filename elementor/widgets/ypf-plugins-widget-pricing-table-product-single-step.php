@@ -325,7 +325,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 	            'label' => __('General Border Color', 'ypf-plugins'),
 	            'type' => \Elementor\Controls_Manager::COLOR,
 	            'selectors' => [
-	                '{{WRAPPER}} .pt__table_general_border_color' => 'border-color: {{VALUE}}!important;', 
+	                '{{WRAPPER}} .pt__table_general_border' => 'border-color: {{VALUE}}!important;', 
 	            ],
 	        ]
 	    );
