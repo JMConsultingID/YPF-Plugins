@@ -416,12 +416,8 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 
 	}
 
-	protected function render() {		
-	// Check if Elementor editor is active
-    // Get the selected product ID from the widget settings
+	protected function render() {
 	$settings = $this->get_settings_for_display();
-    // Check the value of 'pricing_table_card' control
-    $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
 
 	// Check if a product ID is selected   
 	if (!empty($settings['slide_items'])) {
