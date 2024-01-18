@@ -22,13 +22,13 @@
  justify-content: flex-start;
  align-items: flex-start;
  padding: 0;
- font-size: 15px;
+ font-size: 1rem;
  line-height: 1.4;
  text-align: center;
 }
 @media (max-width: 991px) {
  .pricing__table .pt__title .pt__title__wrap {
-   font-size: 1.3rem;
+   font-size: 1rem;
 }
 }
 .pricing__table .pt__title .pt__title__wrap .pt__row {
@@ -159,13 +159,13 @@
  align-items: flex-start;
  text-align: center;
  padding: 0;
- font-size: 1.375rem;
+ font-size: 1rem;
  line-height: 1.4;
  position: relative;
 }
 @media (max-width: 991px) {
  .pricing__table .pt__option .pt__option__item .pt__item .pt__item__wrap {
-   font-size: 1.3rem;
+   font-size: 1rem;
 }
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row {
