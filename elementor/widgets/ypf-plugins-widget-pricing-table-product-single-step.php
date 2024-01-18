@@ -42,6 +42,19 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 		);
 
 		$this->add_control(
+		    'pricing_table_card',
+		    [
+		        'label' => __('Table Type', 'ypf-plugins'),
+		        'type' => \Elementor\Controls_Manager::SELECT,
+		        'options' => [
+		            'tab_content' => __('Tab Content', 'ypf-plugins'),
+		            'single' => __('Single Use', 'ypf-plugins'),
+		        ],
+		        'default' => 'tab_content',
+		    ]
+		);
+
+		$this->add_control(
 		    'pricing_table_format_style',
 		    [
 		        'label' => __('Format Style', 'ypf-plugins'),
@@ -416,8 +429,12 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 
 	}
 
-	protected function render() {
+	protected function render() {		
+	// Check if Elementor editor is active
+    // Get the selected product ID from the widget settings
 	$settings = $this->get_settings_for_display();
+    // Check the value of 'pricing_table_card' control
+    $swiperID = $settings['pricing_table_card'] === 'tab_content' ? 'pricingTableSlider' : 'pricingTableSliderSingle';
 
 	// Check if a product ID is selected   
 	if (!empty($settings['slide_items'])) {
