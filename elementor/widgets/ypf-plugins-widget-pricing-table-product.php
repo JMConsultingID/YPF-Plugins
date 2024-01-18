@@ -418,7 +418,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
     		$first_item = $settings['slide_items'][0] ?? null;
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
 			  	<div class="pt__title">
+			  		<div class="pt__title__wrap">
 	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $selected_product_id, $tooltips_switch , $tooltips_post_id_elementor); ?>
+	            	</div>
 	            </div>
 	        <?php 
 	         }
