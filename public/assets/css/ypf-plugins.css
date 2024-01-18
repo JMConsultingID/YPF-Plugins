@@ -190,14 +190,11 @@
  border-bottom: 0;
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child a {
- padding: 15px 30px;
- font-weight: 500;
- text-transform: uppercase;
- text-decoration: none;
- color: #fff;
- border-radius: 10px;
- background-color: #0061ff;
- transition: unset;
+padding: 10px 20px;
+text-decoration: none;
+color: #fff;
+border-radius: 10px;
+background-color: #750d11;
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child a:hover {
  background-color: #0057e6;
