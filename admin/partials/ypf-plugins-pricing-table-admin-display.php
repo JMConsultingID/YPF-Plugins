@@ -8,6 +8,8 @@
         $tooltips_posts = get_all_tooltips_posts();
         ?>
 
+        <p>This plugin requires the <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields Plugin</a>. Please ensure it is installed and activated. here is to download the default configuration file for the plugin. <a href="https://staging.finpr.com/wp-content/uploads/2024/01/tradergp-acf-export-2024-01-12.json" target="_blank">Download here</a>.</p>
+
         <table class="form-table">
             <tr valign="top">
                 <th scope="row">Enable Pricing Table:</th>
