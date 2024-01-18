@@ -130,7 +130,7 @@ function ypf_check_acf_installed(){
 function ypf_acf_admin_notice(){
     ?>
     <div class="notice notice-warning is-dismissible">
-        <p><?php _e('YPF Plugins requires Advanced Custom Fields to function properly.', 'ypf-plugin'); ?></p>
+        <p><?php _e('YPF Plugins requires <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">Advanced Custom Fields Plugin</a> to function properly. Please ensure it is installed and activated.', 'ypf-plugin'); ?></p>
     </div>
     <?php
 }
