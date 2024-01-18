@@ -469,10 +469,10 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 			            echo '<div class="swiper-slide pt__option__item">
 			                      <div class="pt__item">
 			                          <div class="pt__item__wrap">';
-			            
-			            // Assuming $product_id is available in scope
-			            display_acf_group_fields_el($item['acf_group_field'], $item['selected_product'], $item['acf_group_field']);
-			            
+							            display_acf_group_fields_el($item['acf_group_field'], $item['selected_product'], $item['acf_group_field']);
+							            if ($tooltips_switch == 'yes') {
+							            echo '<div class="pt__row val val-btn-cta-checkout pt__table_general_border"><a class="btn btn-product product-'. $item['selected_product'] .' pt__table_btn_checkout">'. $item['step_button_title'] .'</a></div>';
+							        	}			            
 			            echo '        </div>
 			                      </div>
 			                  </div>';
