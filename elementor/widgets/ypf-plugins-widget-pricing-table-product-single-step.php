@@ -449,9 +449,14 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
     		$tooltips_switch = $first_item['tooltips_switch'];
 			$tooltips_post_elementor = $first_item['selected_tooltips'];
     		$tooltips_post_id_elementor = $tooltips_post_elementor ? $tooltips_post_elementor : '0';
+    		$step_button_switch_first = $first_item['step_button_switch'];
     		if ($first_item && !empty($first_item['acf_group_field'])) { ?>
 			  	<div class="pt__title tooltips-id-<?php echo $tooltips_post_id_elementor;  ?>">
-	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $first_item['selected_product'], $tooltips_switch , $tooltips_post_id_elementor); ?>
+	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $first_item['selected_product'], $tooltips_switch , $tooltips_post_id_elementor); 
+	                if ($step_button_switch_first == 'yes') {
+		            	echo '<div class="pt__row heading-vertical"><div class="pt__row-heading-text"></div></div>'; 
+		        	}
+	                ?>
 	            </div>
 	        <?php 
 	         }
