@@ -50,6 +50,8 @@ function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_fiel
     $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id);
 
     if ($group_field_object) {
+        echo '<div class="pt__title__wrap">';
+
         foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
             $sub_field_label = $sub_field['label'];
             $sub_field_name = $sub_field['name'];
@@ -74,6 +76,8 @@ function display_acf_group_labels_and_tooltips($group_field_name, $tooltips_fiel
             }
           }
           echo '</div>';
+
+        echo '</div>'; // Close pt__title__wrap
     }
 }
 
@@ -125,7 +129,6 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
     $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor);
 
     if ($group_field_object) {
-        echo '<div class="pt__title__wrap">';
 
         foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
             $sub_field_label = $sub_field['label'];
@@ -151,7 +154,6 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
             }
           }
         echo '</div>';
-        echo '</div>'; // Close pt__title__wrap
     }
 }
 
