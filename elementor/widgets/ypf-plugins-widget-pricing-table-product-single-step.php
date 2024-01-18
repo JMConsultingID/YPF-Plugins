@@ -455,7 +455,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 			  		<div class="pt__title__wrap">
 	                <?php display_acf_group_labels_and_tooltips_el($first_item['acf_group_field'], 'fx_challenge_tooltips', $first_item['selected_product'], $tooltips_switch , $tooltips_post_id_elementor); 
 	                if ($step_button_switch_first == 'yes') {
-		            	echo '<div class="pt__row heading-vertical"><div class="pt__row-heading-text"></div></div>'; 
+		            	echo '<div class="pt__row heading-vertical pt__table_general_border"><div class="pt__row-heading-text"></div></div>'; 
 		        	}
 	                ?>
 	           		</div>
