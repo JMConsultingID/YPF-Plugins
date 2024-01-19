@@ -221,7 +221,7 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
             foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
                 $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
                 $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
-                echo '<div id="'. esc_html($sub_field_tooltips_name) . '" data-post="'.esc_html($tooltips_post_id_elementor).'">' . esc_html($sub_field_tooltip) . '</div>';                   
+                echo '<div id="'. esc_html($sub_field_tooltips_name) . '" data-post="'.esc_html($tooltips_post_id_elementor_items).'">' . esc_html($sub_field_tooltip) . '</div>';                   
             }
           }
         echo '</div>';
