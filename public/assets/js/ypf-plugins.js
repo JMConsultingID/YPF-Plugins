@@ -101,6 +101,10 @@ jQuery(document).ready(function($) {
                 return template ? template.innerHTML : 'Tooltip content not found';
             },
             allowHTML: true,
+            interactive: true,
+            arrow: true,
+            delay: [100, 100], // Optional delay settings
+            theme: 'light',
         });
     });
 });
