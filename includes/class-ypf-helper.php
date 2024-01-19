@@ -133,7 +133,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
         foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
             $sub_field_label = $sub_field['label'];
             $sub_field_name = $sub_field['name'];
-            $sub_field_tooltips_name = 'tooltips_x'.$product_id.'_' . $sub_field['name'];
+            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
             $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 
             $sub_field_tooltip_text = '';
@@ -148,7 +148,7 @@ function display_acf_group_labels_and_tooltips_el($group_field_name, $tooltips_f
         echo '<div style="display: none;">';
         if ($tooltips_switch == 'yes') {
             foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
-                $sub_field_tooltips_name = 'tooltips_x'.$product_id.'_' . $sub_field['name'];
+                $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
                 $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
                 echo '<div id="'. esc_html($sub_field_tooltips_name) . '" data-post="'.esc_html($tooltips_post_id_elementor).'">' . esc_html($sub_field_tooltip) . '</div>';                   
             }
@@ -202,7 +202,7 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
             // Determine the class to add based on whether it's the first item
             $additional_class = $is_first_item ? 'ypf_step_title_bg_elementor ypf_step_title_text_elementor' : 'ypf_table_content_bg_elementor ypf_table_content_text_elementor';
 
-            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+            $sub_field_tooltips_name = 'tooltips_'.$product_id.'_' . $sub_field['name'];
             $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 
             $sub_field_tooltip_text = '';
@@ -219,7 +219,7 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
         echo '<div style="display: none;">';
         if ($tooltips_switch_items == 'yes') {
             foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
-                $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+                $sub_field_tooltips_name = 'tooltips_'.$product_id.'_' . $sub_field['name'];
                 $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
                 echo '<div id="'. esc_html($sub_field_tooltips_name) . '" data-post="'.esc_html($tooltips_post_id_elementor_items).'">' . esc_html($sub_field_tooltip) . '</div>';                   
             }
