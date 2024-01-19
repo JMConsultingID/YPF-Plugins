@@ -212,7 +212,7 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
                 }
             }
 
-            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border '.$sub_field_tooltips_name.'">' . $sub_field_value . $sub_field_tooltip_text . '</div>';
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border '.$tooltips_post_id_elementor.'">' . $sub_field_value . $sub_field_tooltip_text . '</div>';
             $is_first_item = false; // After the first iteration, set this flag to false
         }
 
