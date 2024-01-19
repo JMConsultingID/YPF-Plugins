@@ -480,7 +480,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Single_Product extends \Elemento
 			            echo '<div class="swiper-slide pt__option__item">
 			                      <div class="pt__item">
 			                          <div class="pt__item__wrap">';
-							            display_acf_group_fields_el($item['acf_group_field'], $item['selected_product'], $item['acf_group_field'],'fx_challenge_tooltips', $tooltips_switch_items, $tooltips_post_id_elementor_items);
+							            display_acf_group_fields_single_el($item['acf_group_field'], $item['selected_product'], $item['acf_group_field'],'fx_challenge_tooltips', $tooltips_switch_items, $tooltips_post_id_elementor_items);
 							            if ($step_button_switch == 'yes') {
 							            echo '<div class="pt__row val val-btn-cta-checkout pt__table_general_border"><a href="'. $item['step_button_link']['url'] .'" class="btn btn-product product-'. $item['selected_product'] .' pt__table_btn_checkout">'. $item['step_button_title'] .'</a></div>';
 							        	}			            
