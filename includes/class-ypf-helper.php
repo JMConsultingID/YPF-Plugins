@@ -189,7 +189,7 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
     $group_field_object = get_field_object($group_field_name, $product_id);
 
     // Fetch tooltips field values from the global tooltips post
-    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor);
+    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor_items);
             
     if ($group_field_values && $group_field_object) {
         $is_first_item = true; // Flag to check if we are on the first item
@@ -206,13 +206,13 @@ function display_acf_group_fields_single_el($group_field_name, $product_id, $css
             $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
 
             $sub_field_tooltip_text = '';
-            if ($tooltips_switch == 'yes') {
+            if ($tooltips_switch_items == 'yes') {
                 if (!empty($sub_field_tooltip)) { 
                     $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
                 }
             }
 
-            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border '.$tooltips_post_id_elementor.'">' . $sub_field_value . $sub_field_tooltip_text . '</div>';
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border '.$sub_field_tooltips_name.'">' . $sub_field_value . $sub_field_tooltip_text . '</div>';
             $is_first_item = false; // After the first iteration, set this flag to false
         }
 
