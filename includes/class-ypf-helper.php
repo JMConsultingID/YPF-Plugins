@@ -181,6 +181,53 @@ function display_acf_group_fields_el($group_field_name, $product_id, $css_class_
     }
 }
 
+function display_acf_group_fields_single_el($group_field_name, $product_id, $css_class_prefix, $tooltips_field_name, $tooltips_switch_items, $tooltips_post_id_elementor_items) {
+    // Fetch the ACF group field for the current product
+    $group_field_values = get_field($group_field_name, $product_id);
+            
+    // Get the field object for the group
+    $group_field_object = get_field_object($group_field_name, $product_id);
+
+    // Fetch tooltips field values from the global tooltips post
+    $tooltips_field_values = get_field($tooltips_field_name, $tooltips_post_id_elementor);
+            
+    if ($group_field_values && $group_field_object) {
+        $is_first_item = true; // Flag to check if we are on the first item
+        foreach ($group_field_object['sub_fields'] as $sub_field) {
+            // The label is in the field object
+            $sub_field_label = $sub_field['label'];
+            $sub_field_name = $sub_field['name'];
+            // The value is in the values array
+            $sub_field_value = !empty($group_field_values[$sub_field['name']]) ? $group_field_values[$sub_field['name']] : '-';
+            // Determine the class to add based on whether it's the first item
+            $additional_class = $is_first_item ? 'ypf_step_title_bg_elementor ypf_step_title_text_elementor' : 'ypf_table_content_bg_elementor ypf_table_content_text_elementor';
+
+            $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+            $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
+
+            $sub_field_tooltip_text = '';
+            if ($tooltips_switch == 'yes') {
+                if (!empty($sub_field_tooltip)) { 
+                    $sub_field_tooltip_text = '<span class="data-template" data-template="'. esc_html($sub_field_tooltips_name) . '"><i aria-hidden="true" class="fas fa-info-circle"></i></span>';
+                }
+            }
+
+            echo '<div class="pt__row ' . esc_attr($css_class_prefix) . ' val val-' . esc_attr($sub_field_name) . ' ' . $additional_class . ' pt__table_general_border">' . $sub_field_value . $sub_field_tooltip_text . '</div>';
+            $is_first_item = false; // After the first iteration, set this flag to false
+        }
+
+        echo '<div style="display: none;">';
+        if ($tooltips_switch_items == 'yes') {
+            foreach ($group_field_object['sub_fields'] as $index => $sub_field) {
+                $sub_field_tooltips_name = 'tooltips_' . $sub_field['name'];
+                $sub_field_tooltip = isset($tooltips_field_values[$sub_field_tooltips_name]) ? $tooltips_field_values[$sub_field_tooltips_name] : '';
+                echo '<div id="'. esc_html($sub_field_tooltips_name) . '" data-post="'.esc_html($tooltips_post_id_elementor).'">' . esc_html($sub_field_tooltip) . '</div>';                   
+            }
+          }
+        echo '</div>';
+    }
+}
+
 function display_swiper_navigation_buttons_el($left_button_id, $right_button_id) {
     ?>
     <div class="pt__option__mobile__nav">
