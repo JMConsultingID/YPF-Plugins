@@ -364,10 +364,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 						'step' => 1,
 					],
 				],
-				'default' => [
-					'unit' => '%',
-					'size' => 59,
-				],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				'selectors' => [
 					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}%;',
 				],
@@ -379,9 +376,9 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			[
 				'label' => esc_html__( 'Mobile Column Content (%)', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%' ],
+				'size_units' => [ 'px' ],
 				'range' => [
-					'%' => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
 						'step' => 1,
