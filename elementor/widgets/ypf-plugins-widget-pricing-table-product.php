@@ -366,7 +366,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	    $this->add_responsive_control(
 			'width_general_title_width',
 			[
-				'label' => esc_html__( 'Width Column Title (%)', 'ypf-plugins' ),
+				'label' => esc_html__( 'Column Title (%)', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -389,7 +389,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 		$this->add_responsive_control(
 			'width_general_content_width',
 			[
-				'label' => esc_html__( 'Width Column SContent (%)', 'ypf-plugins' ),
+				'label' => esc_html__( 'Column Step & Content (%)', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -409,7 +409,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			]
 		);
 
-	    $this->add_control(
+	    $this->add_responsive_control(
 			'general_padding',
 			[
 				'label' => esc_html__( 'General Padding', 'ypf-plugins' ),
@@ -426,6 +426,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 				'condition' => [
 	                'change_width_switch' => 'yes',
 	            ],
+	            'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				'selectors' => [
 					'{{WRAPPER}} .pt__row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .pt__row.val' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
