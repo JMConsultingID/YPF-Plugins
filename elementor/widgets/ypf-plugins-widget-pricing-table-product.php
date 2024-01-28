@@ -351,6 +351,72 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
+	    $this->add_control(
+			'mobile_general_title_width',
+			[
+				'label' => esc_html__( 'Mobile Column Title', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%' ],
+				'range' => [
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 50,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table.pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'mobile_general_content_width',
+			[
+				'label' => esc_html__( 'Mobile Column Content', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%' ],
+				'range' => [
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 50,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table.pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+	    $this->add_control(
+			'general_padding',
+			[
+				'label' => esc_html__( 'General Padding', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pt__row.val' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 	    // Mobile Button Backgound Control
 	    $this->add_control(
 	        'mobile_button_background_color', // Unique name for the control
