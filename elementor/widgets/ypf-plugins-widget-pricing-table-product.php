@@ -378,7 +378,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 					'size' => 59,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}%;',
 				],
 			]
 		);
@@ -410,7 +410,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 					'size' => 40,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}%;',
 				],
 			]
 		);
