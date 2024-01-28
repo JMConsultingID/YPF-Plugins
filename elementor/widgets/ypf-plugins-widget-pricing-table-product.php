@@ -351,53 +351,65 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    // $this->add_control(
-		// 	'mobile_general_title_width',
-		// 	[
-		// 		'label' => esc_html__( 'Mobile Column Title', 'ypf-plugins' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ '%' ],
-		// 		'range' => [
-		// 			'%' => [
-		// 				'min' => 0,
-		// 				'max' => 100,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => '%',
-		// 			'size' => 59,
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'mobile_general_content_width',
-		// 	[
-		// 		'label' => esc_html__( 'Mobile Column Content', 'ypf-plugins' ),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => [ '%' ],
-		// 		'range' => [
-		// 			'%' => [
-		// 				'min' => 0,
-		// 				'max' => 100,
-		// 				'step' => 1,
-		// 			],
-		// 		],
-		// 		'default' => [
-		// 			'unit' => '%',
-		// 			'size' => 40,
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
 	    $this->add_control(
+			'change_width_switch',
+			[
+				'label' => esc_html__( 'Change Default Width', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__( 'Yes', 'ypf-plugins' ),
+				'label_off' => esc_html__( 'No', 'ypf-plugins' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+	    $this->add_responsive_control(
+			'width_general_title_width',
+			[
+				'label' => esc_html__( 'Column Title (%)', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'condition' => [
+	                'change_width_switch' => 'yes',
+	            ],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}%;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_general_content_width',
+			[
+				'label' => esc_html__( 'Column Step & Content (%)', 'ypf-plugins' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'condition' => [
+	                'change_width_switch' => 'yes',
+	            ],
+				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'selectors' => [
+					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}%;',
+				],
+			]
+		);
+
+	    $this->add_responsive_control(
 			'general_padding',
 			[
 				'label' => esc_html__( 'General Padding', 'ypf-plugins' ),
@@ -411,7 +423,12 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 					'unit' => 'px',
 					'isLinked' => false,
 				],
+				'condition' => [
+	                'change_width_switch' => 'yes',
+	            ],
+	            'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				'selectors' => [
+					'{{WRAPPER}} .pt__row' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .pt__row.val' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
