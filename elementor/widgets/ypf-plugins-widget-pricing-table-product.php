@@ -351,40 +351,46 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    $this->add_responsive_control(
+	    $this->add_control(
 			'mobile_general_title_width',
 			[
 				'label' => esc_html__( 'Mobile Column Title', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
+				'size_units' => [ '%' ],
 				'range' => [
-					'px' => [
+					'%' => [
 						'min' => 0,
 						'max' => 100,
 						'step' => 1,
 					],
 				],
-				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'default' => [
+					'unit' => '%',
+					'size' => 59,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'mobile_general_content_width',
 			[
 				'label' => esc_html__( 'Mobile Column Content', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
+				'size_units' => [ '%' ],
 				'range' => [
-					'px' => [
+					'%' => [
 						'min' => 0,
 						'max' => 100,
 						'step' => 1,
 					],
 				],
-				'devices' => [ 'desktop', 'tablet', 'mobile' ],
+				'default' => [
+					'unit' => '%',
+					'size' => 40,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
