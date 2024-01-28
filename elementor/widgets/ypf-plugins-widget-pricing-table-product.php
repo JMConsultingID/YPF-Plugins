@@ -351,7 +351,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 	        ]
 	    );
 
-	    $this->add_control(
+	    $this->add_responsive_control(
 			'mobile_general_title_width',
 			[
 				'label' => esc_html__( 'Mobile Column Title', 'ypf-plugins' ),
@@ -383,7 +383,7 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'mobile_general_content_width',
 			[
 				'label' => esc_html__( 'Mobile Column Content', 'ypf-plugins' ),
