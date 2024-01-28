@@ -172,8 +172,8 @@
  flex-direction: column;
  justify-content: center;
  min-height: 70px;
- padding-left: 16px;
- padding-right: 16px;
+ padding-left: 10px;
+ padding-right: 10px;
  max-height: 70px;
 }
 /*.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
@@ -314,9 +314,13 @@ a.ypf-button.challenge-begins:hover {
 }
 }
 @media (max-width: 640px) {
- .pricing__table .pt__title .pt__title__wrap .pt__row {
-   padding-left: 15px;
-   padding-right: 15px;
+.pricing__table .pt__title .pt__title__wrap .pt__row {
+   padding-left: 10px;
+   padding-right: 10px;
+}
+.pricing__table .pt__option .pt__option__item .pt__item .pt__row:last-child {
+    padding-left: 10px;
+    padding-right: 10px;   
 }
 /*.pricing__table .pt__option .pt__option__item .pt__item .pt__row:first-child {
  font-size: 14px;
