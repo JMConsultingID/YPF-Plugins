@@ -26,11 +26,11 @@ function ypf_plugins_widgets() {
         wp_register_script( 'ypf-popper-js', 'https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.min.js', null, array(), null, true );
         wp_register_script( 'ypf-tippy-js', 'https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js', null, array(), null, true );
 
-        wp_register_script( 'ypf-plugins-js', plugins_url( '../public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js','ypf-popper-js', 'ypf-tippy-js'), '1.0.0', true );
+        wp_register_script( 'ypf-plugins-js', plugins_url( '../public/assets/js/ypf-plugins.js', __FILE__ ), array('jquery', 'ypf-swiper-bundle-js','ypf-popper-js', 'ypf-tippy-js'), '1.0.2', true );
 
     }
 }
-add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', 2);
+add_action( 'wp_enqueue_scripts', 'ypf_plugins_widgets', 99);
 
 function check_for_shortcode_and_enqueue_scripts() {
     if ( get_option('ypf_enable_pricing_table') ) {
