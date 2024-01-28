@@ -366,16 +366,16 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 				],
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				'desktop_default' => [
-					'size' => 25,
 					'unit' => '%',
+					'size' => 25,
 				],
 				'tablet_default' => [
-					'size' => 25,
 					'unit' => '%',
+					'size' => 25,
 				],
 				'mobile_default' => [
-					'size' => 59,
 					'unit' => '%',
+					'size' => 59,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
@@ -398,16 +398,16 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 				],
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
 				'desktop_default' => [
-					'size' => 100,
 					'unit' => '%',
+					'size' => 100,
 				],
 				'tablet_default' => [
-					'size' => 100,
 					'unit' => '%',
+					'size' => 100,
 				],
 				'mobile_default' => [
-					'size' => 40,
 					'unit' => '%',
+					'size' => 40,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
