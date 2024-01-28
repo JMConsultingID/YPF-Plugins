@@ -18,7 +18,7 @@ function ypf_plugins_widgets() {
         // Register styles        
         wp_register_style( 'ypf-font-awesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
         wp_register_style( 'ypf-swiper-bundle-css', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css');
-        wp_register_style( 'ypf-plugins-css', plugins_url( '../public/assets/css/ypf-plugins.css', __FILE__ ), array('ypf-font-awesome-css', 'ypf-swiper-bundle-css'), '1.0.1', 'all' );
+        wp_register_style( 'ypf-plugins-css', plugins_url( '../public/assets/css/ypf-plugins.css', __FILE__ ), array('ypf-font-awesome-css', 'ypf-swiper-bundle-css'), '1.0.2', 'all' );
 
 
         // Register scripts        

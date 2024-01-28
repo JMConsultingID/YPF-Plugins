@@ -222,7 +222,6 @@ background-color: #750d11;
 .pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical{
   background: #C66C61;
   color: #fff;
-  border: solid 1px;
 }
 .pricing__table .pt__title .pt__title__wrap .pt__row.heading-vertical span {
   padding-left: 10px;
@@ -237,7 +236,6 @@ background-color: #750d11;
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.val{
   background: #971e23;
   color: #fff;
-  border: solid 1px;
 }
 .pricing__table .pt__option .pt__option__item .pt__item .pt__row.val.val-step_name{
   background: #C66C61;  
