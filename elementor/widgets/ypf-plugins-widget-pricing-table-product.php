@@ -356,29 +356,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			[
 				'label' => esc_html__( 'Mobile Column Title', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%' ],
+				'size_units' => [ 'px' ],
 				'range' => [
-					'%' => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
 						'step' => 1,
 					],
 				],
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
-					'unit' => '%',
-					'size' => 25,
-				],
-				'tablet_default' => [
-					'unit' => '%',
-					'size' => 25,
-				],
-				'mobile_default' => [
-					'unit' => '%',
-					'size' => 59,
-				],
 				'selectors' => [
-					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}%;',
+					'{{WRAPPER}} .pricing__table .pt__title' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -388,29 +376,17 @@ class Elementor_YpfPlugins_Widget_Pricing_Table_Per_Product extends \Elementor\W
 			[
 				'label' => esc_html__( 'Mobile Column Content', 'ypf-plugins' ),
 				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%' ],
+				'size_units' => [ 'px' ],
 				'range' => [
-					'%' => [
+					'px' => [
 						'min' => 0,
 						'max' => 100,
 						'step' => 1,
 					],
 				],
 				'devices' => [ 'desktop', 'tablet', 'mobile' ],
-				'desktop_default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'tablet_default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'mobile_default' => [
-					'unit' => '%',
-					'size' => 40,
-				],
 				'selectors' => [
-					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}%;',
+					'{{WRAPPER}} .pricing__table .pt__option' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
