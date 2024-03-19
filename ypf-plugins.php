@@ -147,7 +147,6 @@ function ypf_plugins_settings_link($links) {
 }
 
 // Include the Elementor class
-if ( get_option('ypf_enable_pricing_table') ) {
     if ( get_option('ypf_enable_tooltips') ) {
         require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-tooltips.php';
     }    
@@ -155,7 +154,6 @@ if ( get_option('ypf_enable_pricing_table') ) {
         require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
     }    
     require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-helper.php';
-}
 
 /**
  * Register scripts and styles for Elementor test widgets.
