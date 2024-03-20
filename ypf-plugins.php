@@ -4,7 +4,7 @@
  * Plugin Name:       YPF Plugins
  * Plugin URI:        https://yourpropfirm.com/
  * Description:       A plugin to create custom pricing tables and integrate with Elementor widgets.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Ardi
  * Author URI:        https://yourpropfirm.com/
  * License:           GPL-2.0+
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define( 'YPF_PLUGINS_VERSION', '1.0.2' );
+define( 'YPF_PLUGINS_VERSION', '1.0.3' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -43,7 +43,7 @@ class YPF_Plugins {
         if (defined('YPF_PLUGINS_VERSION')) {
             $this->version = YPF_PLUGINS_VERSION;
         } else {
-            $this->version = '1.0.2';
+            $this->version = '1.0.3';
         }
         $this->plugin_name = 'ypf-plugins';
 
@@ -147,7 +147,6 @@ function ypf_plugins_settings_link($links) {
 }
 
 // Include the Elementor class
-if ( get_option('ypf_enable_pricing_table') ) {
     if ( get_option('ypf_enable_tooltips') ) {
         require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-tooltips.php';
     }    
@@ -155,7 +154,6 @@ if ( get_option('ypf_enable_pricing_table') ) {
         require plugin_dir_path( __FILE__ ) . 'elementor/class-ypf-plugins-elementor.php';
     }    
     require plugin_dir_path( __FILE__ ) . 'includes/class-ypf-helper.php';
-}
 
 /**
  * Register scripts and styles for Elementor test widgets.
