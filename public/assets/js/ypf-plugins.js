@@ -13,25 +13,31 @@ jQuery(document).ready(function($) {
             init = false;
         }
 
-        var activeTabPanel = document.querySelector('.tab-content.active');
-        if (activeTabPanel && window.innerWidth <= 991) {
-            pricingCardSwiper = new Swiper(activeTabPanel.querySelector("#pricingTableSlider"), {
-                slidesPerView: "auto",
-                spaceBetween: 0,
-                grabCursor: false,
-                keyboard: false,
-                autoHeight: false,
-                effect: 'slide',
-                noSwiping: true,
-                allowTouchMove: false,
-                speed: 700,
-                navigation: {
-                    nextEl: activeTabPanel.querySelector("#navBtnRight"),
-                    prevEl: activeTabPanel.querySelector("#navBtnLeft"),
-                },
+        var activeTabPanels = document.querySelectorAll('.type-of-price .eael-tab-content-item.active, .type-of-price-2phase .eael-tab-content-item.active');
+
+        if (activeTabPanels && window.innerWidth <= 991) {
+            activeTabPanels.forEach(function(activeTabPanel) {
+            var pricingTableSlider = activeTabPanel.querySelector("#pricingTableSlider");
+                if (pricingTableSlider) {
+                    var pricingCardSwiper = new Swiper(pricingTableSlider, {
+                        slidesPerView: "auto",
+                        spaceBetween: 0,
+                        grabCursor: false,
+                        keyboard: false,
+                        autoHeight: false,
+                        effect: 'slide',
+                        noSwiping: true,
+                        allowTouchMove: false,
+                        speed: 700,
+                        navigation: {
+                            nextEl: activeTabPanel.querySelector("#navBtnRight"),
+                            prevEl: activeTabPanel.querySelector("#navBtnLeft"),
+                        },
+                    });             
+                    init = true;
+                    pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
+                }
             });
-            init = true;
-            pricingCardSwiper.slideTo(currentSlideIndex, 0, false);
         }
     }
 
@@ -69,19 +75,19 @@ jQuery(document).ready(function($) {
     });
 
     // Event listener for tab button clicks
-    document.querySelectorAll('.tab-nav-list li').forEach(function(tabButton, index) {
+    document.querySelectorAll('.type-of-price .eael-tabs-nav ul li').forEach(function(tabButton, index) {
         tabButton.addEventListener('click', function() {
-            var activeTab = document.querySelector('.tab-nav-list li.active');
+            var activeTab = document.querySelector('.type-of-price .eael-tabs-nav ul li.eael-tab-item-trigger.active');
             if (activeTab) {
                 activeTab.classList.remove('active');
             }
             this.classList.add('active');
 
-            var activeTabContent = document.querySelector('.tab-content-list .tab-content.active');
+            var activeTabContent = document.querySelector('.type-of-price .eael-tabs-content .eael-tab-content-item.active');
             if (activeTabContent) {
                 activeTabContent.classList.remove('active');
             }
-            var newActiveTabContent = document.querySelectorAll('.tab-content-list .tab-content')[index];
+            var newActiveTabContent = document.querySelectorAll('.type-of-price .eael-tabs-content .eael-tab-content-item')[index];
             newActiveTabContent.classList.add('active');
 
             var pricingTableSlider = newActiveTabContent.querySelector('#pricingTableSlider');
