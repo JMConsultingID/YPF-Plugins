@@ -4,7 +4,7 @@
  * Plugin Name:       YPF Plugins
  * Plugin URI:        https://yourpropfirm.com/
  * Description:       A plugin to create custom pricing tables and integrate with Elementor widgets.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Ardi
  * Author URI:        https://yourpropfirm.com/
  * License:           GPL-2.0+
@@ -18,7 +18,7 @@ if (!defined('WPINC')) {
     die;
 }
 
-define( 'YPF_PLUGINS_VERSION', '1.0.3' );
+define( 'YPF_PLUGINS_VERSION', '1.0.4' );
 
 /**
  * The core plugin class that is used to define internationalization,
